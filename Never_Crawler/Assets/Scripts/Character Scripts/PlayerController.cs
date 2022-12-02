@@ -1,0 +1,84 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerController : MonoBehaviour
+{
+    //Speed at which player orients to face current movement direction
+    [Header("General Movement Values")]
+    public float movementSpeed;
+    public float rotationSmooth;
+
+
+    float _currSmoothVelocity;
+    Rigidbody _rb;
+    Vector2 _moveDir;
+
+    PlayerActionMap _playerInput;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+
+        _playerInput = new PlayerActionMap();
+        _playerInput.Player.Enable();
+        _playerInput.Player.MakeNoiseTest.performed += NoiseTest;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _moveDir = _playerInput.Player.Movement.ReadValue<Vector2>();
+        _moveDir = _moveDir.normalized;
+
+
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        RelativeCameraMovement();
+    }
+
+    void RelativeCameraMovement()
+    {
+        //Get the camera's current forward and right vectors relative to the the world space
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        //Set forward and right's y axis values to 0, prevents movement from being slow when the camera is angled downwards
+        forward.y = 0;
+        right.y = 0;
+
+        forward = forward.normalized;
+        right = right.normalized;
+
+        //Get the rotated vectors by multiplying the forward and right vectors by the respective input values
+        Vector3 forwardRelativeInput = forward * _moveDir.y;
+        Vector3 rightRelativeInput = right * _moveDir.x;
+
+        //Add the two together to get the appropriate direction to move in
+        Vector3 camRelativeMovement = forwardRelativeInput + rightRelativeInput;
+
+        if(camRelativeMovement.magnitude != 0)
+        {
+            
+            float targetAngle = Mathf.Atan2(camRelativeMovement.x, camRelativeMovement.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currSmoothVelocity, rotationSmooth);
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
+        
+
+        //Set velocity to the relative movement axes multiplied by speed (And any additional factors that will be calculated later on
+        _rb.velocity = new Vector3(camRelativeMovement.x * movementSpeed, _rb.velocity.y, camRelativeMovement.z * movementSpeed);
+    }
+
+    void NoiseTest(InputAction.CallbackContext context)
+    {
+        Noise.MakeNoise(transform.position, 3f);
+    }
+    
+}
