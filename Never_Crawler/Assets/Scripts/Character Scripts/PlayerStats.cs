@@ -9,6 +9,11 @@ public class PlayerStats : MonoBehaviour
     public int baseHealth;
     public int maxHealth;
 
+    public PlayerStats()
+    {
+        //Call the constructor when initialising the player's character and adding this script
+    }
+
     void Start()
     {
         InitialiseBaseStats();

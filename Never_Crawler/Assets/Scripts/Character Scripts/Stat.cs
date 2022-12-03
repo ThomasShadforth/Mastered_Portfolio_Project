@@ -14,6 +14,7 @@ public class Stat
     int _scoreModifier;
 
     //Call the constructor when creating a new stat variable
+    //Run the set score modifier
     public Stat(int rolledBaseValue)
     {
         this._baseValue = rolledBaseValue;
@@ -35,6 +36,7 @@ public class Stat
 
     public void SetScoreModifier()
     {
+        //Subtract 10 from the base stat value, divide the result by 2 and round down.
         this._scoreModifier = (this._baseValue - 10) / 2;
     }
 

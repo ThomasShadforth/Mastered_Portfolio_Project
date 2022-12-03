@@ -15,9 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MakeNoiseTest",
+                    "name": "AbilitySlot1",
                     "type": "Button",
-                    "id": "5ce0eb13-67c2-48ab-98be-d66faae3e0b7",
+                    "id": "ce858113-0822-4c10-a101-14cbc9ba6540",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -137,12 +137,12 @@
                 },
                 {
                     "name": "",
-                    "id": "4fa6224f-ee85-4fb5-988c-c39d29caa3be",
+                    "id": "1fb2a00d-5faa-4610-a399-8f88871dd06c",
                     "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MakeNoiseTest",
+                    "action": "AbilitySlot1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -5,12 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Character Class Brain")]
+    [SerializeField] BaseClassSO _classBrain;
+
+    [Header("Assigned Class Moves")]
+    [SerializeField] ClassMoveSO[] _assignedMoves;
+
     //Speed at which player orients to face current movement direction
     [Header("General Movement Values")]
     public float movementSpeed;
     public float rotationSmooth;
 
 
+    PlayerStats _stats;
     float _currSmoothVelocity;
     Rigidbody _rb;
     Vector2 _moveDir;
@@ -21,10 +28,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-
+        _stats = GetComponent<PlayerStats>();
         _playerInput = new PlayerActionMap();
         _playerInput.Player.Enable();
-        _playerInput.Player.MakeNoiseTest.performed += NoiseTest;
+        _playerInput.Player.AbilitySlot1.performed += TriggerAbility1;
     }
 
     // Update is called once per frame
@@ -75,6 +82,27 @@ public class PlayerController : MonoBehaviour
         //Set velocity to the relative movement axes multiplied by speed (And any additional factors that will be calculated later on
         _rb.velocity = new Vector3(camRelativeMovement.x * movementSpeed, _rb.velocity.y, camRelativeMovement.z * movementSpeed);
     }
+
+
+    #region Ability Triggers
+
+    void TriggerAbility1(InputAction.CallbackContext context)
+    {
+        TriggerAbilitySlot(0);
+    }
+
+    void TriggerAbilitySlot(int slotIndex)
+    {
+        if (_assignedMoves[slotIndex].type == AttackType.strength)
+        {
+            _assignedMoves[slotIndex].TriggerAbility(gameObject, _stats.strength.GetScoreModifier());
+        } else if(_assignedMoves[slotIndex].type == AttackType.dexterity)
+        {
+            _assignedMoves[slotIndex].TriggerAbility(gameObject, _stats.dexterity.GetScoreModifier());
+        }
+    }
+
+    #endregion
 
     void NoiseTest(InputAction.CallbackContext context)
     {
