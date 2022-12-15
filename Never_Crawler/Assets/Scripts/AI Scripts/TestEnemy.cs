@@ -31,8 +31,5 @@ public class TestEnemy : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, noiseRadius);
-    }
+    
 }

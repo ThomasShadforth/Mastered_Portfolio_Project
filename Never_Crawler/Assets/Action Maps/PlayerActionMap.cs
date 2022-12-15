@@ -44,6 +44,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TestNoiseAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""2d08b666-848f-467d-8a48-1a810941c291"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +176,17 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""action"": ""AbilitySlot1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a382fc1-d2f8-4ffd-a44f-3841c0abf05e"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TestNoiseAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +208,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_AbilitySlot1 = m_Player.FindAction("AbilitySlot1", throwIfNotFound: true);
+        m_Player_TestNoiseAction = m_Player.FindAction("TestNoiseAction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,12 +270,14 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_AbilitySlot1;
+    private readonly InputAction m_Player_TestNoiseAction;
     public struct PlayerActions
     {
         private @PlayerActionMap m_Wrapper;
         public PlayerActions(@PlayerActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @AbilitySlot1 => m_Wrapper.m_Player_AbilitySlot1;
+        public InputAction @TestNoiseAction => m_Wrapper.m_Player_TestNoiseAction;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -270,6 +293,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @AbilitySlot1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot1;
                 @AbilitySlot1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot1;
                 @AbilitySlot1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot1;
+                @TestNoiseAction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
+                @TestNoiseAction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
+                @TestNoiseAction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -280,6 +306,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @AbilitySlot1.started += instance.OnAbilitySlot1;
                 @AbilitySlot1.performed += instance.OnAbilitySlot1;
                 @AbilitySlot1.canceled += instance.OnAbilitySlot1;
+                @TestNoiseAction.started += instance.OnTestNoiseAction;
+                @TestNoiseAction.performed += instance.OnTestNoiseAction;
+                @TestNoiseAction.canceled += instance.OnTestNoiseAction;
             }
         }
     }
@@ -306,5 +335,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnAbilitySlot1(InputAction.CallbackContext context);
+        void OnTestNoiseAction(InputAction.CallbackContext context);
     }
 }

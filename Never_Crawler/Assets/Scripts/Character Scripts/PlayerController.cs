@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody _rb;
     Vector2 _moveDir;
 
+    GameObject testSphere;
+
     PlayerActionMap _playerInput;
 
     // Start is called before the first frame update
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
         _playerInput = new PlayerActionMap();
         _playerInput.Player.Enable();
         _playerInput.Player.AbilitySlot1.performed += TriggerAbility1;
+        _playerInput.Player.TestNoiseAction.performed += NoiseTest;
     }
 
     // Update is called once per frame
@@ -39,10 +42,6 @@ public class PlayerController : MonoBehaviour
     {
         _moveDir = _playerInput.Player.Movement.ReadValue<Vector2>();
         _moveDir = _moveDir.normalized;
-
-
-
-        
     }
 
     private void FixedUpdate()
@@ -104,9 +103,28 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    void ResetPrimitiveObject()
+    {
+        Destroy(testSphere);
+    }
+
     void NoiseTest(InputAction.CallbackContext context)
     {
         Noise.MakeNoise(transform.position, 3f);
+
+        if(testSphere != null)
+        {
+            ResetPrimitiveObject();
+            //CancelInvoke("ResetPrimitiveObject");
+        }
+
+        /*
+        testSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        testSphere.transform.position = transform.position;
+        testSphere.transform.localScale = testSphere.transform.localScale * 3f;
+        Invoke("ResetPrimitiveObject", 2f);*/
+        
+
     }
     
 }
