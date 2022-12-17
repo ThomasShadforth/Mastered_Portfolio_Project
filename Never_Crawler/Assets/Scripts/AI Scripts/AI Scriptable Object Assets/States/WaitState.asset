@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9c34f07bcb0a14191da150959ad560, type: 3}
   m_Name: WaitState
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
+  actions:
+  - {fileID: 11400000, guid: 80e84025a1b7ec04aa7b36a73077034c, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 86b14039a1c3c014fa30aa08831be2f6, type: 2}
+    trueState: {fileID: 11400000, guid: 9805efa75c53efc4da256bcbd13a711b, type: 2}
+    falseState: {fileID: 11400000, guid: c614c0f7d07657a4d81f0e7d5bf5bee7, type: 2}

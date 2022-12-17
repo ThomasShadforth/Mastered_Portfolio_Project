@@ -53,6 +53,33 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TestAddItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""10d74015-dd34-4082-9a1b-4a277e9bdbc0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TestRemoveItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""c933d49f-9333-43ce-90e2-ef3cc767dfd6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""f30c7e7b-f0ae-4841-b2ba-bfd9a9e682cb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -187,6 +214,39 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""action"": ""TestNoiseAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f336af4-c6ce-47d3-9e68-477e0ba7276b"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TestAddItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5ad5abf-1871-40d5-ade4-9a17b639e8a2"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TestRemoveItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13586d3c-9d0b-4c08-acdf-a0df251befa5"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -209,6 +269,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_AbilitySlot1 = m_Player.FindAction("AbilitySlot1", throwIfNotFound: true);
         m_Player_TestNoiseAction = m_Player.FindAction("TestNoiseAction", throwIfNotFound: true);
+        m_Player_TestAddItem = m_Player.FindAction("TestAddItem", throwIfNotFound: true);
+        m_Player_TestRemoveItem = m_Player.FindAction("TestRemoveItem", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +334,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_AbilitySlot1;
     private readonly InputAction m_Player_TestNoiseAction;
+    private readonly InputAction m_Player_TestAddItem;
+    private readonly InputAction m_Player_TestRemoveItem;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerActionMap m_Wrapper;
@@ -278,6 +344,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @AbilitySlot1 => m_Wrapper.m_Player_AbilitySlot1;
         public InputAction @TestNoiseAction => m_Wrapper.m_Player_TestNoiseAction;
+        public InputAction @TestAddItem => m_Wrapper.m_Player_TestAddItem;
+        public InputAction @TestRemoveItem => m_Wrapper.m_Player_TestRemoveItem;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -296,6 +365,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @TestNoiseAction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
                 @TestNoiseAction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
                 @TestNoiseAction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
+                @TestAddItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestAddItem;
+                @TestAddItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestAddItem;
+                @TestAddItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestAddItem;
+                @TestRemoveItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestRemoveItem;
+                @TestRemoveItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestRemoveItem;
+                @TestRemoveItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestRemoveItem;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -309,6 +387,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @TestNoiseAction.started += instance.OnTestNoiseAction;
                 @TestNoiseAction.performed += instance.OnTestNoiseAction;
                 @TestNoiseAction.canceled += instance.OnTestNoiseAction;
+                @TestAddItem.started += instance.OnTestAddItem;
+                @TestAddItem.performed += instance.OnTestAddItem;
+                @TestAddItem.canceled += instance.OnTestAddItem;
+                @TestRemoveItem.started += instance.OnTestRemoveItem;
+                @TestRemoveItem.performed += instance.OnTestRemoveItem;
+                @TestRemoveItem.canceled += instance.OnTestRemoveItem;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -336,5 +423,8 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAbilitySlot1(InputAction.CallbackContext context);
         void OnTestNoiseAction(InputAction.CallbackContext context);
+        void OnTestAddItem(InputAction.CallbackContext context);
+        void OnTestRemoveItem(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

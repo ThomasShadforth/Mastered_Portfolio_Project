@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Armour", menuName = "Scriptable Objects/Items/Armour")]
-public class ArmourItem : ItemSO
+public class ArmourItem : BaseItemSO
 {
     public override void UseItem()
     {

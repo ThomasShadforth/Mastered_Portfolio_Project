@@ -11,14 +11,26 @@ public class AIThinker : MonoBehaviour
     [Header("AI Radius Properties")]
     public float noiseCheckRadius;
 
+    [Header("AI Patrol Properties")]
+    public Transform[] patrolPoints;
+    public float minDistFromPoint = .5f;
+    [HideInInspector] public int currentPatrolIndex = 0;
+
     [Header("AI Timer Properties")]
     public float waitTime;
     [HideInInspector]
     public float waitTimer;
 
+    [HideInInspector] public Transform playerTarget;
+
     //Misc Values: Noise tracking, etc.
+    [HideInInspector] public Rigidbody _rb;
     Vector3 _noisePosition = Vector3.zero;
     float _noiseRadius;
+
+    LineOfSight enemyLOS;
+    [HideInInspector]
+    public bool canSeePlayer;
 
     private void OnEnable()
     {
@@ -34,6 +46,8 @@ public class AIThinker : MonoBehaviour
     void Start()
     {
         waitTimer = waitTime;
+        _rb = GetComponent<Rigidbody>();
+        enemyLOS = GetComponent<LineOfSight>();
     }
 
     // Update is called once per frame
@@ -42,6 +56,8 @@ public class AIThinker : MonoBehaviour
         if (currentState != null)
         {
             currentState.UpdateState(this);
+
+            canSeePlayer = enemyLOS.canSeePlayer;
         }
     }
 
