@@ -20,12 +20,21 @@ public class AIThinker : MonoBehaviour
     public float waitTime;
     [HideInInspector]
     public float waitTimer;
+    public float investigateTime;
+    [HideInInspector]
+    public float investigateTimer;
+
+    [Header("Additional Config Values")]
+    public float rotationSmooth;
+    public float currSmoothVelocity;
 
     [HideInInspector] public Transform playerTarget;
 
     //Misc Values: Noise tracking, etc.
+    
     [HideInInspector] public Rigidbody _rb;
     Vector3 _noisePosition = Vector3.zero;
+    bool _investigatingNoise;
     float _noiseRadius;
 
     LineOfSight enemyLOS;
@@ -46,6 +55,7 @@ public class AIThinker : MonoBehaviour
     void Start()
     {
         waitTimer = waitTime;
+        investigateTimer = investigateTime;
         _rb = GetComponent<Rigidbody>();
         enemyLOS = GetComponent<LineOfSight>();
     }
@@ -74,7 +84,8 @@ public class AIThinker : MonoBehaviour
         _noisePosition = position;
         _noiseRadius = radius;
 
-        Invoke("ResetNoiseValues", 2f);
+
+        
     }
 
     void ResetNoiseValues()
@@ -93,9 +104,15 @@ public class AIThinker : MonoBehaviour
         return _noiseRadius;
     }
 
+    public void SetNoiseInvestigate()
+    {
+        _investigatingNoise = true;
+    }
+
     public void ResetWaitTimer()
     {
         waitTimer = waitTime;
+        investigateTimer = investigateTime;
     }
 
     private void OnDrawGizmosSelected()

@@ -9,6 +9,15 @@ public class PlayerStats : MonoBehaviour
     public int baseHealth;
     public int maxHealth;
 
+    [Header("Level System Values")]
+    public int currentLevel = 1;
+    public int currentEXP;
+    public int maxLevel = 20;
+    public int baseEXP = 3000;
+    public float expMultiplier;
+    public int[] expToNextLevel;
+    
+
     public PlayerStats()
     {
         //Call the constructor when initialising the player's character and adding this script
@@ -18,13 +27,43 @@ public class PlayerStats : MonoBehaviour
     {
         InitialiseBaseStats();
         maxHealth = baseHealth + constitution.GetScoreModifier();
-
+        InitializeExpValues();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void InitializeExpValues()
+    {
+        expToNextLevel = new int[maxLevel];
+        expToNextLevel[currentLevel] = baseEXP;
+
+        for(int i = 2; i < expToNextLevel.Length; i++)
+        {
+            expToNextLevel[i] = Mathf.FloorToInt(expToNextLevel[i - 1] * expMultiplier);
+        }
+    }
+
+    public void GainExp(int ExpToGain)
+    {
+        currentEXP += ExpToGain;
+        if (currentLevel < maxLevel)
+        {
+            if (currentEXP >= expToNextLevel[currentLevel])
+            {
+                currentEXP -= expToNextLevel[currentLevel];
+
+                currentLevel++;
+            }
+        }
+
+        if(currentLevel >= maxLevel)
+        {
+            currentEXP = 0;
+        }
     }
 
     public int RollBaseStat()

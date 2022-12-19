@@ -20,10 +20,13 @@ public class CheckForNoiseDecision : Decision
         {
             if (Vector3.Distance(thinker.transform.position, thinker.GetNoisePosition()) <= thinker.noiseCheckRadius + thinker.GetNoiseRadius())
             {
+                thinker.SetNoiseInvestigate();
+                thinker.ResetWaitTimer();
                 return true;
             }
             else
             {
+                thinker.Invoke("ResetNoiseValues", 2f);
                 return false;
             }
         }

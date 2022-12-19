@@ -15,8 +15,22 @@ public class MoveTowardsPlayerAction : Action
         Vector3 direction = GetMoveDirection(thinker);
 
         thinker._rb.velocity = new Vector3(direction.x * 4, thinker._rb.velocity.y, direction.z * 4);
+        thinker.transform.rotation = Quaternion.Euler(0, GetLookAngle(thinker), 0);
+        
     }
 
+    public float GetLookAngle(AIThinker thinker)
+    {
+        Vector3 lookDirection = Vector3.zero;
+
+        lookDirection = thinker.playerTarget.position - thinker.transform.position;
+
+        float targetAngle = Mathf.Atan2(lookDirection.x, lookDirection.z) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(thinker.transform.eulerAngles.y, targetAngle, ref thinker.currSmoothVelocity, thinker.rotationSmooth);
+
+
+        return angle;
+    }
     public Vector3 GetMoveDirection(AIThinker thinker)
     {
         Vector3 direction = Vector3.zero;
