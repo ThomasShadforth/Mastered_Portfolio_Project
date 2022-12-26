@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -67,9 +68,20 @@ public class PauseMenu : MonoBehaviour
                 windows[i].SetActive(false);
             }
 
+            //Create set of action bindings for the menu
+            FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
+
+            FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
+
         }
         else
         {
+            //Create bindings for menu
+
+            FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Disable();
+
+            FindObjectOfType<PlayerController>()._playerInput.Player.Disable();
+
             menuWindow.SetActive(true);
             OpenWindow(0);
         }
@@ -111,7 +123,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void DisplayItemDetails(BaseItemSO itemToDisplay)
+    public void DisplayItemDetails(BaseItemSO itemToDisplay, int index)
     {
         if(itemToDisplay == null)
         {
@@ -119,7 +131,7 @@ public class PauseMenu : MonoBehaviour
         }
         //Set the active item here
         _activeItem = itemToDisplay;
-
+        _activeIndex = index;
         _itemNameText.text = _activeItem.itemName;
         _itemDescriptionText.text = "";
         _weightText.text = _activeItem.itemWeight + " KGs";

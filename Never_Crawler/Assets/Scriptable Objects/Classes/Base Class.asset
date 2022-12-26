@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f00ac6bef7b3af4fa263e8ed21888bf, type: 3}
   m_Name: Base Class
   m_EditorClassIdentifier: 
-  className: 
+  className: TestClass
   classDescription: 
+  knownMoves:
+  - {fileID: 11400000, guid: 1b08391cf76b1404483c1bac8276877f, type: 2}
+  - {fileID: 11400000, guid: d6887785c7714de428cd4e8f0b037a34, type: 2}
+  - {fileID: 11400000, guid: f5243d7a8eb57174fa479e11ae73df4d, type: 2}

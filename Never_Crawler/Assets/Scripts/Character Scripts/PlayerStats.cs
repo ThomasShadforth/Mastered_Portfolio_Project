@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class PlayerStats : MonoBehaviour
     public int baseEXP = 3000;
     public float expMultiplier;
     public int[] expToNextLevel;
-    
+    public int[] statPointLevels;
+
+    PlayerActionMap _input;
 
     public PlayerStats()
     {
@@ -28,6 +31,10 @@ public class PlayerStats : MonoBehaviour
         InitialiseBaseStats();
         maxHealth = baseHealth + constitution.GetScoreModifier();
         InitializeExpValues();
+
+        _input = new PlayerActionMap();
+        _input.Player.Enable();
+        _input.Player.TestAddExp.performed += AddExp;
     }
 
     // Update is called once per frame
@@ -47,6 +54,11 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    void AddExp(InputAction.CallbackContext context)
+    {
+        GainExp(500);
+    }
+
     public void GainExp(int ExpToGain)
     {
         currentEXP += ExpToGain;
@@ -57,6 +69,11 @@ public class PlayerStats : MonoBehaviour
                 currentEXP -= expToNextLevel[currentLevel];
 
                 currentLevel++;
+
+                Debug.Log("LEVEL UP");
+
+                CheckForStatPoints();
+
             }
         }
 
@@ -65,6 +82,22 @@ public class PlayerStats : MonoBehaviour
             currentEXP = 0;
         }
     }
+
+    void CheckForStatPoints()
+    {
+        for(int i = 0; i < statPointLevels.Length; i++)
+        {
+            if(currentLevel % statPointLevels[i] == 0)
+            {
+                if (currentLevel == statPointLevels[i])
+                {
+                    //Award Stat Points (These can be allocated manually)
+                    Debug.Log("AWARDING STAT POINTS");
+                }
+            }
+        }
+    }
+
 
     public int RollBaseStat()
     {

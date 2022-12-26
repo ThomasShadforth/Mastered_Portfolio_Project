@@ -16,12 +16,15 @@ public enum AttackType
 public class ClassMoveSO : ScriptableObject
 {
     public string moveName;
+    public string description;
+    public int requiredLevel;
     public int effectValue;
 
     public bool isAttack;
     public bool healsSelf;
     public bool healsAlly;
     public bool givesBuff;
+
 
     public AttackType type;
 

@@ -22,6 +22,6 @@ public class ItemButton : MonoBehaviour
     public void Press()
     {
         //Trigger Method based on the open menu (If applicable)
-        PauseMenu.instance.DisplayItemDetails(ItemManager.instance.GetItemDetails(ButtonValue));
+        PauseMenu.instance.DisplayItemDetails(ItemManager.instance.GetItemDetails(ButtonValue), ButtonValue);
     }
 }

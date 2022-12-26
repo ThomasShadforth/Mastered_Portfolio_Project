@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Character Class Brain")]
-    [SerializeField] BaseClassSO _classBrain;
+    public BaseClassSO classBrain;
 
     [Header("Assigned Class Moves")]
-    [SerializeField] ClassMoveSO[] _assignedMoves;
+    public ClassMoveSO[] _assignedMoves;
 
     //Speed at which player orients to face current movement direction
     [Header("General Movement Values")]
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     GameObject testSphere;
 
-    PlayerActionMap _playerInput;
+    public PlayerActionMap _playerInput;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         _stats = GetComponent<PlayerStats>();
         _playerInput = new PlayerActionMap();
         _playerInput.Player.Enable();
+        _playerInput.Player.Look.Enable();
         _playerInput.Player.AbilitySlot1.performed += TriggerAbility1;
         _playerInput.Player.TestNoiseAction.performed += NoiseTest;
     }

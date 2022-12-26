@@ -37,8 +37,8 @@ public class ItemManager : MonoBehaviour
 
         _input = new PlayerActionMap();
         _input.Player.Enable();
-        _input.Player.TestAddItem.performed += TestAddItem;
-        _input.Player.TestRemoveItem.performed += TestRemoveItem;
+        
+        
     }
 
     // Update is called once per frame

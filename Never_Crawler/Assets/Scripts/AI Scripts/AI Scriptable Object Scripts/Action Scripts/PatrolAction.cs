@@ -34,7 +34,7 @@ public class PatrolAction : Action
     {
         Vector3 direction = thinker.patrolPoints[thinker.currentPatrolIndex].position - thinker.transform.position;
 
-        Debug.Log(direction.x);
+        //Debug.Log(direction.x);
 
         if (direction.x > 0.1)
         {

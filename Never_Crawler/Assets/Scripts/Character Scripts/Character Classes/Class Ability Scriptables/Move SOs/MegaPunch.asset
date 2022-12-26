@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbef6b5572e216447823f635622c8c90, type: 3}
-  m_Name: SweepingStrike
+  m_Name: MegaPunch
   m_EditorClassIdentifier: 
-  moveName: Sweeping Strike
-  description: Have a nice "Trip"
-  requiredLevel: 1
-  effectValue: 4
-  isAttack: 1
+  moveName: Mega Punch
+  description: Beeeeeeg punch!
+  requiredLevel: 7
+  effectValue: 0
+  isAttack: 0
   healsSelf: 0
   healsAlly: 0
   givesBuff: 0
