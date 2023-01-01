@@ -33,7 +33,7 @@ public class ItemManager : MonoBehaviour
         
         SortItems();
         testItemWeight = GetInventoryWeight();
-
+        FindObjectOfType<PlayerController>().Invoke("CheckCarryWeight", .5f);
 
         _input = new PlayerActionMap();
         _input.Player.Enable();
@@ -92,7 +92,8 @@ public class ItemManager : MonoBehaviour
 
         }
 
-        
+        testItemWeight = GetInventoryWeight();
+        FindObjectOfType<PlayerController>().CheckCarryWeight();
     }
 
     public void QueryToRemove(string itemName)

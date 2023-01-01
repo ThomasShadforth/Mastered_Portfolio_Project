@@ -7,7 +7,13 @@ public class PatrolAction : Action
 {
     public override void Act(AIThinker thinker)
     {
-        MoveToPatrolPos(thinker);
+        if (!thinker.initialDestinationSet)
+        {
+            thinker.SetAgentDestination();
+            thinker.initialDestinationSet = true;
+        }
+
+        //MoveToPatrolPos(thinker);
     }
 
     void MoveToPatrolPos(AIThinker thinker)

@@ -20,6 +20,8 @@ public class CheckForPlayerDecision : Decision
         {
             canSeePlayer = true;
             thinker.playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+            thinker.agent.ResetPath();
+            thinker.initialDestinationSet = false;
         }
         else
         {

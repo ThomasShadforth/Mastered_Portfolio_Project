@@ -27,6 +27,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _weightText;
     [SerializeField] TextMeshProUGUI _useText;
 
+    [Header("Stat Menu Elements")]
+    [SerializeField] TextMeshProUGUI[] _statValues;
+    [SerializeField] TextMeshProUGUI[] _statModifiers;
+    [SerializeField] TextMeshProUGUI _StatPointText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +77,7 @@ public class PauseMenu : MonoBehaviour
             FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
 
             FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
-
+            DiscardStatChanges();
         }
         else
         {
@@ -83,7 +88,7 @@ public class PauseMenu : MonoBehaviour
             FindObjectOfType<PlayerController>()._playerInput.Player.Disable();
 
             menuWindow.SetActive(true);
-            OpenWindow(0);
+            //OpenWindow(0);
         }
     }
 
@@ -100,6 +105,8 @@ public class PauseMenu : MonoBehaviour
                 windows[i].SetActive(true);
             }
         }
+
+        DiscardStatChanges();
     }
 
     public void OpenInventory()
@@ -122,6 +129,8 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
+    #region Item Management
 
     public void DisplayItemDetails(BaseItemSO itemToDisplay, int index)
     {
@@ -191,5 +200,106 @@ public class PauseMenu : MonoBehaviour
 
             ItemManager.instance.testItemWeight = ItemManager.instance.GetInventoryWeight();
         }
+
+        FindObjectOfType<PlayerController>().CheckCarryWeight();
     }
+    #endregion
+
+    #region Stat Menu
+
+    public void OpenStatMenu()
+    {
+        PlayerStats playerStat = FindObjectOfType<PlayerController>().GetPlayerStats();
+        Stat[] stats = new Stat[] { playerStat.strength, playerStat.dexterity, playerStat.constitution, playerStat.intelligence, playerStat.wisdom, playerStat.constitution };
+
+        for(int i = 0; i < stats.Length; i++)
+        {
+            _statValues[i].text = stats[i].GetBaseValue().ToString();
+            SetStatModifierText(i, stats[i]);
+        }
+
+        _StatPointText.text = playerStat.availableStatPoints.ToString();
+    }
+
+    public void IncreaseStat(int statIndex)
+    {
+        PlayerStats playerStat = FindObjectOfType<PlayerController>().GetPlayerStats();
+        Stat[] stats = new Stat[] { playerStat.strength, playerStat.dexterity, playerStat.constitution, playerStat.intelligence, playerStat.wisdom, playerStat.constitution};
+
+        if (playerStat.availableStatPoints > 0)
+        {
+
+            stats[statIndex].ChangeBaseValue(1);
+            _statValues[statIndex].text = stats[statIndex].GetBaseValue().ToString();
+            SetStatModifierText(statIndex, stats[statIndex]);
+            playerStat.availableStatPoints--;
+            _StatPointText.text = playerStat.availableStatPoints.ToString();
+        }
+    }
+
+    public void DecreaseStat(int statIndex)
+    {
+        PlayerStats playerStat = FindObjectOfType<PlayerController>().GetPlayerStats();
+        Stat[] stats = new Stat[] { playerStat.strength, playerStat.dexterity, playerStat.constitution, playerStat.intelligence, playerStat.wisdom, playerStat.constitution };
+        
+        //To do: Add a previously recorded stat so that when deciding how to allocate points:
+        //The player may increase a given stat, but also decrease it to what it was prior to applying the value.
+        //If the menu closes, then the stats are reset to their previous values.
+        if(stats[statIndex].GetBaseValue() > stats[statIndex].GetPreviousValue())
+        {
+            stats[statIndex].ChangeBaseValue(-1);
+            playerStat.availableStatPoints++;
+            _statValues[statIndex].text = stats[statIndex].GetBaseValue().ToString();
+
+            SetStatModifierText(statIndex, stats[statIndex]);
+
+            _StatPointText.text = playerStat.availableStatPoints.ToString();
+        }
+    }
+
+    public void AssignStatChanges()
+    {
+        PlayerStats playerStat = FindObjectOfType<PlayerController>().GetPlayerStats();
+        Stat[] stats = new Stat[] { playerStat.strength, playerStat.dexterity, playerStat.constitution, playerStat.intelligence, playerStat.wisdom, playerStat.constitution };
+
+        for(int i = 0; i < stats.Length; i++)
+        {
+            stats[i].SetPreviousRecordedValue();
+        }
+        playerStat.SetPreviousStatPoints();
+    }
+
+    public void DiscardStatChanges()
+    {
+        PlayerStats playerStat = FindObjectOfType<PlayerController>().GetPlayerStats();
+        Stat[] stats = new Stat[] { playerStat.strength, playerStat.dexterity, playerStat.constitution, playerStat.intelligence, playerStat.wisdom, playerStat.constitution };
+
+        for(int i = 0; i < stats.Length; i++)
+        {
+            stats[i].ResetToPrevValue();
+            stats[i].ChangeBaseValue(0);
+        }
+
+        playerStat.availableStatPoints = playerStat.GetPreviousStatPoints();
+
+    }
+
+    void SetStatModifierText(int index, Stat statToGetData)
+    {
+        if (statToGetData.GetScoreModifier() > 0)
+        {
+            _statModifiers[index].text = "+" + statToGetData.GetScoreModifier();
+        }
+        else if (statToGetData.GetScoreModifier() < 0)
+        {
+            _statModifiers[index].text = "-" + statToGetData.GetScoreModifier();
+        }
+        else
+        {
+            _statModifiers[index].text = statToGetData.GetScoreModifier().ToString();
+        }
+
+    }
+
+    #endregion
 }

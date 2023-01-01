@@ -7,6 +7,12 @@ public class HealthSystem
 
     public event EventHandler OnHealthChanged;
 
+    public HealthSystem(int maxHealth)
+    {
+        _maxHealth = maxHealth;
+        _currentHealth = maxHealth;
+    }
+
     public int GetHealth()
     {
         return _currentHealth;

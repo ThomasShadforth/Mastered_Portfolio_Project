@@ -7,21 +7,44 @@ using System.Linq;
 [System.Serializable]
 public class Stat
 {
-
+    [SerializeField]
+    int _originalBaseValue;
     [SerializeField]
     int _baseValue;
     [SerializeField]
     int _scoreModifier;
+    [SerializeField]
+    int _previousRecordedValue;
 
     //Call the constructor when creating a new stat variable
     //Run the set score modifier
     public Stat(int rolledBaseValue)
     {
         this._baseValue = rolledBaseValue;
+        _originalBaseValue = _baseValue;
+        SetPreviousRecordedValue();
         SetScoreModifier();
     }
 
+    public void ResetToPrevValue()
+    {
+        _baseValue = _previousRecordedValue;
+    }
+
+    public void ResetToOriginalBase()
+    {
+        _baseValue = _originalBaseValue;
+    }
     
+    public void SetPreviousRecordedValue()
+    {
+        _previousRecordedValue = _baseValue;
+    }
+
+    public int GetPreviousValue()
+    {
+        return _previousRecordedValue;
+    }
 
     public int GetBaseValue()
     {

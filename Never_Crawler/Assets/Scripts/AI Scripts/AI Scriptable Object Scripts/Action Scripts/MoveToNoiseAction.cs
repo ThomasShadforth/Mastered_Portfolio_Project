@@ -7,7 +7,12 @@ public class MoveToNoiseAction : Action
 {
     public override void Act(AIThinker thinker)
     {
-        MoveTowardsNoise(thinker);
+        //MoveTowardsNoise(thinker);
+        if (thinker.initialDestinationSet)
+        {
+            thinker.SetAgentNoiseDestination();
+            thinker.initialDestinationSet = false;
+        }
     }
 
     void MoveTowardsNoise(AIThinker thinker)

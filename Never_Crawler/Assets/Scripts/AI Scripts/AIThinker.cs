@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIThinker : MonoBehaviour
 {
+    [Header("General Enemy Properties")]
+    public int enemyMaxHealth;
+    public float chaseSpeed;
+    public HealthSystem healthSystem;
+
     [Header("AI State Properties")]
     public State currentState;
     public State remainState;
@@ -15,6 +21,7 @@ public class AIThinker : MonoBehaviour
     public Transform[] patrolPoints;
     public float minDistFromPoint = .5f;
     [HideInInspector] public int currentPatrolIndex = 0;
+    [HideInInspector] public bool initialDestinationSet = false;
 
     [Header("AI Timer Properties")]
     public float waitTime;
@@ -25,6 +32,7 @@ public class AIThinker : MonoBehaviour
     public float investigateTimer;
 
     [Header("Additional Config Values")]
+    public NavMeshAgent agent;
     public float rotationSmooth;
     public float currSmoothVelocity;
 
@@ -49,6 +57,11 @@ public class AIThinker : MonoBehaviour
     private void OnDisable()
     {
         Noise.SoundEvent -= OnHearNoise;
+    }
+
+    private void Awake()
+    {
+        healthSystem = new HealthSystem(enemyMaxHealth);
     }
 
     // Start is called before the first frame update
@@ -113,6 +126,16 @@ public class AIThinker : MonoBehaviour
     {
         waitTimer = waitTime;
         investigateTimer = investigateTime;
+    }
+
+    public void SetAgentDestination()
+    {
+        agent.SetDestination(patrolPoints[currentPatrolIndex].position);
+    }
+
+    public void SetAgentNoiseDestination()
+    {
+        agent.SetDestination(_noisePosition);
     }
 
     private void OnDrawGizmosSelected()

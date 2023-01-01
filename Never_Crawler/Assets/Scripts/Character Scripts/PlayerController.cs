@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [Header("General Movement Values")]
     public float movementSpeed;
     public float rotationSmooth;
-
+    [SerializeField] float _weightedSpeedModifier;
 
     PlayerStats _stats;
     float _currSmoothVelocity;
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         
 
         //Set velocity to the relative movement axes multiplied by speed (And any additional factors that will be calculated later on
-        _rb.velocity = new Vector3(camRelativeMovement.x * movementSpeed, _rb.velocity.y, camRelativeMovement.z * movementSpeed);
+        _rb.velocity = new Vector3(camRelativeMovement.x * movementSpeed * _weightedSpeedModifier, _rb.velocity.y, camRelativeMovement.z * movementSpeed * _weightedSpeedModifier);
     }
 
 
@@ -126,6 +126,37 @@ public class PlayerController : MonoBehaviour
         Invoke("ResetPrimitiveObject", 2f);*/
         
 
+    }
+
+    public void CheckCarryWeight()
+    {
+        if(ItemManager.instance.testItemWeight < _stats.strength.GetBaseValue() * 5)
+        {
+            _weightedSpeedModifier = 1f;
+        } else if(ItemManager.instance.testItemWeight >= _stats.strength.GetBaseValue() * 5 && ItemManager.instance.testItemWeight < _stats.strength.GetBaseValue() * 10)
+        {
+            _weightedSpeedModifier = .67f;
+        }
+        else if (ItemManager.instance.testItemWeight >= _stats.strength.GetBaseValue() * 10 && ItemManager.instance.testItemWeight < _stats.strength.GetBaseValue() * 15)
+        {
+            _weightedSpeedModifier = .33f;
+        }
+        else if (ItemManager.instance.testItemWeight >= _stats.strength.GetBaseValue() * 15)
+        {
+            _weightedSpeedModifier = 0f;
+        }
+    }
+
+    public PlayerStats GetPlayerStats()
+    {
+        if (GetComponent<PlayerStats>())
+        {
+            return GetComponent<PlayerStats>();
+        }
+        else
+        {
+            return null;
+        }
     }
     
 }

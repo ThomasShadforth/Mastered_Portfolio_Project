@@ -19,6 +19,11 @@ public class PlayerStats : MonoBehaviour
     public int[] expToNextLevel;
     public int[] statPointLevels;
 
+    public float carryWeight;
+
+    public int availableStatPoints = 0;
+    int _previousStatPoints;
+
     PlayerActionMap _input;
 
     public PlayerStats()
@@ -29,12 +34,15 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         InitialiseBaseStats();
+
         maxHealth = baseHealth + constitution.GetScoreModifier();
         InitializeExpValues();
 
         _input = new PlayerActionMap();
         _input.Player.Enable();
         _input.Player.TestAddExp.performed += AddExp;
+
+        _previousStatPoints = availableStatPoints;
     }
 
     // Update is called once per frame
@@ -130,6 +138,24 @@ public class PlayerStats : MonoBehaviour
         return rolledStat;
     }
 
+    public int GetPreviousStatPoints()
+    {
+        return _previousStatPoints;
+    }
+
+    public void SetPreviousStatPoints()
+    {
+        _previousStatPoints = availableStatPoints;
+    }
+
+    public void AddStatPoints(int numOfPoints)
+    {
+        availableStatPoints += numOfPoints;
+        _previousStatPoints = availableStatPoints;
+    }
+
+
+
     void InitialiseBaseStats()
     {
         strength = new Stat(RollBaseStat());
@@ -138,5 +164,6 @@ public class PlayerStats : MonoBehaviour
         charisma = new Stat(RollBaseStat());
         intelligence = new Stat(RollBaseStat());
         wisdom = new Stat(RollBaseStat());
+        carryWeight = strength.GetBaseValue() * 15;
     }
 }
