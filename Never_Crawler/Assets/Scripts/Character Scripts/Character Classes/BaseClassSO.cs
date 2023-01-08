@@ -8,7 +8,7 @@ public class BaseClassSO : ScriptableObject
     public string className;
     public string classDescription;
 
-    public ClassMoveSO[] knownMoves;
+    public AbilitySO[] knownMoves;
     //public PlayerLevel classLevel = new PlayerLevel(5000, 20);
 
     public void TestAttack(GameObject parent)

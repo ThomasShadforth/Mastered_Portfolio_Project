@@ -158,12 +158,21 @@ public class PlayerStats : MonoBehaviour
 
     void InitialiseBaseStats()
     {
+        /*
         strength = new Stat(RollBaseStat());
         dexterity = new Stat(RollBaseStat());
         constitution = new Stat(RollBaseStat());
         charisma = new Stat(RollBaseStat());
         intelligence = new Stat(RollBaseStat());
-        wisdom = new Stat(RollBaseStat());
+        wisdom = new Stat(RollBaseStat());*/
+
+        strength = new Stat(CreatorDataHandler.statValues[0] > 0 ? CreatorDataHandler.statValues[0] : 10);
+        dexterity = new Stat(CreatorDataHandler.statValues[1]);
+        constitution = new Stat(CreatorDataHandler.statValues[2]);
+        intelligence = new Stat(CreatorDataHandler.statValues[3]);
+        wisdom = new Stat(CreatorDataHandler.statValues[4]);
+        charisma = new Stat(CreatorDataHandler.statValues[5]);
+
         carryWeight = strength.GetBaseValue() * 15;
     }
 }

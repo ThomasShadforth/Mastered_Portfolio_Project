@@ -15,6 +15,7 @@ public class MoveTowardsPlayerAction : Action
         Vector3 direction = GetMoveDirection(thinker);
 
         thinker._rb.velocity = new Vector3(direction.x * 4, thinker._rb.velocity.y, direction.z * 4);
+        
         thinker.transform.rotation = Quaternion.Euler(0, GetLookAngle(thinker), 0);
         
     }
@@ -37,6 +38,11 @@ public class MoveTowardsPlayerAction : Action
 
         direction = thinker.playerTarget.position - thinker.transform.position;
 
+        direction = direction.normalized;
+
+        Debug.Log(direction);
+
+        /*
         if (direction.x > 0.1)
         {
             direction.x = 1f;
@@ -58,8 +64,9 @@ public class MoveTowardsPlayerAction : Action
         {
             direction.z = -1f;
         }
+        */
 
-        direction = direction.normalized;
+        //direction = direction.normalized;
 
         return direction;
     }

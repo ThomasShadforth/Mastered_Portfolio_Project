@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f00ac6bef7b3af4fa263e8ed21888bf, type: 3}
-  m_Name: Base Class
+  m_Name: FighterClass
   m_EditorClassIdentifier: 
-  className: TestClass
-  classDescription: A class used for testing things. Duh
-  knownMoves:
-  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
+  className: Fighter
+  classDescription: A physically gifted warrior, capable of wielding weapons effortlessly
+  knownMoves: []

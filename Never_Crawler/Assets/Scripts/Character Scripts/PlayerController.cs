@@ -9,13 +9,16 @@ public class PlayerController : MonoBehaviour
     public BaseClassSO classBrain;
 
     [Header("Assigned Class Moves")]
-    public ClassMoveSO[] _assignedMoves;
+    public AbilitySO[] _assignedMoves;
 
     //Speed at which player orients to face current movement direction
     [Header("General Movement Values")]
     public float movementSpeed;
     public float rotationSmooth;
     [SerializeField] float _weightedSpeedModifier;
+
+    //Test Values/References
+    public GameObject testProjectile;
 
     PlayerStats _stats;
     float _currSmoothVelocity;
@@ -29,6 +32,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(CreatorDataHandler.chosenClass != null)
+        {
+            classBrain = CreatorDataHandler.chosenClass;
+        }
+
         _rb = GetComponent<Rigidbody>();
         _stats = GetComponent<PlayerStats>();
         _playerInput = new PlayerActionMap();
@@ -95,10 +103,13 @@ public class PlayerController : MonoBehaviour
     {
         if (_assignedMoves[slotIndex].type == AttackType.strength)
         {
-            _assignedMoves[slotIndex].TriggerAbility(gameObject, _stats.strength.GetScoreModifier());
+            _assignedMoves[slotIndex].UseAbility(this, _stats.strength.GetScoreModifier());
         } else if(_assignedMoves[slotIndex].type == AttackType.dexterity)
         {
-            _assignedMoves[slotIndex].TriggerAbility(gameObject, _stats.dexterity.GetScoreModifier());
+            _assignedMoves[slotIndex].UseAbility(this, _stats.dexterity.GetScoreModifier());
+        } else if(_assignedMoves[slotIndex].type == AttackType.intelligence)
+        {
+            _assignedMoves[slotIndex].UseAbility(this, _stats.intelligence.GetScoreModifier());
         }
     }
 
@@ -157,6 +168,11 @@ public class PlayerController : MonoBehaviour
         {
             return null;
         }
+    }
+
+    public GameObject GetProjectile(string projectileName)
+    {
+        return null;
     }
     
 }

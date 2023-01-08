@@ -9,6 +9,7 @@ public class PatrolAction : Action
     {
         if (!thinker.initialDestinationSet)
         {
+            
             thinker.SetAgentDestination();
             thinker.initialDestinationSet = true;
         }

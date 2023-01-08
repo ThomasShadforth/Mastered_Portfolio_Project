@@ -31,6 +31,9 @@ public class MenuButton : MonoBehaviour
             } else if (CharacterCreatorMenu.instance.GetRandomMenuStatus().activeInHierarchy)
             {
                 CharacterCreatorMenu.instance.RandomizeValue(buttonValue);
+            } else if (CharacterCreatorMenu.instance.GetClassMenuStatus().activeInHierarchy)
+            {
+                CharacterCreatorMenu.instance.SelectClass(buttonValue);
             }
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CharacterCreatorMenu : MonoBehaviour
@@ -12,6 +13,13 @@ public class CharacterCreatorMenu : MonoBehaviour
     [SerializeField] ConfirmationPopUp _popupMenu;
     [SerializeField] GameObject _randomStatMenu;
     [SerializeField] GameObject _pointBuyMenu;
+    [SerializeField] GameObject _classChoiceMenu;
+    [SerializeField] GameObject _statConfigMenu;
+
+    [Header("Class Screen Elements")]
+    [SerializeField] TextMeshProUGUI _classNameText;
+    [SerializeField] TextMeshProUGUI _classDescriptionText;
+    [SerializeField] MenuButton[] _classButtons;
 
     [Header("Stat Screen Elements")]
     [SerializeField] TextMeshProUGUI[] _abilityScoreTexts;
@@ -23,9 +31,14 @@ public class CharacterCreatorMenu : MonoBehaviour
 
     [Header("Additional Configs")]
     public int initialPointBuyCount;
+    public BaseClassSO[] classes;
+
     int pointBuyRemaining;
     [SerializeField] float _randomizeTime;
 
+
+    //Private storage variables
+    BaseClassSO chosenClassBrain;
 
 
     // Start is called before the first frame update
@@ -38,7 +51,7 @@ public class CharacterCreatorMenu : MonoBehaviour
 
         instance = this;
 
-        OpenStatConfigMenu();
+        //OpenStatConfigMenu();
 
         SetupButtonValues();
         pointBuyRemaining = initialPointBuyCount;
@@ -55,11 +68,37 @@ public class CharacterCreatorMenu : MonoBehaviour
         for(int i = 0; i < _randomizeButtons.Length; i++)
         {
             _randomizeButtons[i].buttonValue = i;
+            //Sets up the values for the positive and negative point buy buttons
             _positivePointBuyButtons[i].buttonValue = i;
             _negativePointBuyButtons[i].buttonValue = i;
-            //Insert: Positive and Negative point buy buttons to set up;
+            
+            
+        }
+
+        for(int i = 0; i < _classButtons.Length; i++)
+        {
+            _classButtons[i].buttonValue = i;
         }
     }
+
+    #region Class Choice Menu
+
+    public void FinishClassChoice()
+    {
+        _classChoiceMenu.SetActive(false);
+        _statConfigMenu.SetActive(true);
+        OpenStatConfigMenu();
+    }
+
+    public void SelectClass(int buttonIndex)
+    {
+        chosenClassBrain = classes[buttonIndex];
+        _classNameText.text = classes[buttonIndex].className;
+        _classDescriptionText.text = classes[buttonIndex].classDescription;
+        //Set the info text to the class' name and description
+    }
+
+    #endregion
 
     #region Stat Menu
     public void OpenStatConfigMenu()
@@ -183,6 +222,7 @@ public class CharacterCreatorMenu : MonoBehaviour
 
         while(randomizeTime > 0)
         {
+            //Randomises the text value for a visual effect (May replace with a dice roll animation if possible)
             int randomValue = Random.Range(0, 16);
 
             _abilityScoreTexts[index].text = randomValue.ToString();
@@ -243,6 +283,27 @@ public class CharacterCreatorMenu : MonoBehaviour
         }
     }
 
+    public void ReturnToClassChoice()
+    {
+        _statConfigMenu.SetActive(false);
+        _classChoiceMenu.SetActive(true);
+    }
+
+    public void FinishCreation()
+    {
+        for(int i = 0; i < _abilityScoreTexts.Length; i++)
+        {
+            int abilityScore = int.Parse(_abilityScoreTexts[i].text);
+
+            CreatorDataHandler.statValues[i] = abilityScore;
+        }
+
+        CreatorDataHandler.chosenClass = chosenClassBrain;
+
+        SceneManager.LoadSceneAsync("SampleScene");
+
+    }
+
     #endregion
 
     
@@ -258,6 +319,10 @@ public class CharacterCreatorMenu : MonoBehaviour
         return _pointBuyMenu;
     }
 
+    public GameObject GetClassMenuStatus()
+    {
+        return _classChoiceMenu;
+    }
 
     #endregion
 }

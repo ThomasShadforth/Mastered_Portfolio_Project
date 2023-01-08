@@ -12,6 +12,8 @@ public class ClassMenu : MonoBehaviour
 
     int activeAbilityIndex;
     ClassMoveSO activeAbility;
+    AbilitySO activeAbilitySO;
+
 
     BaseClassSO _playerClass;
 
@@ -56,7 +58,7 @@ public class ClassMenu : MonoBehaviour
         }
     }
 
-    public void DisplayAbilityInfo(ClassMoveSO abilityToDisplay)
+    public void DisplayAbilityInfo(AbilitySO abilityToDisplay)
     {
         if(abilityToDisplay == null)
         {
@@ -64,14 +66,14 @@ public class ClassMenu : MonoBehaviour
         }
 
         //Set the active move to the pass parameter
-        activeAbility = abilityToDisplay;
-        _abilityNameText.text = activeAbility.moveName;
-        _abilityDescriptionText.text = activeAbility.description;
+        activeAbilitySO = abilityToDisplay;
+        _abilityNameText.text = activeAbilitySO.abilityName;
+        _abilityDescriptionText.text = activeAbilitySO.description;
 
-        _levelRequirementText.text = "Required Level: " + activeAbility.requiredLevel;
+        _levelRequirementText.text = "Required Level: " + activeAbilitySO.requiredLevel;
 
 
-        if(_player.GetComponent<PlayerStats>().currentLevel >= activeAbility.requiredLevel)
+        if(_player.GetComponent<PlayerStats>().currentLevel >= activeAbilitySO.requiredLevel)
         {
             _buttonEquipText.text = "Equip";
             //Set button based on whether the player meets the requirement or not
@@ -109,7 +111,7 @@ public class ClassMenu : MonoBehaviour
                 }
                 else
                 {
-                    actionSlots[i].GetComponentInChildren<TextMeshProUGUI>().text = actionSlots[i].assignedAction.moveName;
+                    actionSlots[i].GetComponentInChildren<TextMeshProUGUI>().text = actionSlots[i].assignedAction.abilityName;
                 }
                 //Get the icon for the move and set it as a button image at a later point in time
             }
@@ -129,7 +131,7 @@ public class ClassMenu : MonoBehaviour
         for(int i = 0; i < actionSlots.Length; i++)
         {
             //If already assigned to another slot
-            if(actionSlots[i].assignedAction == activeAbility)
+            if(actionSlots[i].assignedAction == activeAbilitySO)
             {
                 if(i == slotNumber)
                 {
@@ -146,18 +148,18 @@ public class ClassMenu : MonoBehaviour
         if (alreadyAssigned)
         {
             //If already assigned to another slot:
-            ClassMoveSO actionToSwap = actionSlots[slotNumber].assignedAction;
+            AbilitySO actionToSwap = actionSlots[slotNumber].assignedAction;
 
-            actionSlots[slotNumber].assignedAction = activeAbility;
-            _player._assignedMoves[slotNumber] = activeAbility;
+            actionSlots[slotNumber].assignedAction = activeAbilitySO;
+            _player._assignedMoves[slotNumber] = activeAbilitySO;
 
             actionSlots[secondarySlotNum].assignedAction = actionToSwap;
             _player._assignedMoves[secondarySlotNum] = actionToSwap;
         }
         else
         {
-            actionSlots[slotNumber].assignedAction = activeAbility;
-            _player._assignedMoves[slotNumber] = activeAbility;
+            actionSlots[slotNumber].assignedAction = activeAbilitySO;
+            _player._assignedMoves[slotNumber] = activeAbilitySO;
         }
 
         //Set the buttonImage, then close the panel

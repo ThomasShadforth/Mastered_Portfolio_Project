@@ -9,6 +9,8 @@ public class AIThinker : MonoBehaviour
     public int enemyMaxHealth;
     public float chaseSpeed;
     public HealthSystem healthSystem;
+    [HideInInspector]
+    public AIStats stats;
 
     [Header("AI State Properties")]
     public State currentState;
@@ -71,6 +73,8 @@ public class AIThinker : MonoBehaviour
         investigateTimer = investigateTime;
         _rb = GetComponent<Rigidbody>();
         enemyLOS = GetComponent<LineOfSight>();
+        stats = GetComponent<AIStats>();
+        healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
     }
 
     // Update is called once per frame
@@ -81,6 +85,14 @@ public class AIThinker : MonoBehaviour
             currentState.UpdateState(this);
 
             canSeePlayer = enemyLOS.canSeePlayer;
+        }
+    }
+
+    void HealthSystem_OnHealthChanged(object obj, System.EventArgs e)
+    {
+        if(healthSystem.GetHealth() <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
