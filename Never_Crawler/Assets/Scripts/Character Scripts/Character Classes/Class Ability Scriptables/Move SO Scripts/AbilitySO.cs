@@ -21,5 +21,8 @@ public abstract class AbilitySO : ScriptableObject
 
     public AttackType type;
 
-    public abstract void UseAbility(PlayerController ownerPlayer, int modifier);
+    public abstract void UseAbility(int modifier, PlayerController ownerPlayer = null, AIThinker thinker = null);
+
+
+
 }

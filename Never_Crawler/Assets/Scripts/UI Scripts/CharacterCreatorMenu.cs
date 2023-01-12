@@ -116,13 +116,11 @@ public class CharacterCreatorMenu : MonoBehaviour
     {
         if (_randomStatMenu.activeInHierarchy)
         {
-            _randomStatMenu.SetActive(false);
-            _pointBuyMenu.SetActive(true);
+            OpenPointBuyMenu();
         }
         else
         {
-            _randomStatMenu.SetActive(true);
-            _pointBuyMenu.SetActive(false);
+            OpenRandomStatsMenu();
         }
     }
 
@@ -134,6 +132,14 @@ public class CharacterCreatorMenu : MonoBehaviour
         _pointBuyMenu.SetActive(false);
         _randomStatMenu.SetActive(true);
         pointBuyRemaining = initialPointBuyCount;
+
+        for (int i = 0; i < _abilityScoreTexts.Length; i++)
+        {
+            //First time pass (Sets the initial values for the point buy menu, which is 8 in traditional DnD
+            _abilityScoreTexts[i].text = 8.ToString();
+            int modifier = CalculateAbilityModifier(int.Parse(_abilityScoreTexts[i].text));
+            SetStatModifierText(modifier, _abilityModifierTexts[i]);
+        }
     }
 
     void OpenPointBuyMenu()

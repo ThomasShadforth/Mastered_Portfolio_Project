@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9c34f07bcb0a14191da150959ad560, type: 3}
-  m_Name: TestBossPhase1State
+  m_Script: {fileID: 11500000, guid: dcd421bcd25e4f347b17e0ef454e6505, type: 3}
+  m_Name: Test Boss Attack Action
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: bc84c087689f58b48bb2f454e9932b3f, type: 2}
-  transitions: []
+  attackUsed: {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}

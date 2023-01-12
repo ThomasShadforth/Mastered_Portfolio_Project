@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour
 {
     public Stat strength, dexterity, constitution, charisma, intelligence, wisdom;
 
+    public int armourClass;
+
     public int baseHealth;
     public int maxHealth;
 
@@ -20,6 +22,8 @@ public class PlayerStats : MonoBehaviour
     public int[] statPointLevels;
 
     public float carryWeight;
+
+
 
     public int availableStatPoints = 0;
     int _previousStatPoints;
@@ -154,7 +158,10 @@ public class PlayerStats : MonoBehaviour
         _previousStatPoints = availableStatPoints;
     }
 
-
+    public void CalculateAC()
+    {
+        armourClass = 10 + dexterity.GetScoreModifier();
+    }
 
     void InitialiseBaseStats()
     {

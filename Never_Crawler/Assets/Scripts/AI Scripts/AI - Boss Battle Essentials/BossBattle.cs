@@ -52,6 +52,7 @@ public class BossBattle : MonoBehaviour
 
     void StartBossBattle()
     {
+        Debug.Log("STARTING");
         StartNextPhase();
         
     }
@@ -62,7 +63,10 @@ public class BossBattle : MonoBehaviour
         {
             case Boss_Phases.WaitingToStart:
                 phase = Boss_Phases.Phase_1;
+                bossAI.SetCooldownTimer();
                 bossAI.TransitionToState(phase1State);
+                bossAI.playerTarget = FindObjectOfType<PlayerController>().transform;
+                
                 break;
             case Boss_Phases.Phase_1:
                 phase = Boss_Phases.Phase_2;
@@ -86,7 +90,7 @@ public class BossBattle : MonoBehaviour
             case Boss_Phases.Phase_1:
                 if(bossAI.healthSystem.GetHealthPercent() < .7f)
                 {
-
+                    Debug.Log("ENTERING PHASE 2");
                 }
                 break;
             case Boss_Phases.Phase_2:

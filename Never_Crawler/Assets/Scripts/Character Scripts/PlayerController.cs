@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum encumbranceStates
+{
+    normal,
+    slight,
+    heavy,
+    tooHeavy
+}
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Character Class Brain")]
@@ -28,6 +36,9 @@ public class PlayerController : MonoBehaviour
     GameObject testSphere;
 
     public PlayerActionMap _playerInput;
+    public HealthSystem _healthSystem;
+
+    [HideInInspector] public encumbranceStates encumbranceState = encumbranceStates.normal;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +50,14 @@ public class PlayerController : MonoBehaviour
 
         _rb = GetComponent<Rigidbody>();
         _stats = GetComponent<PlayerStats>();
+        
         _playerInput = new PlayerActionMap();
         _playerInput.Player.Enable();
         _playerInput.Player.Look.Enable();
         _playerInput.Player.AbilitySlot1.performed += TriggerAbility1;
         _playerInput.Player.TestNoiseAction.performed += NoiseTest;
+        _healthSystem = new HealthSystem(_stats.maxHealth);
+        _healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
     }
 
     // Update is called once per frame
@@ -103,13 +117,13 @@ public class PlayerController : MonoBehaviour
     {
         if (_assignedMoves[slotIndex].type == AttackType.strength)
         {
-            _assignedMoves[slotIndex].UseAbility(this, _stats.strength.GetScoreModifier());
+            _assignedMoves[slotIndex].UseAbility(_stats.strength.GetScoreModifier(), this);
         } else if(_assignedMoves[slotIndex].type == AttackType.dexterity)
         {
-            _assignedMoves[slotIndex].UseAbility(this, _stats.dexterity.GetScoreModifier());
+            _assignedMoves[slotIndex].UseAbility(_stats.dexterity.GetScoreModifier(), this);
         } else if(_assignedMoves[slotIndex].type == AttackType.intelligence)
         {
-            _assignedMoves[slotIndex].UseAbility(this, _stats.intelligence.GetScoreModifier());
+            _assignedMoves[slotIndex].UseAbility(_stats.intelligence.GetScoreModifier(), this);
         }
     }
 
@@ -143,17 +157,21 @@ public class PlayerController : MonoBehaviour
     {
         if(ItemManager.instance.testItemWeight < _stats.strength.GetBaseValue() * 5)
         {
+            encumbranceState = encumbranceStates.normal;
             _weightedSpeedModifier = 1f;
         } else if(ItemManager.instance.testItemWeight >= _stats.strength.GetBaseValue() * 5 && ItemManager.instance.testItemWeight < _stats.strength.GetBaseValue() * 10)
         {
+            encumbranceState = encumbranceStates.slight;
             _weightedSpeedModifier = .67f;
         }
         else if (ItemManager.instance.testItemWeight >= _stats.strength.GetBaseValue() * 10 && ItemManager.instance.testItemWeight < _stats.strength.GetBaseValue() * 15)
         {
+            encumbranceState = encumbranceStates.heavy;
             _weightedSpeedModifier = .33f;
         }
         else if (ItemManager.instance.testItemWeight >= _stats.strength.GetBaseValue() * 15)
         {
+            encumbranceState = encumbranceStates.tooHeavy;
             _weightedSpeedModifier = 0f;
         }
     }
@@ -174,5 +192,10 @@ public class PlayerController : MonoBehaviour
     {
         return null;
     }
-    
+
+    void HealthSystem_OnHealthChanged(object obj, System.EventArgs e)
+    {
+
+    }
+
 }

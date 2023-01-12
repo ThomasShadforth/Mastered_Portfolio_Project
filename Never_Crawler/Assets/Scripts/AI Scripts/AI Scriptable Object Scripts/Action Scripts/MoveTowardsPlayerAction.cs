@@ -8,6 +8,15 @@ public class MoveTowardsPlayerAction : Action
     public override void Act(AIThinker thinker)
     {
         MoveTowardsPlayer(thinker);
+        ReduceAttackCooldown(thinker);
+    }
+
+    void ReduceAttackCooldown(AIThinker thinker)
+    {
+        if (thinker.attackCoolTimer > 0)
+        {
+            thinker.attackCoolTimer -= GamePause.deltaTime;
+        }
     }
 
     void MoveTowardsPlayer(AIThinker thinker)
@@ -40,7 +49,7 @@ public class MoveTowardsPlayerAction : Action
 
         direction = direction.normalized;
 
-        Debug.Log(direction);
+        //Debug.Log(direction);
 
         /*
         if (direction.x > 0.1)

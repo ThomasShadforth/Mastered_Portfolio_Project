@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class AIThinker : MonoBehaviour
 
     [Header("AI Radius Properties")]
     public float noiseCheckRadius;
+    public float minAttackDist;
 
     [Header("AI Patrol Properties")]
     public Transform[] patrolPoints;
@@ -33,10 +35,21 @@ public class AIThinker : MonoBehaviour
     [HideInInspector]
     public float investigateTimer;
 
+    
+
+    public float attackCoolTime;
+    [HideInInspector]
+    public float attackCoolTimer;
+
     [Header("Additional Config Values")]
     public NavMeshAgent agent;
+    public LayerMask playerLayer;
     public float rotationSmooth;
     public float currSmoothVelocity;
+
+    [Header("Test prefab values")]
+    //Test projectile prefab reference
+    public GameObject testProjectile;
 
     [HideInInspector] public Transform playerTarget;
 
@@ -92,7 +105,7 @@ public class AIThinker : MonoBehaviour
     {
         if(healthSystem.GetHealth() <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
@@ -148,6 +161,11 @@ public class AIThinker : MonoBehaviour
     public void SetAgentNoiseDestination()
     {
         agent.SetDestination(_noisePosition);
+    }
+
+    public void SetCooldownTimer()
+    {
+        attackCoolTimer = attackCoolTime;
     }
 
     private void OnDrawGizmosSelected()
