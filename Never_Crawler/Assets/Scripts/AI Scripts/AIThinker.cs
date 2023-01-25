@@ -9,6 +9,7 @@ public class AIThinker : MonoBehaviour
     [Header("General Enemy Properties")]
     public int enemyMaxHealth;
     public float chaseSpeed;
+    HealthBar _enemyHealthBar;
     public HealthSystem healthSystem;
     [HideInInspector]
     public AIStats stats;
@@ -88,6 +89,7 @@ public class AIThinker : MonoBehaviour
         enemyLOS = GetComponent<LineOfSight>();
         stats = GetComponent<AIStats>();
         healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
+        _enemyHealthBar = GetComponentInChildren<HealthBar>();
     }
 
     // Update is called once per frame
@@ -103,6 +105,13 @@ public class AIThinker : MonoBehaviour
 
     void HealthSystem_OnHealthChanged(object obj, System.EventArgs e)
     {
+        //Reference for health bar needs to be added
+        if (_enemyHealthBar != null)
+        {
+            _enemyHealthBar.UpdateHealthFillAmount(healthSystem.GetHealthPercent());
+        }
+
+
         if(healthSystem.GetHealth() <= 0)
         {
             //Destroy(gameObject);

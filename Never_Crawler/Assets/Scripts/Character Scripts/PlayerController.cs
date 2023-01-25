@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public float rotationSmooth;
     [SerializeField] float _weightedSpeedModifier;
 
+    
+    HealthBar _playerHealthBar;
+
     //Test Values/References
     public GameObject testProjectile;
 
@@ -58,6 +61,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.TestNoiseAction.performed += NoiseTest;
         _healthSystem = new HealthSystem(_stats.maxHealth);
         _healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
+        _playerHealthBar = GameObject.Find("PlayerHealthBar").GetComponent<HealthBar>();
+        _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());
     }
 
     // Update is called once per frame
@@ -195,7 +200,10 @@ public class PlayerController : MonoBehaviour
 
     void HealthSystem_OnHealthChanged(object obj, System.EventArgs e)
     {
-
+        if(_playerHealthBar != null)
+        {
+            _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());
+        }
     }
 
 }
