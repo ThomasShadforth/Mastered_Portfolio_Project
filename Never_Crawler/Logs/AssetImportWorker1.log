@@ -15,7 +15,7 @@ D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50187
+56782
 Successfully changed project path to: D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
 D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 98.42 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 82.97 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.11f1 (0a5ca18544bf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -63,95 +63,95 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56852
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56216
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.012830 seconds.
+Registered in 0.009589 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 90.57 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 82.79 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.702 seconds
+- Completed reload, in  0.610 seconds
 Domain Reload Profiling:
-	ReloadAssembly (702ms)
-		BeginReloadAssembly (85ms)
+	ReloadAssembly (611ms)
+		BeginReloadAssembly (78ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (492ms)
-			LoadAssemblies (81ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (425ms)
+			LoadAssemblies (73ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (111ms)
+			SetupTypeCache (97ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (295ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (253ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (91ms)
+				RefreshPlugins (83ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (147ms)
-				ProcessInitializeOnLoadMethodAttributes (43ms)
+				ProcessInitializeOnLoadAttributes (120ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005522 seconds.
+Registered in 0.005576 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 91.30 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 82.56 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.398 seconds
+- Completed reload, in  1.126 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1399ms)
-		BeginReloadAssembly (142ms)
+	ReloadAssembly (1126ms)
+		BeginReloadAssembly (105ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (26ms)
-		EndReloadAssembly (1128ms)
-			LoadAssemblies (120ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (917ms)
+			LoadAssemblies (88ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (314ms)
+			SetupTypeCache (245ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (66ms)
-			SetupLoadedEditorAssemblies (592ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (490ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (91ms)
-				BeforeProcessingInitializeOnLoad (97ms)
-				ProcessInitializeOnLoadAttributes (342ms)
-				ProcessInitializeOnLoadMethodAttributes (38ms)
-				AfterProcessingInitializeOnLoad (12ms)
+				RefreshPlugins (83ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (283ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.87 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4005 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 43 unused Assets / (184.9 KB). Loaded Objects now: 4463.
 Memory consumption went from 142.8 MB to 142.6 MB.
-Total: 3.508600 ms (FindLiveObjects: 0.384000 ms CreateObjectMapping: 0.110200 ms MarkObjects: 2.831000 ms  DeleteObjects: 0.182000 ms)
+Total: 3.591000 ms (FindLiveObjects: 0.497100 ms CreateObjectMapping: 0.154200 ms MarkObjects: 2.782700 ms  DeleteObjects: 0.155800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -166,57 +166,57 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 791396.511433 seconds.
-  path: Assets/Scenes/SampleScene.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afff3550ed41deaa221e184e05003047') in 0.016029 seconds 
+  Time since last request: 1040888.080959 seconds.
+  path: Assets/Meshes/Cobble Meshes
+  artifactKey: Guid(463138f14bca513439da1a8ea365dee3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes using Guid(463138f14bca513439da1a8ea365dee3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee17952bc8ffd283e949d73d84b2c426') in 0.013317 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006012 seconds.
+Registered in 0.007206 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.31 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.214 seconds
+- Completed reload, in  1.228 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1215ms)
-		BeginReloadAssembly (149ms)
+	ReloadAssembly (1229ms)
+		BeginReloadAssembly (268ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (12ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (46ms)
-		EndReloadAssembly (963ms)
+			CreateAndSetChildDomain (110ms)
+		EndReloadAssembly (868ms)
 			LoadAssemblies (103ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (293ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (468ms)
+			SetupTypeCache (269ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (385ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (19ms)
-				SetLoadedEditorAssemblies (1ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (79ms)
-				ProcessInitializeOnLoadAttributes (326ms)
-				ProcessInitializeOnLoadMethodAttributes (28ms)
-				AfterProcessingInitializeOnLoad (13ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (264ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.36 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 2.12 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3987 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 22 unused Assets / (150.8 KB). Loaded Objects now: 4478.
-Memory consumption went from 141.3 MB to 141.2 MB.
-Total: 4.160600 ms (FindLiveObjects: 0.452500 ms CreateObjectMapping: 0.098500 ms MarkObjects: 3.483800 ms  DeleteObjects: 0.124300 ms)
+Unloading 3998 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (150.7 KB). Loaded Objects now: 4489.
+Memory consumption went from 141.6 MB to 141.5 MB.
+Total: 4.274400 ms (FindLiveObjects: 0.403300 ms CreateObjectMapping: 0.112000 ms MarkObjects: 3.574900 ms  DeleteObjects: 0.183400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -229,3 +229,211 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3675.126856 seconds.
+  path: Assets/Meshes/Cobble Meshes/Concrete030_1K_Color.jpg
+  artifactKey: Guid(1f9902aec87962d42bf0f1f67479d639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Concrete030_1K_Color.jpg using Guid(1f9902aec87962d42bf0f1f67479d639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d763d7177f86c4c19f9163f780cd7c7') in 0.234415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx
+  artifactKey: Guid(12da0873a3e3b9a49be394639282a674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx using Guid(12da0873a3e3b9a49be394639282a674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '162e071a66ffaedb695e7294a81cd5ff') in 0.308862 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.fbx
+  artifactKey: Guid(95d52d0be15520648bc4feca360d1d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.fbx using Guid(95d52d0be15520648bc4feca360d1d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c87680151092f10e7b9d2ee6191874ca') in 0.079074 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Base.fbx
+  artifactKey: Guid(3d895fdb7f6395e4cb3fe9d5b00a8a63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Base.fbx using Guid(3d895fdb7f6395e4cb3fe9d5b00a8a63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5e8e51905c0a94301ef251e1c9ab6b3') in 0.032336 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Straight.fbx
+  artifactKey: Guid(08a8fdd2b2d14bb47ac2bf410c3ab88b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Straight.fbx using Guid(08a8fdd2b2d14bb47ac2bf410c3ab88b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5384a3c3158e2877571a6d1b8a07cd50') in 0.085097 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_3_Quart.fbx
+  artifactKey: Guid(f2377d95bf6299a4e8cccc3cd1798b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_3_Quart.fbx using Guid(f2377d95bf6299a4e8cccc3cd1798b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '847cf0c64dae428b788fd158599a33e5') in 0.030391 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Dead.fbx
+  artifactKey: Guid(1e8cb877fed77a94e818331107a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Dead.fbx using Guid(1e8cb877fed77a94e818331107a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e458c7406bd03a81164840b67f5133f6') in 0.071063 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Plain.fbx
+  artifactKey: Guid(b8a3726b584444146b204464604e2366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Plain.fbx using Guid(b8a3726b584444146b204464604e2366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9835a66e6ff3f3bdb1a82424f87467c1') in 0.037110 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_CurvedV1.fbx
+  artifactKey: Guid(c82142acdb00e5949807eebe53b74922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_CurvedV1.fbx using Guid(c82142acdb00e5949807eebe53b74922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94941a179bcd7ebcf2b8eb7a9487ecd7') in 0.012655 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Meshes/Cobble Meshes/Cube.fbx
+  artifactKey: Guid(2a4b8d34be035484e8065392308bdae5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Cube.fbx using Guid(2a4b8d34be035484e8065392308bdae5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f16dd42d33421d34b196c4a364fb4bb') in 0.039281 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.853803 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx
+  artifactKey: Guid(12da0873a3e3b9a49be394639282a674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx using Guid(12da0873a3e3b9a49be394639282a674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a18ac18c79572d6f4c490947c97689f') in 0.027318 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Meshes/Cobble Meshes/PavingStones051_1K_NormalDX.jpg
+  artifactKey: Guid(4a43807f159c7464aad6afd2f2a8d36c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/PavingStones051_1K_NormalDX.jpg using Guid(4a43807f159c7464aad6afd2f2a8d36c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0e1e8eff3789134d0285302c4beeed2') in 0.019068 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_T.fbx
+  artifactKey: Guid(a1783e92351208f43914f76f7f6899b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_T.fbx using Guid(a1783e92351208f43914f76f7f6899b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2316d0ffda13eabcd62fb5d60ac6b11f') in 0.082594 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Straight.fbx
+  artifactKey: Guid(08a8fdd2b2d14bb47ac2bf410c3ab88b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Straight.fbx using Guid(08a8fdd2b2d14bb47ac2bf410c3ab88b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61f6e928f6b58226e5314b40803cd64d') in 0.083957 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Stairwell.001.fbx
+  artifactKey: Guid(4c6db15dcb0c2ab4283f56c377ce70a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Stairwell.001.fbx using Guid(4c6db15dcb0c2ab4283f56c377ce70a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fc08f8f3ec7444983476943f626b4af') in 0.048127 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 53.132362 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.010 1.fbx
+  artifactKey: Guid(b54687b52d36da144a1531d783e4a2b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.010 1.fbx using Guid(b54687b52d36da144a1531d783e4a2b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '513b966e321fb26a4af4b33ed6f1ab59') in 0.028567 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.469946 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_Vaulted1.fbx
+  artifactKey: Guid(2574cdaa58215c84baccbc8cfc9d58ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_Vaulted1.fbx using Guid(2574cdaa58215c84baccbc8cfc9d58ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4258c8631f3e7e686b48b797c200cc2') in 0.027749 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Meshes/Cobble Meshes/Upper_Wall_Thick.fbx
+  artifactKey: Guid(80d999609ff2a6e498836f4726d005bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Upper_Wall_Thick.fbx using Guid(80d999609ff2a6e498836f4726d005bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6a28473cca09d69190a2228e486eaac') in 0.025236 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Meshes/Cobble Meshes/Wall.fbx
+  artifactKey: Guid(7f28144ae056dff48af1546ac4c35028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Wall.fbx using Guid(7f28144ae056dff48af1546ac4c35028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a78d88cd8fff48fe6d418864c6e52209') in 0.029927 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 74.493372 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx
+  artifactKey: Guid(12da0873a3e3b9a49be394639282a674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx using Guid(12da0873a3e3b9a49be394639282a674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9a5331bfcd860bc936c40172bc9973e') in 0.023038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Meshes/Cobble Meshes/HalfPillar.fbx
+  artifactKey: Guid(658d00e5386be3549a2911186bb3deb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/HalfPillar.fbx using Guid(658d00e5386be3549a2911186bb3deb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7059fa13fa8e20bfdff51b53cb67741') in 0.028646 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_CurvedV2.fbx
+  artifactKey: Guid(b8876934fb279b54aa78b2285f013f37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_CurvedV2.fbx using Guid(b8876934fb279b54aa78b2285f013f37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e59c427df3f28ae0ac0f70e152759288') in 0.005040 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Quarter.fbx
+  artifactKey: Guid(80ecf2e96e856a7409637926ea57460f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Quarter.fbx using Guid(80ecf2e96e856a7409637926ea57460f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ebb8a85177afef0140108635e295147') in 0.030144 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.fbx
+  artifactKey: Guid(95d52d0be15520648bc4feca360d1d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.fbx using Guid(95d52d0be15520648bc4feca360d1d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9131243f447b601788408a43c635c1e0') in 0.074382 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Meshes/Cobble Meshes/Upper_Wall_Thick.fbx
+  artifactKey: Guid(80d999609ff2a6e498836f4726d005bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Upper_Wall_Thick.fbx using Guid(80d999609ff2a6e498836f4726d005bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '151e35986acdc916ea524c7f6f824935') in 0.023989 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_Vaulted2.fbx
+  artifactKey: Guid(97c02f72603ad3c459046ccfa2ac94c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_Vaulted2.fbx using Guid(97c02f72603ad3c459046ccfa2ac94c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d1cc557a3da6e4d5bd11a5c723e0c00') in 0.030512 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_Vaulted1.fbx
+  artifactKey: Guid(2574cdaa58215c84baccbc8cfc9d58ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_Vaulted1.fbx using Guid(2574cdaa58215c84baccbc8cfc9d58ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '008e19f4c50e2443532986b8e78570ca') in 0.024789 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_3_Quart.fbx
+  artifactKey: Guid(f2377d95bf6299a4e8cccc3cd1798b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_3_Quart.fbx using Guid(f2377d95bf6299a4e8cccc3cd1798b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff7386eee1bb5ba6673feca9540323bf') in 0.030671 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Meshes/Cobble Meshes/Upper_Wall.fbx
+  artifactKey: Guid(7bfee8be041e4a54787831d2126d1bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Upper_Wall.fbx using Guid(7bfee8be041e4a54787831d2126d1bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '561b8589b202e8c5080cddff2d1db7f7') in 0.020602 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Split.fbx
+  artifactKey: Guid(5177111aa27c6da43a44ec686ebf6b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Split.fbx using Guid(5177111aa27c6da43a44ec686ebf6b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b29a76129925dd14d595336f87ac22d') in 0.029007 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Plain.fbx
+  artifactKey: Guid(b8a3726b584444146b204464604e2366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Plain.fbx using Guid(b8a3726b584444146b204464604e2366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f90afe8b9d9239bec2c70c029bcf48ed') in 0.033748 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_CurvedV1.fbx
+  artifactKey: Guid(c82142acdb00e5949807eebe53b74922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_CurvedV1.fbx using Guid(c82142acdb00e5949807eebe53b74922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d9f2a5f946958aec7f6a306bd534582') in 0.004975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_Vaulted3.fbx
+  artifactKey: Guid(c6c8a716bb01bb0489db0949f153b6dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_Vaulted3.fbx using Guid(c6c8a716bb01bb0489db0949f153b6dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c930dd35650bab74b3c4dfd245594aeb') in 0.030938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Meshes/Cobble Meshes/Wall.fbx
+  artifactKey: Guid(7f28144ae056dff48af1546ac4c35028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Wall.fbx using Guid(7f28144ae056dff48af1546ac4c35028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf04a943d3f700bed7ada9a331b6a1d4') in 0.031082 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

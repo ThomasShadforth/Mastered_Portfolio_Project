@@ -15,7 +15,7 @@ D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50187
+56782
 Successfully changed project path to: D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
 D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Unity Projects/Github/Mastered_Portfolio_Project/Never_Crawler
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 98.57 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 83.67 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.11f1 (0a5ca18544bf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -63,95 +63,95 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56328
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56676
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.012866 seconds.
+Registered in 0.009951 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 90.43 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 82.81 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.700 seconds
+- Completed reload, in  0.610 seconds
 Domain Reload Profiling:
-	ReloadAssembly (701ms)
-		BeginReloadAssembly (84ms)
+	ReloadAssembly (611ms)
+		BeginReloadAssembly (76ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (489ms)
-			LoadAssemblies (80ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (425ms)
+			LoadAssemblies (71ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (113ms)
+			SetupTypeCache (97ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (293ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (253ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (91ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (144ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				RefreshPlugins (83ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (120ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006016 seconds.
+Registered in 0.005698 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 91.22 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 80.01 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.400 seconds
+- Completed reload, in  1.125 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1401ms)
-		BeginReloadAssembly (144ms)
+	ReloadAssembly (1126ms)
+		BeginReloadAssembly (106ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (7ms)
 			BackupInstance (0ms)
-			ReleaseScriptingObjects (1ms)
-			CreateAndSetChildDomain (26ms)
-		EndReloadAssembly (1130ms)
-			LoadAssemblies (122ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (916ms)
+			LoadAssemblies (88ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (319ms)
+			SetupTypeCache (247ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (65ms)
-			SetupLoadedEditorAssemblies (591ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (484ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (91ms)
-				BeforeProcessingInitializeOnLoad (98ms)
-				ProcessInitializeOnLoadAttributes (341ms)
-				ProcessInitializeOnLoadMethodAttributes (38ms)
-				AfterProcessingInitializeOnLoad (11ms)
+				RefreshPlugins (80ms)
+				BeforeProcessingInitializeOnLoad (88ms)
+				ProcessInitializeOnLoadAttributes (278ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.82 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4005 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 43 unused Assets / (184.9 KB). Loaded Objects now: 4463.
 Memory consumption went from 142.8 MB to 142.6 MB.
-Total: 3.943800 ms (FindLiveObjects: 0.385600 ms CreateObjectMapping: 0.104100 ms MarkObjects: 3.304100 ms  DeleteObjects: 0.148900 ms)
+Total: 3.727200 ms (FindLiveObjects: 0.406700 ms CreateObjectMapping: 0.107600 ms MarkObjects: 3.058100 ms  DeleteObjects: 0.153400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -166,57 +166,69 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 791456.099003 seconds.
-  path: Assets/Scripts/AI Scripts/AI Scriptable Object Assets/Actions/Test Boss Attack Action.asset
-  artifactKey: Guid(bc84c087689f58b48bb2f454e9932b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AI Scripts/AI Scriptable Object Assets/Actions/Test Boss Attack Action.asset using Guid(bc84c087689f58b48bb2f454e9932b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b16a30c14dfc91e77be5b22c82b30d0d') in 0.110328 seconds 
+  Time since last request: 1040891.493603 seconds.
+  path: Assets/Meshes/Cobble Prefabs
+  artifactKey: Guid(028909d4cb993b642a8c99465a652418) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs using Guid(028909d4cb993b642a8c99465a652418) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f41d98db3e02ae74fb4579cdf5862324') in 0.014694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.044954 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs
+  artifactKey: Guid(5ba068119ff7be24d93d9ef8ca671858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs using Guid(5ba068119ff7be24d93d9ef8ca671858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed88894e6bc44ef1a3d436a12599cf22') in 0.007134 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.782054 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Room Prefabs
+  artifactKey: Guid(afc6105ec81dd7a45afa0337972451a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Room Prefabs using Guid(afc6105ec81dd7a45afa0337972451a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '927bfa148cc2a76bd87bd6a1f78d1ae1') in 0.006181 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005935 seconds.
+Registered in 0.005486 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Github\Mastered_Portfolio_Project\Never_Crawler\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.44 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.209 seconds
+- Completed reload, in  1.227 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1210ms)
-		BeginReloadAssembly (150ms)
+	ReloadAssembly (1228ms)
+		BeginReloadAssembly (272ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (13ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (953ms)
+			CreateAndSetChildDomain (112ms)
+		EndReloadAssembly (862ms)
 			LoadAssemblies (100ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (291ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (53ms)
-			SetupLoadedEditorAssemblies (463ms)
+			SetupTypeCache (270ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (384ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (19ms)
+				InitializePlatformSupportModulesInManaged (15ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (75ms)
-				ProcessInitializeOnLoadAttributes (324ms)
-				ProcessInitializeOnLoadMethodAttributes (28ms)
-				AfterProcessingInitializeOnLoad (13ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (65ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.12 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 2.08 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3987 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 22 unused Assets / (150.7 KB). Loaded Objects now: 4479.
-Memory consumption went from 141.3 MB to 141.2 MB.
-Total: 4.834100 ms (FindLiveObjects: 0.608500 ms CreateObjectMapping: 0.174500 ms MarkObjects: 3.918400 ms  DeleteObjects: 0.131500 ms)
+Unloading 3998 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (150.7 KB). Loaded Objects now: 4489.
+Memory consumption went from 141.6 MB to 141.5 MB.
+Total: 4.605800 ms (FindLiveObjects: 0.428100 ms CreateObjectMapping: 0.119300 ms MarkObjects: 3.899400 ms  DeleteObjects: 0.158000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -229,3 +241,103 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3563.914234 seconds.
+  path: Assets/Scenes/Levels/Level_1.unity
+  artifactKey: Guid(a1769420417f1384eabe03bc3e7875b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/Level_1.unity using Guid(a1769420417f1384eabe03bc3e7875b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6dde62ae210c07ea6cbd6b84aa631d0') in 0.015148 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 85.087536 seconds.
+  path: Assets/Meshes/Cobble Meshes/Bricks059_1K_Color.jpg
+  artifactKey: Guid(e01e01e5cde2ba943852b85448879386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Bricks059_1K_Color.jpg using Guid(e01e01e5cde2ba943852b85448879386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58ff32dcfcfa419629d623ce871227e1') in 0.231963 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Meshes/Cobble Meshes/PavingStones051_1K_NormalDX.jpg
+  artifactKey: Guid(4a43807f159c7464aad6afd2f2a8d36c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/PavingStones051_1K_NormalDX.jpg using Guid(4a43807f159c7464aad6afd2f2a8d36c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc0478797630524134369191d62fc13f') in 0.015546 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Meshes/Cobble Meshes/HalfPillar.fbx
+  artifactKey: Guid(658d00e5386be3549a2911186bb3deb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/HalfPillar.fbx using Guid(658d00e5386be3549a2911186bb3deb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b84f41283dff4b111c77075f75d0677') in 0.150611 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Quarter.fbx
+  artifactKey: Guid(80ecf2e96e856a7409637926ea57460f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Quarter.fbx using Guid(80ecf2e96e856a7409637926ea57460f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6cdf636a0674a5433d606f980abe354') in 0.029168 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_T.fbx
+  artifactKey: Guid(a1783e92351208f43914f76f7f6899b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_T.fbx using Guid(a1783e92351208f43914f76f7f6899b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '594a928ea7514a8c4d8b4c9cf0b5d2cc') in 0.273279 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Meshes/Cobble Meshes/PavingStones051_1K_Color.jpg
+  artifactKey: Guid(2dce50a678599db438fed44e9b4b3bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/PavingStones051_1K_Color.jpg using Guid(2dce50a678599db438fed44e9b4b3bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9e24b7c2e4152861b8e988997bca171') in 0.014954 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Split.fbx
+  artifactKey: Guid(5177111aa27c6da43a44ec686ebf6b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Split.fbx using Guid(5177111aa27c6da43a44ec686ebf6b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '985130a589ef45dec2395df3af4a64f9') in 0.026074 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Stairwell.001.fbx
+  artifactKey: Guid(4c6db15dcb0c2ab4283f56c377ce70a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Stairwell.001.fbx using Guid(4c6db15dcb0c2ab4283f56c377ce70a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ae278359a450dfd6a359a0d560be39a') in 0.056262 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Corner.fbx
+  artifactKey: Guid(3d1a0821d8d0e7c488d67104c20f181b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Corner.fbx using Guid(3d1a0821d8d0e7c488d67104c20f181b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50f03c263e1ccbd8659fe858fe29a126') in 0.088103 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.794631 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Corner.fbx
+  artifactKey: Guid(3d1a0821d8d0e7c488d67104c20f181b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Corner.fbx using Guid(3d1a0821d8d0e7c488d67104c20f181b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40b2e80651ec92b28fd5f52e3bdb4afa') in 0.093087 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.fbx
+  artifactKey: Guid(95d52d0be15520648bc4feca360d1d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.fbx using Guid(95d52d0be15520648bc4feca360d1d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '857f0a55d596c6666d3d8aaaab711b13') in 0.079555 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Dead.fbx
+  artifactKey: Guid(1e8cb877fed77a94e818331107a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Dead.fbx using Guid(1e8cb877fed77a94e818331107a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8affded2785606a95efa58338911e1e7') in 0.093901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 53.145490 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Corner 1.fbx
+  artifactKey: Guid(a68b7cf6a665639418ce464f253fe462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Corner 1.fbx using Guid(a68b7cf6a665639418ce464f253fe462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65717425020f7e01aaaa95565774d6a7') in 0.089015 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.399348 seconds.
+  path: Assets/Meshes/Cobble Meshes/Roof_Flat.fbx
+  artifactKey: Guid(5116eec2dd51103449ebfc8fc45abf98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Roof_Flat.fbx using Guid(5116eec2dd51103449ebfc8fc45abf98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd883356111df3c216f1d03c8305e1a14') in 0.035030 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Meshes/Cobble Meshes/Upper_Wall.fbx
+  artifactKey: Guid(7bfee8be041e4a54787831d2126d1bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Upper_Wall.fbx using Guid(7bfee8be041e4a54787831d2126d1bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b3e957b925580a92e352b9925acfc55') in 0.027261 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
