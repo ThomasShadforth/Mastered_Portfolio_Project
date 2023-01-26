@@ -360,3 +360,55 @@ Received Import Request.
   path: Assets/Meshes/External Meshes/Stair_Well.fbx
   artifactKey: Guid(6b1e0072d5ba93644bfc8f50a3f3320e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Meshes/External Meshes/Stair_Well.fbx using Guid(6b1e0072d5ba93644bfc8f50a3f3320e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24a84ad4d026ac29160f0438a811641b') in 0.098754 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 343.957994 seconds.
+  path: Assets/Prefabs/Procedural Generation Managers
+  artifactKey: Guid(6db5281ecb806344b8b5335ee0aaff3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Procedural Generation Managers using Guid(6db5281ecb806344b8b5335ee0aaff3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b71d4e5cb549452eeae34554236588ec') in 0.006025 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 452.767693 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Corner.prefab
+  artifactKey: Guid(828a9e19d975c174997cba6d3e29e385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Corner.prefab using Guid(828a9e19d975c174997cba6d3e29e385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '716e42e1a85d355a640defe111bbf4ae') in 0.022983 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Stairwell.001.fbx
+  artifactKey: Guid(a3a00c491d6e0fc49a7472a994e8399c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Stairwell.001.fbx using Guid(a3a00c491d6e0fc49a7472a994e8399c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e3559636051e567a2116d654a7fb0f7') in 0.065683 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Dead.fbx
+  artifactKey: Guid(033aa8440f856e743b08af551369fe08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Dead.fbx using Guid(033aa8440f856e743b08af551369fe08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a741422963555d826523e071ed5b7c7a') in 0.092933 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Dead.prefab
+  artifactKey: Guid(c3b0722ba0848ad40ada1cce4f63d699) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Dead.prefab using Guid(c3b0722ba0848ad40ada1cce4f63d699) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a420dcdf7685123c3b49673cab642a0') in 0.016947 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.876039 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Stairwell.001.prefab
+  artifactKey: Guid(21dae1a289533ec418b289ca21d0061e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Stairwell.001.prefab using Guid(21dae1a289533ec418b289ca21d0061e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea4bd96190e95d055b134925e00b15f8') in 0.018052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.013342 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Straight.prefab
+  artifactKey: Guid(327a10999b9613e49aa40a2db72a773f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Straight.prefab using Guid(327a10999b9613e49aa40a2db72a773f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2de3e520b475232a78acf00f38408a34') in 0.016911 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.247449 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Pillar_Plain.prefab
+  artifactKey: Guid(d39095d0f842770438c85ab989ecd078) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Pillar_Plain.prefab using Guid(d39095d0f842770438c85ab989ecd078) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f1d13e07db8d76a78658cdb5853f033') in 0.015395 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

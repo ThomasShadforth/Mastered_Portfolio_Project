@@ -108,9 +108,11 @@ public class MazeGen : MonoBehaviour
     public Module doorLeft;
     public Module doorRight;
 
-    
+
+    [SerializeField] Transform dungeonParent;
     public GameObject player;
 
+    public bool isFirst;
     public int level = 0;
     public float heightModifier = 1.5f;
 
@@ -275,6 +277,8 @@ public class MazeGen : MonoBehaviour
 
         DrawMap();
 
+        
+
         if (player != null)
         {
             PlacePlayer();
@@ -297,6 +301,11 @@ public class MazeGen : MonoBehaviour
                     locations.Add(new MapLocation(j, i));
                 }
             }
+        }
+
+        if (!isFirst)
+        {
+            EnableDisableMeshes(false);
         }
     }
 
@@ -350,6 +359,38 @@ public class MazeGen : MonoBehaviour
         }
     }
 
+    public void EnableDisableMeshes(bool enabled)
+    {
+        for (int i = 0; i < zSize; i++)
+        {
+            for (int j = 0; j < xSize; j++)
+            {
+                if (piecePlaces[j, i].model != null)
+                {
+                    Renderer baseObjectRenderer = piecePlaces[j, i].model.GetComponent<Renderer>();
+
+                    if (baseObjectRenderer != null)
+                    {
+                        piecePlaces[j, i].model.GetComponent<Renderer>().enabled = enabled;
+                    }
+
+                    Renderer[] renderers = piecePlaces[j, i].model.gameObject.GetComponentsInChildren<Renderer>();
+
+                    if (renderers.Length != 0)
+                    {
+                        Debug.Log(renderers.Length);
+                        for (int k = 0; k < renderers.Length; k++)
+                        {
+                            renderers[k].enabled = enabled;
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+
     public void DrawMap()
     {
         float height = level * scale * heightModifier;
@@ -376,7 +417,7 @@ public class MazeGen : MonoBehaviour
                     end.transform.position = pos;
                     Vector3 rot = deadRight.rotation;
                     end.transform.eulerAngles = rot;
-                    end.transform.SetParent(this.gameObject.transform);
+                    end.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Dead_Right, end);
                 }
                 else if (Search2D(j, i, new int[] { 5, 1, 5, 1, 0, 0, 5, 1, 5 }))
@@ -388,7 +429,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 rot = deadLeft.rotation;
                     //rot.y = -90;
                     end.transform.eulerAngles = rot;
-                    end.transform.SetParent(this.gameObject.transform);
+                    end.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Dead_Left, end);
                 }
                 else if (Search2D(j, i, new int[] { 5, 1, 5, 1, 0, 1, 5, 0, 5 }))
@@ -398,7 +439,7 @@ public class MazeGen : MonoBehaviour
                     GameObject end = Instantiate(deadEnd.prefab);
                     end.transform.localEulerAngles = deadEnd.rotation;
                     end.transform.position = pos;
-                    end.transform.SetParent(this.gameObject.transform);
+                    end.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Dead_End, end);
                 }
                 else if (Search2D(j, i, new int[] { 5, 0, 5, 1, 0, 1, 5, 1, 5 }))
@@ -407,7 +448,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     GameObject end = Instantiate(deadUpsideDown.prefab);
                     end.transform.position = pos;
-                    end.transform.SetParent(this.gameObject.transform);
+                    end.transform.SetParent(dungeonParent);
                     Vector3 rot = deadUpsideDown.rotation;
                     
                     end.transform.eulerAngles = rot;
@@ -419,7 +460,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = verStraight.rotation;
                     GameObject straight = Instantiate(verStraight.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    straight.transform.SetParent(this.gameObject.transform);
+                    straight.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Vert_Straight, straight);
                 }
                 else if (Search2D(j, i, new int[] { 5, 1, 5, 0, 0, 0, 5, 1, 5 }))
@@ -428,7 +469,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = horStraight.rotation;
                     GameObject straight = Instantiate(horStraight.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    straight.transform.SetParent(this.gameObject.transform);
+                    straight.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Hor_Straight, straight);
                 }
                 else if (Search2D(j, i, new int[] { 1, 0, 1, 0, 0, 0, 1, 0, 1 }))
@@ -436,7 +477,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     //Instantiate crossroads piece
                     GameObject crossroad = Instantiate(crossroads.prefab, pos, Quaternion.identity);
-                    crossroad.transform.SetParent(this.gameObject.transform);
+                    crossroad.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Crossroad, crossroad);
                 }
                 //Corners
@@ -446,7 +487,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = rightUpCorn.rotation;
                     GameObject corner = Instantiate(rightUpCorn.prefab, pos, Quaternion.Euler(0, rot.y,0));
-                    corner.transform.SetParent(this.gameObject.transform);
+                    corner.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Right_Up_Corn, corner);
 
                 }
@@ -456,7 +497,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = leftUpCorn.rotation;
                     GameObject corner = Instantiate(leftUpCorn.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    corner.transform.SetParent(this.gameObject.transform);
+                    corner.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Left_Up_Corn, corner);
                 }
                 else if (Search2D(j, i, new int[] { 5, 0, 1, 1, 0, 0, 5, 1, 5 }))
@@ -466,7 +507,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 rot = leftDownCorn.rotation;
                     //Formerly 0
                     GameObject corner = Instantiate(leftDownCorn.prefab, pos, Quaternion.Euler(0,rot.y,0));
-                    corner.transform.SetParent(this.gameObject.transform);
+                    corner.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Left_Down_Corn, corner);
                 }
                 else if (Search2D(j, i, new int[] { 1, 0, 5, 5, 0, 1, 5, 1, 5 }))
@@ -475,7 +516,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = rightDownCorn.rotation;
                     GameObject corner = Instantiate(rightDownCorn.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    corner.transform.SetParent(this.gameObject.transform);
+                    corner.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.Right_Down_Corn, corner);
                 }
                 //TJuncts
@@ -485,7 +526,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = tUpsideDown.rotation;
                     GameObject tjunction = Instantiate(tUpsideDown.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    tjunction.transform.SetParent(this.gameObject.transform);
+                    tjunction.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.TUpsideDown, tjunction);
                 }
                 else if (Search2D(j, i, new int[] { 5, 1, 5, 0, 0, 0, 1, 0, 1 }))
@@ -494,7 +535,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = tJunct.rotation;
                     GameObject tjunction = Instantiate(tJunct.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    tjunction.transform.SetParent(this.gameObject.transform);
+                    tjunction.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.T_Junct, tjunction);
                 }
                 else if (Search2D(j, i, new int[] { 5, 0, 1, 1, 0, 0, 5, 0, 1 }))
@@ -503,7 +544,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = tLeft.rotation;
                     GameObject tjunction = Instantiate(tLeft.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    tjunction.transform.SetParent(this.gameObject.transform);
+                    tjunction.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.TToLeft, tjunction);
                 }
                 else if (Search2D(j, i, new int[] { 1, 0, 5, 0, 0, 1, 1, 0, 5 }))
@@ -512,7 +553,7 @@ public class MazeGen : MonoBehaviour
                     Vector3 pos = new Vector3(j * scale, height, i * scale);
                     Vector3 rot = tRight.rotation;
                     GameObject tjunction = Instantiate(tRight.prefab, pos, Quaternion.Euler(0, rot.y, 0));
-                    tjunction.transform.SetParent(this.gameObject.transform);
+                    tjunction.transform.SetParent(dungeonParent);
                     piecePlaces[j, i] = new Pieces(PieceType.TToRight, tjunction);
                 } 
                 else if(map[j, i] == 0 && ((CountNeighbours(j, i) > 1 && CountDiagNeighbours(j, i) >= 1)) ||
@@ -520,10 +561,10 @@ public class MazeGen : MonoBehaviour
 
                     GameObject floor = Instantiate(this.floor.prefab);
                     floor.transform.position = new Vector3(j * scale, height, i * scale);
-                    floor.transform.SetParent(this.gameObject.transform);
+                    floor.transform.SetParent(dungeonParent);
                     GameObject ceiling = Instantiate(this.ceiling.prefab);
                     ceiling.transform.position = new Vector3(j * scale, height, i * scale);
-                    ceiling.transform.SetParent(this.gameObject.transform);
+                    ceiling.transform.SetParent(dungeonParent);
 
                     piecePlaces[j, i] = new Pieces(PieceType.Room, floor);
 
@@ -538,7 +579,7 @@ public class MazeGen : MonoBehaviour
                         Vector3 rot = wallTop.rotation;
                         wall.transform.eulerAngles = rot;
                         wall.transform.position = new Vector3(j * scale, height, i * scale);
-                        wall.transform.SetParent(this.gameObject.transform);
+                        wall.transform.SetParent(dungeonParent);
 
                         if (map[j + 1, i] == 0 && map[j + 1, i + 1] == 0 && !pillarLocations.Contains(new MapLocation(j, i)))
                         {
@@ -547,7 +588,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Top Right";
                             pillarLocations.Add(new MapLocation(j, i));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
                         if (map[j - 1, i] == 0 && map[j - 1, i + 1] == 0 && !pillarLocations.Contains(new MapLocation(j - 1, i)))
@@ -557,7 +598,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Top Left";
                             pillarLocations.Add(new MapLocation(j - 1, i));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
 
@@ -566,7 +607,7 @@ public class MazeGen : MonoBehaviour
                     if (bottom)
                     {
                         GameObject wall = Instantiate(wallBottom.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(0, wallBottom.rotation.y, 0));
-                        wall.transform.SetParent(this.gameObject.transform);
+                        wall.transform.SetParent(dungeonParent);
 
 
                         if (map[j + 1, i] == 0 && map[j + 1, i - 1] == 0 && !pillarLocations.Contains(new MapLocation(j, i - 1)))
@@ -576,7 +617,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Bottom Right";
                             pillarLocations.Add(new MapLocation(j, i - 1));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
                         if (map[j - 1, i - 1] == 0 && map[j - 1, i] == 0 && !pillarLocations.Contains(new MapLocation(j - 1, i - 1)))
@@ -586,7 +627,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Bottom Left";
                             pillarLocations.Add(new MapLocation(j - 1, i - 1));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
                     }
@@ -594,7 +635,7 @@ public class MazeGen : MonoBehaviour
                     if (left)
                     {
                         GameObject wall = Instantiate(wallLeft.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(0, wallLeft.rotation.y, 0));
-                        wall.transform.SetParent(this.gameObject.transform);
+                        wall.transform.SetParent(dungeonParent);
 
                         if (map[j - 1, i + 1] == 0 && map[j, i + 1] == 0 && !pillarLocations.Contains(new MapLocation(j - 1, i)))
                         {
@@ -603,7 +644,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Left Top";
                             pillarLocations.Add(new MapLocation(j - 1, i));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
                         if (map[j - 1, i - 1] == 0 && map[j, i - 1] == 0 && !pillarLocations.Contains(new MapLocation(j - 1, i - 1)))
@@ -613,7 +654,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Left Bottom";
                             pillarLocations.Add(new MapLocation(j - 1, i - 1));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
                     }
@@ -621,7 +662,7 @@ public class MazeGen : MonoBehaviour
                     if (right)
                     {
                         GameObject wall = Instantiate(wallRight.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(0, wallRight.rotation.y, 0));
-                        wall.transform.SetParent(this.gameObject.transform);
+                        wall.transform.SetParent(dungeonParent);
 
                         if (map[j + 1, i + 1] == 0 && map[j, i + 1] == 0 && !pillarLocations.Contains(new MapLocation(j , i)))
                         {
@@ -630,7 +671,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Right Top";
                             pillarLocations.Add(new MapLocation(j, i));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
 
                         if (map[j + 1, i - 1] == 0 && map[j, i - 1] == 0 && !pillarLocations.Contains(new MapLocation(j, i - 1)))
@@ -640,7 +681,7 @@ public class MazeGen : MonoBehaviour
                             pillarCorner.name = "Right Bottom";
                             pillarLocations.Add(new MapLocation(j, i - 1));
                             pillarCorner.transform.localScale = new Vector3(1.01f, 1, 1.01f);
-                            pillarCorner.transform.SetParent(this.gameObject.transform);
+                            pillarCorner.transform.SetParent(dungeonParent);
                         }
                     }
 
@@ -678,7 +719,7 @@ public class MazeGen : MonoBehaviour
                     doorway = Instantiate(doorTop.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(rot));
                     doorway.name = "Top Exit";
                     doorway.transform.Translate(0, 0, 0.01f);
-                    doorway.transform.SetParent(this.gameObject.transform);
+                    doorway.transform.SetParent(dungeonParent);
                 }
                 if (bottom)
                 {
@@ -687,7 +728,7 @@ public class MazeGen : MonoBehaviour
                     doorway = Instantiate(doorBottom.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(rot));
                     doorway.name = "Bottom Exit";
                     doorway.transform.Translate(0, 0, 0.01f);
-                    doorway.transform.SetParent(this.gameObject.transform);
+                    doorway.transform.SetParent(dungeonParent);
                 }
                 if (left)
                 {
@@ -696,7 +737,7 @@ public class MazeGen : MonoBehaviour
                     doorway = Instantiate(doorLeft.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(rot));
                     doorway.name = "Left Exit";
                     doorway.transform.Translate(0, 0, 0.01f);
-                    doorway.transform.SetParent(this.gameObject.transform);
+                    doorway.transform.SetParent(dungeonParent);
                 }
                 if (right)
                 {
@@ -705,7 +746,7 @@ public class MazeGen : MonoBehaviour
                     doorway = Instantiate(doorRight.prefab, new Vector3(j * scale, height, i * scale), Quaternion.Euler(rot));
                     doorway.name = "Right Exit";
                     doorway.transform.Translate(0, 0, 0.01f);
-                    doorway.transform.SetParent(this.gameObject.transform);
+                    doorway.transform.SetParent(dungeonParent);
                 }
             }
         }
@@ -728,7 +769,7 @@ public class MazeGen : MonoBehaviour
                         if (objPlace.CheckSpawnChance())
                         {
                             spawnedObject = Instantiate(objPlace.prefabToPlace, new Vector3(j * scale, height, i * scale), Quaternion.Euler(0, piecePlaces[j, i].model.transform.rotation.y, 0));
-                            spawnedObject.transform.SetParent(this.gameObject.transform);
+                            spawnedObject.transform.SetParent(dungeonParent);
                         }
                     }
                 }
@@ -849,5 +890,25 @@ public class MazeGen : MonoBehaviour
     public int CountAllNeighbours(int x, int z)
     {
         return CountNeighbours(x, z) + CountDiagNeighbours(x, z);
+    }
+
+    //Experimental - testing the idea of disabling/enabling mesh renderers depending on if the player is within the range of the maze layers
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            EnableDisableMeshes(true);           
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            EnableDisableMeshes(false);
+        }
+        
     }
 }

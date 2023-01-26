@@ -437,3 +437,79 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1010.486609 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.fbx
+  artifactKey: Guid(e024a43168b2e254ab7e1ab2dc03b4a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.fbx using Guid(e024a43168b2e254ab7e1ab2dc03b4a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '176cb390055a3658463e74e3b493ce97') in 0.180164 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx
+  artifactKey: Guid(7dc060f24b4813e4dae0fc7217587c1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Cross.010.fbx using Guid(7dc060f24b4813e4dae0fc7217587c1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40df50621c34e5153fe56904a1bd370d') in 0.026340 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Cross.prefab
+  artifactKey: Guid(0e2ceb305b8f03c469a9d08245af982e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Floor_Cross.prefab using Guid(0e2ceb305b8f03c469a9d08245af982e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcbc1ee9cdcd142ca6be2780e4f943d4') in 0.017074 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.898883 seconds.
+  path: Assets/Meshes/Cobble Meshes/Floor_Straight.fbx
+  artifactKey: Guid(476bd7ac5dd19004e9eeb8a9af1878b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Floor_Straight.fbx using Guid(476bd7ac5dd19004e9eeb8a9af1878b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '795ee9bc46ff55711008ce4b612d2d89') in 0.071036 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.247928 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Stair_Well.prefab
+  artifactKey: Guid(3384c0a8acc1d9f41910ba30fed3cbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Maze Piece Prefabs/Stair_Well.prefab using Guid(3384c0a8acc1d9f41910ba30fed3cbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2c52750c5d5092ec8473daedfc67d06') in 0.020410 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 210.841432 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Corner.prefab
+  artifactKey: Guid(0940b71938f1a1d4b8df066df7ba7a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Corner.prefab using Guid(0940b71938f1a1d4b8df066df7ba7a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f52f77faa3ebdb84e54d7146744be22') in 0.018849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Door.prefab
+  artifactKey: Guid(86c5f0b29c7cab940ad345a3d7b5338f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Door.prefab using Guid(86c5f0b29c7cab940ad345a3d7b5338f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a1fbd9861f6d429374a3f92dea72609') in 0.017999 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Wall.prefab
+  artifactKey: Guid(5b239a13553128a45abc1180aeff4c4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Wall.prefab using Guid(5b239a13553128a45abc1180aeff4c4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07d58365b31d8546b6fa3454ad2c7e67') in 0.013306 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Wall_Blank.prefab
+  artifactKey: Guid(9c44b490dba8f6e498ad37260f022d87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Prefabs/Room Prefabs/Room_Wall_Blank.prefab using Guid(9c44b490dba8f6e498ad37260f022d87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edbe32d698a8f0f0552ca9e935cb20b5') in 0.011396 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.667657 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_3_Quart.fbx
+  artifactKey: Guid(f5bd650afd081eb418e6063c2a31f213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_3_Quart.fbx using Guid(f5bd650afd081eb418e6063c2a31f213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d26a364fe2b428818a6653b56da2fad') in 0.030210 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Base.fbx
+  artifactKey: Guid(09ac719f8cfc4ef43bc46284aeaf5acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Base.fbx using Guid(09ac719f8cfc4ef43bc46284aeaf5acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edde27fb0752759413ebed4b2cfb0fac') in 0.029912 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.654051 seconds.
+  path: Assets/Meshes/Cobble Meshes/Pillar_Split.fbx
+  artifactKey: Guid(19c577456e643074da948222158a2d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Cobble Meshes/Pillar_Split.fbx using Guid(19c577456e643074da948222158a2d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3e5de1f35ba7dc718ca85b79d592785') in 0.024089 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
