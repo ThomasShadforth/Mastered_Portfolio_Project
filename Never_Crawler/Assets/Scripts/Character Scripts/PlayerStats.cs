@@ -40,6 +40,9 @@ public class PlayerStats : MonoBehaviour
         InitialiseBaseStats();
 
         maxHealth = baseHealth + constitution.GetScoreModifier();
+
+        Debug.Log(maxHealth);
+
         InitializeExpValues();
 
         _input = new PlayerActionMap();

@@ -16,6 +16,7 @@ public class AttackCooldownDecision : Decision
     {
         if(thinker.attackCoolTimer > 0)
         {
+            Debug.Log("COOLDOWN SET!");
             return true;
         }
         else

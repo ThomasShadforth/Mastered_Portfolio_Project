@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.AbilitySlot1.performed += TriggerAbility1;
         _playerInput.Player.TestNoiseAction.performed += NoiseTest;
         _healthSystem = new HealthSystem(_stats.maxHealth);
+        Debug.Log(_healthSystem.GetHealth());
         _healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
         _playerHealthBar = GameObject.Find("PlayerHealthBar").GetComponent<HealthBar>();
         _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());

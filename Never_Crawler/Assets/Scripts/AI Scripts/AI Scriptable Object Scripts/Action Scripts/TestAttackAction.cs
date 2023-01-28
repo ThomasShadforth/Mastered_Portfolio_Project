@@ -27,8 +27,8 @@ public class TestAttackAction : Action
             if(player != null)
             {
                 
-                player._healthSystem.Damage(2);
-                Debug.Log(player._healthSystem.GetHealth());
+                player._healthSystem.Damage(1);
+                Debug.Log(player._healthSystem.GetHealthPercent());
             }
         }
 
