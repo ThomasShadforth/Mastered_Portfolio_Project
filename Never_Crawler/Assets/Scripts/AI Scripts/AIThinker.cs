@@ -43,6 +43,7 @@ public class AIThinker : MonoBehaviour
     public float attackCoolTimer;
 
     [Header("Additional Config Values")]
+    public bool active;
     public NavMeshAgent agent;
     public LayerMask playerLayer;
     public float rotationSmooth;
@@ -95,6 +96,13 @@ public class AIThinker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!active) return;
+
+        if (agent.enabled && !agent.isOnNavMesh)
+        {
+            return;
+        }
+
         if (currentState != null)
         {
             currentState.UpdateState(this);

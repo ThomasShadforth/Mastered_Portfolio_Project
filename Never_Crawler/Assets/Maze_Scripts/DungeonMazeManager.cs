@@ -16,7 +16,8 @@ public class DungeonMazeManager : MazeManager
     void Start()
     {
         int level = 0;
-        foreach(MazeGen maze in mazes)
+
+        foreach (MazeGen maze in mazes)
         {
             maze.xSize = xSize;
             maze.zSize = zSize;
@@ -112,5 +113,11 @@ public class DungeonMazeManager : MazeManager
         stairs.transform.SetParent(mazes[mazeIndex].gameObject.transform);
 
         return true;
+    }
+
+    IEnumerator GenerateMazeCo(int level)
+    {
+        yield return null;
+        
     }
 }

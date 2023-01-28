@@ -459,7 +459,7 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  minDistFromPoint: 0.5
+  minDistFromPoint: 1.2
   currentPatrolIndex: 0
   initialDestinationSet: 0
   waitTime: 2
@@ -468,6 +468,7 @@ MonoBehaviour:
   investigateTimer: 0
   attackCoolTime: 2
   attackCoolTimer: 0
+  active: 0
   agent: {fileID: 6195632904629038055}
   playerLayer:
     serializedVersion: 2
@@ -510,10 +511,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.17
-  m_Speed: 10.74
-  m_Acceleration: 15.21
+  m_Speed: 7
+  m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 49731.5
+  m_AngularSpeed: 49700
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

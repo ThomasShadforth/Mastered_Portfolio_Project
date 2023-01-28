@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1171236654089861147}
   - component: {fileID: 191660765962411781}
   - component: {fileID: 6999317490061177714}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6899328395840807824
 Transform:
@@ -111,12 +111,12 @@ GameObject:
   - component: {fileID: 8285648773489256004}
   - component: {fileID: 1545895694892464224}
   - component: {fileID: 5222986278673774939}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2117447927871493699
 Transform:
@@ -209,12 +209,12 @@ GameObject:
   - component: {fileID: 7190182064962860623}
   - component: {fileID: 1019908160531942911}
   - component: {fileID: 5012885172382664088}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Roof_CurvedV3.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7190182064962860623
 Transform:
@@ -293,12 +293,12 @@ GameObject:
   - component: {fileID: 8428173405002843319}
   - component: {fileID: 1252950892068966864}
   - component: {fileID: 1396582498649674769}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pillar.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7214821726034624066
 Transform:
@@ -393,12 +393,12 @@ GameObject:
   - component: {fileID: 7751830328196542062}
   - component: {fileID: 3472597614809269315}
   - component: {fileID: 4517735445080129518}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Floor_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8925892845435278593
 Transform:
@@ -510,12 +510,12 @@ GameObject:
   - component: {fileID: 8506809025327535788}
   - component: {fileID: 396266384617323469}
   - component: {fileID: 6520310442817844780}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8506809025327535788
 Transform:
@@ -648,6 +648,30 @@ PrefabInstance:
     - target: {fileID: 4181834880422441636, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
       propertyPath: m_Name
       value: WallTorch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181834880422441636, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181834880422441636, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181834880422441636, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133220975780105813, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133220975780105813, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133220975780105813, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}

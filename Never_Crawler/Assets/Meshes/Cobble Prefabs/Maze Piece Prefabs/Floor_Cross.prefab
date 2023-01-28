@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4617223748792998043}
   - component: {fileID: 3502869265306243547}
   - component: {fileID: 6577877567293213481}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4679208764333153385}
   - component: {fileID: 1336469345778951755}
   - component: {fileID: 2762427257470057775}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Roof_CurvedV3.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4355659753936601999}
   - component: {fileID: 632514769064626399}
   - component: {fileID: 5021565613861899427}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pillar.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 8063919839185237999}
   - component: {fileID: 2206410848600331221}
   - component: {fileID: 5347593966603030747}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 7478103859135645140}
   - component: {fileID: 889121617705553315}
   - component: {fileID: 5758256244953335229}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Floor_Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}

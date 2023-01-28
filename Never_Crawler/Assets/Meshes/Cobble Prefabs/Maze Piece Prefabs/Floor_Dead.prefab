@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 335356349638032078}
   - component: {fileID: 282117062512436767}
   - component: {fileID: 590093017433419039}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Floor_Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1138963943094987811}
   - component: {fileID: 77890988940195697}
   - component: {fileID: 8133639972357456813}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 8803239478420826162}
   - component: {fileID: 2674841882403905189}
   - component: {fileID: 8446816350300883144}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 1365989642113129811}
   - component: {fileID: 6903146357628697394}
   - component: {fileID: 4697713996526915759}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 4272085263404966411}
   - component: {fileID: 9064554228899777128}
   - component: {fileID: 2332256773308552288}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pillar.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 6991441767678091330}
   - component: {fileID: 6200132636335247346}
   - component: {fileID: 3840950193705403712}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Roof_CurvedV3.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,6 +648,14 @@ PrefabInstance:
     - target: {fileID: 4181834880422441636, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
       propertyPath: m_Name
       value: WallTorch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181834880422441636, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133220975780105813, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc40bd6f331d5a479549f9b24e6faab, type: 3}

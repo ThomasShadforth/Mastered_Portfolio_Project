@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using Unity.AI.Navigation;
+using UnityEngine.Experimental.AI;
 
 public class MapLocation
 {
@@ -111,6 +114,8 @@ public class MazeGen : MonoBehaviour
 
     [SerializeField] Transform dungeonParent;
     public GameObject player;
+    public GameObject enemyPrefab;
+    [SerializeField] NavMeshSurface _navMesh;
 
     public bool isFirst;
     public int level = 0;
@@ -303,10 +308,132 @@ public class MazeGen : MonoBehaviour
             }
         }
 
+        StartCoroutine(BuildNavMesh());
+
+        //Handle the placement of enemies (Will test spawning a single enemy for now)
+        EnemyPlacement enemyPlace = GetComponent<EnemyPlacement>();
+
+        //If the component exists, begin enemy placement
+        if (enemyPlace != null)
+        {
+            //Checks whether a position has been found
+            bool foundPlace = false;
+            //Stores the position an enemy will be spawned in
+            Vector3 posToPlace = Vector3.zero;
+            //Stores a temporary list of the positions where enemies have been spawned (Used in order to prevent enemies being spawned on top of one another
+            List<Vector3> enemyPositions = new List<Vector3>();
+            //Stores a temporary list of AIThinkers. Will get the scripts attached to the AI that are spawned
+            List<AIThinker> enemyAI = new List<AIThinker>();
+
+            //Cycle through how many enemies are spawned via this component
+            for (int i = 0; i < enemyPlace.numberOfEnemies; i++)
+            {
+
+                foundPlace = false;
+                //Do while - execute this loop, then check the condition
+                do
+                {
+                    //Get a random x and z index for the generated maze pieces
+                    int xIndex = Random.Range(0, xSize);
+                    int zIndex = Random.Range(0, zSize);
+
+                    //If a model exists there (isn't initially null or hasn't been deleted due to being replaced by a staircase) and the map has it's value set to 0
+                    if(piecePlaces[xIndex, zIndex].model != null && map[xIndex, zIndex] == 0)
+                    {
+                        //On the initial pass, spawn the enemy, record the position.
+                        if (enemyPositions.Count == 0)
+                        {
+                            foundPlace = true;
+                            posToPlace = piecePlaces[xIndex, zIndex].model.transform.position;
+                            enemyPositions.Add(posToPlace);
+                        }
+                        else
+                        {
+                            //Get the position in which the enemy may be spawned
+                            posToPlace = piecePlaces[xIndex, zIndex].model.transform.position;
+
+                            //Initialise a temp bool. Used to flag whether or not the spot is actually empty
+                            bool spotEmpty = true;
+
+                            //For each of the positions, check if the position matches any recorded spawn positions
+                            foreach(Vector3 position in enemyPositions)
+                            {
+                                if(position == posToPlace)
+                                {
+                                    spotEmpty = false;
+                                }
+                            }
+
+                            //If the spotEmpty variable remains true, then record the position, set foundPlace to true
+                            if (spotEmpty)
+                            {
+                                foundPlace = true;
+                                enemyPositions.Add(posToPlace);
+                            }
+                        }
+                    }
+                    //Exit the while loop if foundPlace is true
+                } while (!foundPlace);
+
+                //Spawn the enemy in the recorded position
+                GameObject enemyToSpawn = Instantiate(enemyPrefab, posToPlace, Quaternion.identity);
+                enemyToSpawn.transform.SetParent(transform);
+                enemyAI.Add(enemyToSpawn.GetComponent<AIThinker>());
+            }
+
+            List<GameObject> patrolPositions = new List<GameObject>();
+            Vector3 patrolPos = Vector3.zero;
+
+            for (int i = 0; i < enemyPlace.patrolPointNum; i++)
+            {
+                foundPlace = false;
+
+                do
+                {
+                    int xIndex = Random.Range(0, xSize);
+                    int zIndex = Random.Range(0, zSize);
+
+                    if(piecePlaces[xIndex, zIndex].model != null && map[xIndex, zIndex] == 0)
+                    {
+                        patrolPos = piecePlaces[xIndex, zIndex].model.transform.position;
+                        foundPlace = true;
+                    }
+                } while (!foundPlace);
+
+                GameObject patrolPoint = Instantiate(enemyPlace.patrolPoint, patrolPos, Quaternion.identity);
+                patrolPoint.transform.SetParent(transform);
+                patrolPositions.Add(patrolPoint);
+                
+            }
+
+            if (patrolPositions.Count != 0)
+            {
+                foreach (AIThinker ai in enemyAI)
+                {
+                    ai.patrolPoints = new Transform[2];
+                    List<GameObject> patrolPointsTemp = patrolPositions;
+
+                    Debug.Log(ai.patrolPoints.Length);
+
+                    int firstPatrolIndex = Random.Range(0, patrolPointsTemp.Count);
+                    ai.patrolPoints[0] = patrolPointsTemp[firstPatrolIndex].transform;
+
+                    patrolPointsTemp.RemoveAt(firstPatrolIndex);
+
+                    int secondPatrolIndex = Random.Range(0, patrolPointsTemp.Count);
+                    ai.patrolPoints[1] = patrolPointsTemp[secondPatrolIndex].transform;
+                    ai.active = true;
+                }
+            }
+
+        }
+
         if (!isFirst)
         {
             EnableDisableMeshes(false);
         }
+
+        
     }
 
     
@@ -378,7 +505,7 @@ public class MazeGen : MonoBehaviour
 
                     if (renderers.Length != 0)
                     {
-                        Debug.Log(renderers.Length);
+                        //Debug.Log(renderers.Length);
                         for (int k = 0; k < renderers.Length; k++)
                         {
                             renderers[k].enabled = enabled;
@@ -890,6 +1017,44 @@ public class MazeGen : MonoBehaviour
     public int CountAllNeighbours(int x, int z)
     {
         return CountNeighbours(x, z) + CountDiagNeighbours(x, z);
+    }
+
+    //Experimental - Testing the implementation of nav-meshes into the maze environment
+
+    IEnumerator BuildNavMesh()
+    {
+        yield return null;
+
+        if(_navMesh != null)
+        {
+            Debug.Log("building mesh!");
+            _navMesh.BuildNavMesh();
+        }
+
+        /*
+        for (int i = 0; i < zSize; i++)
+        {
+            for (int j = 0; j < xSize; j++)
+            {
+                //
+                //
+                GameObject piece = piecePlaces[j, i].model;
+
+                if (piece != null)
+                {
+                    NavMeshSurface meshSurface = piece.GetComponent<NavMeshSurface>();
+
+                    if (meshSurface != null)
+                    {
+                        Debug.Log(piece.name + " at pos: " + piece.transform.position + " with navmesh found!");
+                        meshSurface.BuildNavMesh();
+                        yield return null;
+                    }
+                }
+            }
+        }*/
+
+        
     }
 
     //Experimental - testing the idea of disabling/enabling mesh renderers depending on if the player is within the range of the maze layers

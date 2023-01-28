@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1653747027288490002}
   - component: {fileID: 6542119798851334153}
   - component: {fileID: 7922931472836366662}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Floor_T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5862124693491781745}
   - component: {fileID: 7265700972439918081}
   - component: {fileID: 6906887297567799858}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 7122989322468774038}
   - component: {fileID: 6921822139353223339}
   - component: {fileID: 1757634251085324599}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pillar.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 4419369194081153490}
   - component: {fileID: 185228997587350363}
   - component: {fileID: 6393040727320866441}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 1698444827280236860}
   - component: {fileID: 2069359546398892627}
   - component: {fileID: 5311660740072918984}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Roof_CurvedV3.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}

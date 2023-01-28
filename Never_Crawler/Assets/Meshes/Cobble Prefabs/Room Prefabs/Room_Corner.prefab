@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2998131119254224613}
   - component: {fileID: 1044684582112315951}
   - component: {fileID: 7825712141400853772}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Room_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4721225279898061472}
   - component: {fileID: 1203437054250040355}
   - component: {fileID: 965508154623871828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar_Quarter (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 1664069214855135749}
   - component: {fileID: 8115311134098988065}
   - component: {fileID: 5277830340852434041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 5777732424245034988}
   - component: {fileID: 230520448278061611}
   - component: {fileID: 5486318856111894227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper_Wall_Thick (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 8478710209497373786}
   - component: {fileID: 7440955905571650372}
   - component: {fileID: 1112272987883616114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 8016540073295855071}
   - component: {fileID: 222551615051111594}
   - component: {fileID: 4011699944070320268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar_Quarter (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3244519043581033194}
   - component: {fileID: 1921070512896488783}
   - component: {fileID: 4417455356372631941}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roof_Flat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1978961081693196649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Room_Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}

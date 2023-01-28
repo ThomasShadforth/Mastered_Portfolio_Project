@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4774871134635839472}
   - component: {fileID: 7461864748072371766}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 774727736010903132}
   - component: {fileID: 834707087250155208}
   - component: {fileID: 1231499500337687711}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Stair_Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 265107238281091217}
   - component: {fileID: 369461685443267548}
   - component: {fileID: 1240157789158651975}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 3865737590562290961}
   - component: {fileID: 9037509053757066374}
   - component: {fileID: 5322758029667641037}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 2309960803640471326}
   - component: {fileID: 9207268978988317504}
   - component: {fileID: 8737310518241673654}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WallTorch (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 4561526893541226703}
   - component: {fileID: 640099522925918058}
   - component: {fileID: 3388642429731439520}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WallTorch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6122792435917664104}
   - component: {fileID: 7671835058197357363}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
