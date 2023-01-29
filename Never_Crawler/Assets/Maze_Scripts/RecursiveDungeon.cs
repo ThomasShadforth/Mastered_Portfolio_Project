@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RecursiveDungeon : MazeGen
 {
-    string results;
     public override void Generate()
     {
         this.transform.position = Vector3.zero;
@@ -19,6 +18,7 @@ public class RecursiveDungeon : MazeGen
     {
         for (int i = 0; i < roomNumber; i++)
         {
+            //Debug.Log(gameObject.name + $" room number {i + 1} ");
             int startX = Random.Range(3, xSize - 3);
             int startZ = Random.Range(3, zSize - 3);
             int roomWidth = Random.Range(minRoomsize, maxRoomSize);
@@ -33,6 +33,70 @@ public class RecursiveDungeon : MazeGen
                 }
             }
         }
+    }
+
+    public override void SpawnBoss()
+    {
+        
+
+        bool _spawnFound = false;
+
+        int xIndex;
+        int zIndex;
+
+        Vector3 posToSpawn = Vector3.zero;
+        string debugName = "";
+
+        do
+        {
+            xIndex = Random.Range(0, xSize);
+            zIndex = Random.Range(0, zSize);
+
+            if(map[xIndex, zIndex] == 0 && ((CountNeighbours(xIndex, zIndex) > 1 && CountDiagNeighbours(xIndex, zIndex) >= 1) || (CountNeighbours(xIndex, zIndex) >= 1 && CountDiagNeighbours(xIndex, zIndex) > 1)))
+            {
+                if (piecePlaces[xIndex, zIndex].piece == PieceType.Room)
+                {
+                    posToSpawn = piecePlaces[xIndex, zIndex].model.transform.position;
+                    debugName = piecePlaces[xIndex, zIndex].model.name;
+                    _spawnFound = true;
+                }
+            }
+        } while (!_spawnFound);
+
+        BossData data = GetComponent<BossData>();
+
+        GameObject bossbattle = Instantiate(data.bossBattle);
+        BossBattle bossConfig = bossbattle.GetComponent<BossBattle>();
+
+        if(bossConfig != null)
+        {
+            
+
+            bossConfig.SetBossPhases(data.phase1Sstate, data.phase2Sstate, data.phase3Sstate);
+
+            GameObject bossEnemy = Instantiate(data.bossEnemy, posToSpawn, Quaternion.identity);
+            GameObject bossTrigger = Instantiate(data.bossTrigger, posToSpawn, Quaternion.identity);
+
+            ColliderTrigger trigger = bossTrigger.GetComponent<ColliderTrigger>();
+            AIThinker bossThinker = bossEnemy.GetComponent<AIThinker>();
+
+            if(bossThinker != null)
+            {
+                bossConfig.SetBossAI(bossThinker);
+            }
+
+            if(trigger != null)
+            {
+                bossConfig.SetBossTrigger(trigger);
+            }
+
+            bossEnemy.transform.SetParent(transform);
+            bossTrigger.transform.SetParent(transform);
+
+        }
+
+
+        //Debug.Log("Boss will be spawned at position: " + posToSpawn + " on: " + debugName);
     }
 
     void Generate(int x, int z)

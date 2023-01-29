@@ -462,9 +462,9 @@ MonoBehaviour:
   - {fileID: 1389515596}
   xSize: 30
   zSize: 30
-  roomNumbers: 020000000400000004000000
-  minRoomSizes: 030000000200000002000000
-  maxRoomSizes: 080000000600000006000000
+  roomNumbers: 020000000400000001000000
+  minRoomSizes: 03000000020000000f000000
+  maxRoomSizes: 080000000600000014000000
   stairwell: {fileID: 1279196795879894921, guid: 3384c0a8acc1d9f41910ba30fed3cbf7, type: 3}
 --- !u!4 &537877969
 Transform:
@@ -719,6 +719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389515597}
   - component: {fileID: 1389515596}
+  - component: {fileID: 1389515600}
   - component: {fileID: 1389515598}
   - component: {fileID: 1389515599}
   m_Layer: 0
@@ -892,6 +893,24 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!114 &1389515600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389515595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba68b16494cc69a46b4608c3153933ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase1Sstate: {fileID: 11400000, guid: 3bc0a9083f553824cac5b46ef3b0e6e2, type: 2}
+  phase2Sstate: {fileID: 0}
+  phase3Sstate: {fileID: 0}
+  bossEnemy: {fileID: 5403528439549056213, guid: a3c84b74390d37f428a8094aab4f4788, type: 3}
+  bossBattle: {fileID: 7140139516927455480, guid: b6a7914edc5635447867e00e2dc17db6, type: 3}
+  bossTrigger: {fileID: 5564985679102670152, guid: f2ba6bcbce6967f4796dde8a55628f96, type: 3}
 --- !u!1001 &1504579387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -901,11 +920,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 976889, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000021741582
+      value: -0.000021707452
       objectReference: {fileID: 0}
     - target: {fileID: 976889, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000028060483
+      value: 0.0000028016436
       objectReference: {fileID: 0}
     - target: {fileID: 1931473359, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_XAxis.m_MaxSpeed

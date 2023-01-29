@@ -413,8 +413,6 @@ public class MazeGen : MonoBehaviour
                     ai.patrolPoints = new Transform[2];
                     List<GameObject> patrolPointsTemp = patrolPositions;
 
-                    Debug.Log(ai.patrolPoints.Length);
-
                     int firstPatrolIndex = Random.Range(0, patrolPointsTemp.Count);
                     ai.patrolPoints[0] = patrolPointsTemp[firstPatrolIndex].transform;
 
@@ -426,6 +424,15 @@ public class MazeGen : MonoBehaviour
                 }
             }
 
+            
+
+        }
+
+        BossData _bossData = GetComponent<BossData>();
+
+        if (_bossData != null)
+        {
+            SpawnBoss();
         }
 
         if (!isFirst)
@@ -436,6 +443,10 @@ public class MazeGen : MonoBehaviour
         
     }
 
+    public virtual void SpawnBoss()
+    {
+
+    }
     
 
     public void InitializeMap()
@@ -1027,34 +1038,10 @@ public class MazeGen : MonoBehaviour
 
         if(_navMesh != null)
         {
-            Debug.Log("building mesh!");
+            
             _navMesh.BuildNavMesh();
         }
 
-        /*
-        for (int i = 0; i < zSize; i++)
-        {
-            for (int j = 0; j < xSize; j++)
-            {
-                //
-                //
-                GameObject piece = piecePlaces[j, i].model;
-
-                if (piece != null)
-                {
-                    NavMeshSurface meshSurface = piece.GetComponent<NavMeshSurface>();
-
-                    if (meshSurface != null)
-                    {
-                        Debug.Log(piece.name + " at pos: " + piece.transform.position + " with navmesh found!");
-                        meshSurface.BuildNavMesh();
-                        yield return null;
-                    }
-                }
-            }
-        }*/
-
-        
     }
 
     //Experimental - testing the idea of disabling/enabling mesh renderers depending on if the player is within the range of the maze layers

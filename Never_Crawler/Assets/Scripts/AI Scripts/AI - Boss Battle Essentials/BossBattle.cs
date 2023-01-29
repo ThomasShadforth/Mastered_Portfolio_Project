@@ -102,6 +102,23 @@ public class BossBattle : MonoBehaviour
         }
     }
 
+    public void SetBossAI(AIThinker bossAI)
+    {
+        this.bossAI = bossAI;
+    }
+
+    public void SetBossTrigger(ColliderTrigger trigger)
+    {
+        this.trigger = trigger;
+    }
+
+    public void SetBossPhases(State phase_1, State phase_2, State phase_3)
+    {
+        phase1State = phase_1;
+        phase2State = phase_2;
+        phase3State = phase_3;
+    }
+
     void DestroyAllEnemies()
     {
         foreach(GameObject enemy in enemiesPresent)
