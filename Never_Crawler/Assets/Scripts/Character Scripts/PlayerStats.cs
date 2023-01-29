@@ -28,8 +28,6 @@ public class PlayerStats : MonoBehaviour
     public int availableStatPoints = 0;
     int _previousStatPoints;
 
-    PlayerActionMap _input;
-
     public PlayerStats()
     {
         //Call the constructor when initialising the player's character and adding this script
@@ -45,9 +43,7 @@ public class PlayerStats : MonoBehaviour
 
         InitializeExpValues();
 
-        _input = new PlayerActionMap();
-        _input.Player.Enable();
-        _input.Player.TestAddExp.performed += AddExp;
+        
 
         _previousStatPoints = availableStatPoints;
     }
@@ -69,10 +65,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void AddExp(InputAction.CallbackContext context)
-    {
-        GainExp(500);
-    }
+    
 
     public void GainExp(int ExpToGain)
     {

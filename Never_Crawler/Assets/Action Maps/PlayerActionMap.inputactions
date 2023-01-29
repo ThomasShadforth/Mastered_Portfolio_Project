@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TestAddExp",
+                    "name": "PathFind",
                     "type": "Button",
                     "id": "10d74015-dd34-4082-9a1b-4a277e9bdbc0",
                     "expectedControlType": "Button",
@@ -196,11 +196,11 @@
                 {
                     "name": "",
                     "id": "8f336af4-c6ce-47d3-9e68-477e0ba7276b",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TestAddExp",
+                    "action": "PathFind",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

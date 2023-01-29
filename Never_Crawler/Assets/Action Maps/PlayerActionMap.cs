@@ -64,7 +64,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""TestAddExp"",
+                    ""name"": ""PathFind"",
                     ""type"": ""Button"",
                     ""id"": ""10d74015-dd34-4082-9a1b-4a277e9bdbc0"",
                     ""expectedControlType"": ""Button"",
@@ -218,11 +218,11 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8f336af4-c6ce-47d3-9e68-477e0ba7276b"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TestAddExp"",
+                    ""action"": ""PathFind"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -808,7 +808,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_AbilitySlot1 = m_Player.FindAction("AbilitySlot1", throwIfNotFound: true);
         m_Player_TestNoiseAction = m_Player.FindAction("TestNoiseAction", throwIfNotFound: true);
-        m_Player_TestAddExp = m_Player.FindAction("TestAddExp", throwIfNotFound: true);
+        m_Player_PathFind = m_Player.FindAction("PathFind", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -885,7 +885,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_AbilitySlot1;
     private readonly InputAction m_Player_TestNoiseAction;
-    private readonly InputAction m_Player_TestAddExp;
+    private readonly InputAction m_Player_PathFind;
     private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
@@ -895,7 +895,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @AbilitySlot1 => m_Wrapper.m_Player_AbilitySlot1;
         public InputAction @TestNoiseAction => m_Wrapper.m_Player_TestNoiseAction;
-        public InputAction @TestAddExp => m_Wrapper.m_Player_TestAddExp;
+        public InputAction @PathFind => m_Wrapper.m_Player_PathFind;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -918,9 +918,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @TestNoiseAction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
                 @TestNoiseAction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
                 @TestNoiseAction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
-                @TestAddExp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestAddExp;
-                @TestAddExp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestAddExp;
-                @TestAddExp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestAddExp;
+                @PathFind.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPathFind;
+                @PathFind.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPathFind;
+                @PathFind.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPathFind;
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
@@ -940,9 +940,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @TestNoiseAction.started += instance.OnTestNoiseAction;
                 @TestNoiseAction.performed += instance.OnTestNoiseAction;
                 @TestNoiseAction.canceled += instance.OnTestNoiseAction;
-                @TestAddExp.started += instance.OnTestAddExp;
-                @TestAddExp.performed += instance.OnTestAddExp;
-                @TestAddExp.canceled += instance.OnTestAddExp;
+                @PathFind.started += instance.OnPathFind;
+                @PathFind.performed += instance.OnPathFind;
+                @PathFind.canceled += instance.OnPathFind;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -1079,7 +1079,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnAbilitySlot1(InputAction.CallbackContext context);
         void OnTestNoiseAction(InputAction.CallbackContext context);
-        void OnTestAddExp(InputAction.CallbackContext context);
+        void OnPathFind(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions

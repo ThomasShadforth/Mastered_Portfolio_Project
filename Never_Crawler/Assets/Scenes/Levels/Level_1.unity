@@ -324,6 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49161fdd46793de42acfaae36e654d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minEnemyNum: 3
+  maxEnemyNum: 13
   numberOfEnemies: 2
   patrolPointNum: 10
   enemyTypes: []
@@ -703,7 +705,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.32666668
+  m_VoxelSize: 0.39
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
@@ -886,7 +888,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.32666668
+  m_VoxelSize: 0.39
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
@@ -899,23 +901,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 976889, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000021707452
+      value: -0.000021741582
       objectReference: {fileID: 0}
     - target: {fileID: 976889, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000028016436
-      objectReference: {fileID: 0}
-    - target: {fileID: 963194227, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
-      propertyPath: far clip plane
-      value: 60
+      value: 0.0000028060483
       objectReference: {fileID: 0}
     - target: {fileID: 1931473359, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_XAxis.m_MaxSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1931473359, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
-      propertyPath: m_Lens.FarClipPlane
-      value: 60
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 7647679979260535844, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_Name

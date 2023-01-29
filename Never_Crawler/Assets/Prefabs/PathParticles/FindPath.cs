@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(FindPathAStar))]
 public class FindPath : MonoBehaviour
@@ -11,38 +12,45 @@ public class FindPath : MonoBehaviour
     GameObject magic;
     PathMarker destination;
 
+    PlayerActionMap _input;
+
     // Start is called before the first frame update
     void Start()
     {
         pathAStar = GetComponent<FindPathAStar>();
+
+        _input = new PlayerActionMap();
+        _input.Player.Enable();
+        _input.Player.PathFind.performed += FindThePath;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        
+    }
+
+    void FindThePath(InputAction.CallbackContext context)
+    {
+        if (pathAStar != null)
         {
-            if(pathAStar != null)
+            RaycastHit hit;
+            Ray ray = new Ray(this.transform.position, Vector3.down);
+            if (Physics.Raycast(ray, out hit))
             {
-                RaycastHit hit;
-                Ray ray = new Ray(this.transform.position, Vector3.down);
-                if(Physics.Raycast(ray, out hit))
-                {
-                    thisMaze = hit.collider.gameObject.GetComponentInParent<MazeGen>();
-                    MapLoc thisLocation = hit.collider.gameObject.GetComponentInParent<MapLoc>();
+                thisMaze = hit.collider.gameObject.GetComponentInParent<MazeGen>();
+                MapLoc thisLocation = hit.collider.gameObject.GetComponentInParent<MapLoc>();
 
-                    MapLocation currentLocation = new MapLocation(thisLocation.x, thisLocation.z);
-                    MapLocation exitPoint = thisMaze.exitPoint;
+                MapLocation currentLocation = new MapLocation(thisLocation.x, thisLocation.z);
+                MapLocation exitPoint = thisMaze.exitPoint;
 
-                    destination = pathAStar.Build(currentLocation, exitPoint, thisMaze);
+                destination = pathAStar.Build(currentLocation, exitPoint, thisMaze);
 
-                    magic = Instantiate(particles, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                magic = Instantiate(particles, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
-                    StartCoroutine(DisplayPathGuide());
-                }
+                StartCoroutine(DisplayPathGuide());
             }
         }
-        
     }
 
     IEnumerator DisplayPathGuide()
@@ -64,10 +72,10 @@ public class FindPath : MonoBehaviour
             while (Vector2.Distance(new Vector2(magic.transform.position.x, magic.transform.position.z), new Vector2(thisMaze.piecePlaces[loc.x, loc.z].model.transform.position.x, thisMaze.piecePlaces[loc.x, loc.z].model.transform.position.z)) > 2 && loopTimeout < 100)
             {
                 magic.transform.Translate(0, 0, 10f * Time.deltaTime);
-                yield return new WaitForSeconds(.01f);
+                yield return null;
                 loopTimeout++;
             }
         }
-        Destroy(magic, 10);
+        Destroy(magic, 5);
     }
 }

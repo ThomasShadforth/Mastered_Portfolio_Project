@@ -326,7 +326,7 @@ public class MazeGen : MonoBehaviour
             List<AIThinker> enemyAI = new List<AIThinker>();
 
             //Cycle through how many enemies are spawned via this component
-            for (int i = 0; i < enemyPlace.numberOfEnemies; i++)
+            for (int i = 0; i < enemyPlace.GetEnemyNumber(); i++)
             {
 
                 foundPlace = false;
