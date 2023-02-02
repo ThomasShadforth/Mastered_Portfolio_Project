@@ -926,9 +926,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0000028016436
       objectReference: {fileID: 0}
+    - target: {fileID: 963194227, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
+      propertyPath: far clip plane
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1931473359, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_XAxis.m_MaxSpeed
       value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931473359, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7647679979260535844, guid: 560e1ff16a3561e4eb22915ef28742ab, type: 3}
       propertyPath: m_Name

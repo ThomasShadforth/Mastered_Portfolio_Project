@@ -15,6 +15,13 @@ public class Fireball : AbilitySO
             //Insert AI projectile method here
             SpawnProjectile(thinker.testProjectile, modifier, null, thinker);
         }
+
+        PlayAnim(ownerPlayer, thinker);
+    }
+
+    public override void PlayAnim(PlayerController ownerPlayer = null, AIThinker thinker = null)
+    {
+        base.PlayAnim(ownerPlayer, thinker);
     }
 
     void SpawnProjectile(GameObject projectilePrefab, int modifier, PlayerController ownerPlayer = null, AIThinker thinker = null)

@@ -22,4 +22,5 @@ MonoBehaviour:
   healsAlly: 0
   givesBuff: 0
   hitTextPrefab: {fileID: 171868046866115424, guid: 72db1bc1db2208f45b3f9b74a22547f8, type: 3}
+  animName: Magic_Cast_2
   type: 2
