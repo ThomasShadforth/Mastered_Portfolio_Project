@@ -6,6 +6,7 @@ public class MenuButton : MonoBehaviour
 {
     public int buttonValue;
     public int valueChange;
+    public bool allToggle;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,14 @@ public class MenuButton : MonoBehaviour
                 CharacterCreatorMenu.instance.ChangeAbilityValue(buttonValue, valueChange);
             } else if (CharacterCreatorMenu.instance.GetRandomMenuStatus().activeInHierarchy)
             {
-                CharacterCreatorMenu.instance.RandomizeValue(buttonValue);
+                if (!allToggle)
+                {
+                    CharacterCreatorMenu.instance.RandomizeValue(buttonValue);
+                }
+                else
+                {
+                    CharacterCreatorMenu.instance.RandomizeAll();
+                }
             } else if (CharacterCreatorMenu.instance.GetClassMenuStatus().activeInHierarchy)
             {
                 CharacterCreatorMenu.instance.SelectClass(buttonValue);

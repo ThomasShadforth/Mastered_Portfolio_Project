@@ -9,6 +9,8 @@ public class CharacterCreatorMenu : MonoBehaviour
 {
     public static CharacterCreatorMenu instance;
 
+    
+
     [Header("Menus")]
     [SerializeField] ConfirmationPopUp _popupMenu;
     [SerializeField] GameObject _randomStatMenu;
@@ -157,6 +159,8 @@ public class CharacterCreatorMenu : MonoBehaviour
             int modifier = CalculateAbilityModifier(int.Parse(_abilityScoreTexts[i].text));
             SetStatModifierText(modifier, _abilityModifierTexts[i]);
         }
+
+        _pointBuyCount.text = $"Remaining Points: {pointBuyRemaining}";
     }
 
     
@@ -179,7 +183,9 @@ public class CharacterCreatorMenu : MonoBehaviour
         }
 
         storedValue += valueChange;
-        pointBuyRemaining += valueChange;
+        pointBuyRemaining += -valueChange;
+
+        _pointBuyCount.text = $"Remaining Points: {pointBuyRemaining}";
 
         _abilityScoreTexts[index].text = storedValue.ToString();
         int modifier = CalculateAbilityModifier(storedValue);
@@ -220,6 +226,23 @@ public class CharacterCreatorMenu : MonoBehaviour
     {
         //Debug.Log(index);
         StartCoroutine(RandomizeCo(index));
+    }
+
+    public void RandomizeAll()
+    {
+        StartCoroutine(DelayedRandomizeCo());
+    }
+
+    IEnumerator DelayedRandomizeCo()
+    {
+        for(int i = 0; i < _abilityScoreTexts.Length; i++)
+        {
+            StartCoroutine(RandomizeCo(i));
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        
     }
 
     IEnumerator RandomizeCo(int index)
