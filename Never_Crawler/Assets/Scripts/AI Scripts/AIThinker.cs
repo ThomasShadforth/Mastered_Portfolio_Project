@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIThinker : MonoBehaviour
+public class AIThinker : Subject
 {
     [Header("General Enemy Properties")]
     public int enemyMaxHealth;
@@ -48,6 +48,8 @@ public class AIThinker : MonoBehaviour
     public LayerMask playerLayer;
     public float rotationSmooth;
     public float currSmoothVelocity;
+    public CombatActionEnum enemyMinExp;
+    public CombatActionEnum enemyMaxExp;
 
     [Header("Test prefab values")]
     //Test projectile prefab reference
@@ -62,6 +64,8 @@ public class AIThinker : MonoBehaviour
     bool _investigatingNoise;
     float _noiseRadius;
 
+    int layerIndex;
+
     LineOfSight enemyLOS;
     [HideInInspector]
     public bool canSeePlayer;
@@ -69,11 +73,13 @@ public class AIThinker : MonoBehaviour
     private void OnEnable()
     {
         Noise.SoundEvent += OnHearNoise;
+        AddObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
     }
 
     private void OnDisable()
     {
         Noise.SoundEvent -= OnHearNoise;
+        RemoveObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
     }
 
     private void Awake()
@@ -91,6 +97,7 @@ public class AIThinker : MonoBehaviour
         stats = GetComponent<AIStats>();
         healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
         _enemyHealthBar = GetComponentInChildren<HealthBar>();
+        
     }
 
     // Update is called once per frame
@@ -123,7 +130,19 @@ public class AIThinker : MonoBehaviour
         if(healthSystem.GetHealth() <= 0)
         {
             //Destroy(gameObject);
+            NotifyObservers(CombatActionEnum.enemy_Died, enemyMinExp, enemyMaxExp, CombatActionEnum.enemy_Died);
+
+            if(EnemyObjectPool.instance != null)
+            {
+                EnemyObjectPool.instance.AddToPool(gameObject, layerIndex);
+            }
+
         }
+    }
+
+    public void SetLayerIndex(int index)
+    {
+        layerIndex = index;
     }
 
     public void TransitionToState(State nextState)

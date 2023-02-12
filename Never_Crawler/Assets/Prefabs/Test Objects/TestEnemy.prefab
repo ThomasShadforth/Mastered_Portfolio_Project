@@ -475,6 +475,8 @@ MonoBehaviour:
     m_Bits: 64
   rotationSmooth: 0.05
   currSmoothVelocity: 0
+  enemyMinExp: 18
+  enemyMaxExp: 19
   testProjectile: {fileID: 0}
   playerTarget: {fileID: 0}
   _rb: {fileID: 0}

@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : CharacterStats, IObserver
 {
-    public Stat strength, dexterity, constitution, charisma, intelligence, wisdom;
-
-    public int armourClass;
-
     public int baseHealth;
     public int maxHealth;
 
@@ -23,8 +19,6 @@ public class PlayerStats : MonoBehaviour
 
     public float carryWeight;
 
-
-
     public int availableStatPoints = 0;
     int _previousStatPoints;
 
@@ -33,23 +27,13 @@ public class PlayerStats : MonoBehaviour
         //Call the constructor when initialising the player's character and adding this script
     }
 
-    void Start()
+    public override void CalculateAdditionalValues()
     {
-        InitialiseBaseStats();
-
         maxHealth = baseHealth + constitution.GetScoreModifier();
 
         InitializeExpValues();
 
-        
-
         _previousStatPoints = availableStatPoints;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void InitializeExpValues()
@@ -67,6 +51,9 @@ public class PlayerStats : MonoBehaviour
 
     public void GainExp(int ExpToGain)
     {
+        ExpUI expUI = ExpTextObjectPool.instance.GetFromPool().GetComponent<ExpUI>();
+        expUI.SetTextandPosition($"Gained {ExpToGain} EXP!", transform.position);
+
         currentEXP += ExpToGain;
         if (currentLevel < maxLevel)
         {
@@ -104,38 +91,6 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-
-    public int RollBaseStat()
-    {
-        int rolledStat = 0;
-        List<int> statRolls = new List<int>();
-
-        for (int i = 0; i < 4; i++)
-        {
-            int roll = Random.Range(1, 7);
-            statRolls.Add(roll);
-        }
-
-        statRolls.Sort();
-        statRolls.Reverse();
-
-        statRolls.RemoveAt(statRolls.Count - 1);
-
-        //Debug.Log(statRolls.Count);
-
-        for(int i = 0; i < statRolls.Count; i++)
-        {
-            //Debug.Log(rolledStat);
-            //Debug.Log(statRolls[i]);
-
-            rolledStat += statRolls[i];
-        }
-
-        
-
-        return rolledStat;
-    }
-
     public int GetPreviousStatPoints()
     {
         return _previousStatPoints;
@@ -152,21 +107,8 @@ public class PlayerStats : MonoBehaviour
         _previousStatPoints = availableStatPoints;
     }
 
-    public void CalculateAC()
+    public override void InitialiseBaseStats()
     {
-        armourClass = 10 + dexterity.GetScoreModifier();
-    }
-
-    void InitialiseBaseStats()
-    {
-        /*
-        strength = new Stat(RollBaseStat());
-        dexterity = new Stat(RollBaseStat());
-        constitution = new Stat(RollBaseStat());
-        charisma = new Stat(RollBaseStat());
-        intelligence = new Stat(RollBaseStat());
-        wisdom = new Stat(RollBaseStat());*/
-
         strength = new Stat(CreatorDataHandler.statValues[0] > 0 ? CreatorDataHandler.statValues[0] : 10);
         dexterity = new Stat(CreatorDataHandler.statValues[1]);
         constitution = new Stat(CreatorDataHandler.statValues[2]);
@@ -175,5 +117,23 @@ public class PlayerStats : MonoBehaviour
         charisma = new Stat(CreatorDataHandler.statValues[5]);
 
         carryWeight = strength.GetBaseValue() * 15;
+    }
+
+    public void OnNotify(CombatActionEnum actionType, CombatActionEnum minExp = CombatActionEnum.enemy_Died, CombatActionEnum maxExp = CombatActionEnum.enemy_Died, CombatActionEnum mod = CombatActionEnum.enemy_Died)
+    {
+        if(actionType == CombatActionEnum.enemy_Died)
+        {
+            //Increase exp
+            string[] splitMinExp = minExp.ToString().Split('_');
+            string[] splitMaxExp = maxExp.ToString().Split('_');
+
+            int minExpBound = int.Parse(splitMinExp[1]);
+            int maxExpBound = int.Parse(splitMaxExp[1]);
+
+            int expGained = Random.Range(minExpBound, maxExpBound + 1);
+
+            GainExp(expGained);
+
+        }
     }
 }

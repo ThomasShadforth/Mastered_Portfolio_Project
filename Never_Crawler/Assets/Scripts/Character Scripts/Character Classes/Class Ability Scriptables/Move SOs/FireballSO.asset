@@ -16,8 +16,10 @@ MonoBehaviour:
   description: An intense ball of searing flame
   requiredLevel: 0
   effectVal: 20
-  diceNum: 4
-  maxDamageVal: 4
+  actionType: 0
+  diceNum: 6
+  maxDamage: 11
+  modifier: 23
   isAttack: 1
   healsAlly: 0
   givesBuff: 0

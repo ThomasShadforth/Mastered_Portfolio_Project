@@ -10,8 +10,14 @@ public abstract class AbilitySO : ScriptableObject
     public int requiredLevel;
     public int effectVal;
 
+    public CombatActionEnum actionType;
+    public CombatActionEnum diceNum;
+    public CombatActionEnum maxDamage;
+    public CombatActionEnum modifier;
+
+    /*
     public int diceNum;
-    public int maxDamageVal;
+    public int maxDamageVal;*/
 
     public bool isAttack;
     public bool healsAlly;
@@ -19,7 +25,6 @@ public abstract class AbilitySO : ScriptableObject
 
     public HitUI hitTextPrefab;
     public string animName;
-
 
     public AttackType type;
 

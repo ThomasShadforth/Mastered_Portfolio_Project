@@ -7,7 +7,7 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerAvatarMask
-  m_Mask: 00000000010000000000000000000000000000000100000001000000000000000000000000000000000000000000000000000000
+  m_Mask: 00000000000000000000000000000000000000000100000001000000000000000000000000000000000000000000000000000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
@@ -42,37 +42,37 @@ AvatarMask:
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/Eye_L
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/Eye_L/EyeEnd_L
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/Eye_R
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/Eye_R/EyeEnd_R
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/HeadEnd_M
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/Jaw_M
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/Jaw_M/JawEnd_M
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyeBrow_L
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyeBrow_L/jnt_eyeBrow_LEnd_L
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyeBrow_R
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyeBrow_R/jnt_eyeBrowEnd_R
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyelid_L
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyelid_L/jnt_eyelid_LEnd_L
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyelid_R
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Neck_M/Head_M/jnt_eyelid_R/jnt_eyelidEnd_R
     m_Weight: 1
   - m_Path: Armature/Root_M/Spine1_M/Spine2_M/Chest_M/Scapula_L
@@ -192,7 +192,7 @@ AvatarMask:
   - m_Path: Mesh/Body/Body_Hands
     m_Weight: 1
   - m_Path: Mesh/Body/Body_Head
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Mesh/Body/Body_Legs
     m_Weight: 1
   - m_Path: Mesh/Body/Body_Neck

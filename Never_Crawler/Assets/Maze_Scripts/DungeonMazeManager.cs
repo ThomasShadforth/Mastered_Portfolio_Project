@@ -26,6 +26,8 @@ public class DungeonMazeManager : MazeManager
             maze.minRoomsize = minRoomSizes[level];
             maze.maxRoomSize = maxRoomSizes[level];
 
+            maze.SetLayerIndex(level);
+
             maze.level = level++;
 
             maze.Build();

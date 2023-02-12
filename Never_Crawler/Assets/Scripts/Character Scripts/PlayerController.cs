@@ -11,7 +11,7 @@ public enum encumbranceStates
     tooHeavy
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Subject
 {
     [Header("Character Class Brain")]
     public BaseClassSO classBrain;
@@ -184,6 +184,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PrepareCombatNotify(CombatActionEnum combatAction)
+    {
+        NotifyObservers(combatAction);
+    }
+
+    public void PrepareCombatNotify(CombatActionEnum actionType, CombatActionEnum diceNum, CombatActionEnum maxDamage, CombatActionEnum modifier)
+    {
+        NotifyObservers(actionType, diceNum, maxDamage, modifier);
+    }
+
     public PlayerStats GetPlayerStats()
     {
         if (GetComponent<PlayerStats>())
@@ -208,5 +218,7 @@ public class PlayerController : MonoBehaviour
             _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());
         }
     }
+
+
 
 }

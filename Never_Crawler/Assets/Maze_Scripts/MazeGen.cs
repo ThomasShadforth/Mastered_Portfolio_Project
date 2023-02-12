@@ -10,6 +10,8 @@ public class MapLocation
     public int x;
     public int z;
 
+    
+
     public MapLocation(int x, int z)
     {
         this.x = x;
@@ -58,6 +60,7 @@ public class MazeGen : MonoBehaviour
 
     public List<MapLocation> pillarLocations = new List<MapLocation>();
 
+    public int mazeLayer { get; private set; }
 
     public int xSize;
     public int zSize;
@@ -158,6 +161,11 @@ public class MazeGen : MonoBehaviour
 
     public Pieces[,] piecePlaces;
     public List<MapLocation> locations = new List<MapLocation>();
+
+    public void SetLayerIndex(int index)
+    {
+        mazeLayer = index;
+    }
 
     // Start is called before the first frame update
     public void Build()
@@ -410,6 +418,7 @@ public class MazeGen : MonoBehaviour
             {
                 foreach (AIThinker ai in enemyAI)
                 {
+                    ai.SetLayerIndex(mazeLayer);
                     ai.patrolPoints = new Transform[2];
                     List<GameObject> patrolPointsTemp = patrolPositions;
 
@@ -1050,7 +1059,23 @@ public class MazeGen : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player"))
         {
-            EnableDisableMeshes(true);           
+            EnableDisableMeshes(true);
+            if(EnemyObjectPool.instance != null)
+            {
+                GameObject[] aiToRespawn = EnemyObjectPool.instance.GetArrayFromPool(mazeLayer);
+                Debug.Log(aiToRespawn.Length);
+
+                if(aiToRespawn.Length != 0)
+                {
+                    foreach(var AI in aiToRespawn)
+                    {
+                        AI.SetActive(true);
+                        AI.GetComponent<AIThinker>().healthSystem.Heal(AI.GetComponent<AIThinker>().enemyMaxHealth);
+                    }
+                }
+
+            }
+
         }
     }
 

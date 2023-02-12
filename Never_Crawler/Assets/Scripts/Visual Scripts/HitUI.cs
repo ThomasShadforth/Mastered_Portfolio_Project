@@ -7,13 +7,14 @@ using TMPro;
 public class HitUI : MonoBehaviour
 {
     public float destroyTime;
+    float lifeTime;
     public float rotationSmooth;
     [SerializeField] TextMeshProUGUI _damageUI;
     float _currSmoothVelo;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyObject", destroyTime);
+        //Invoke("DestroyObject", destroyTime);
     }
 
     // Update is called once per frame
@@ -22,12 +23,28 @@ public class HitUI : MonoBehaviour
         //Set rotation, move up
         transform.rotation = Quaternion.Euler(0, GetAngleTowardPlayer(), 0);
         transform.position = new Vector3(transform.position.x, transform.position.y + 3 * GamePause.deltaTime, transform.position.z);
+
+        if(lifeTime < destroyTime)
+        {
+            lifeTime += GamePause.deltaTime;
+        }
+        else
+        {
+            lifeTime = 0;
+            ReturnObjectToPool();
+        }
+
     }
 
     public void SetUITextAndPos(string textToSet, Vector3 objectPos)
     {
         transform.position = objectPos;
         _damageUI.text = textToSet;
+    }
+
+    void ReturnObjectToPool()
+    {
+        HitTextObjectPool.instance.AddToPool(gameObject);
     }
 
     //Use for now, try and make object pool later

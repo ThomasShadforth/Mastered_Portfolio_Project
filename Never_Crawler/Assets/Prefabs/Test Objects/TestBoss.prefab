@@ -173,6 +173,8 @@ MonoBehaviour:
     m_Bits: 64
   rotationSmooth: 0.05
   currSmoothVelocity: 0
+  enemyMinExp: 19
+  enemyMaxExp: 21
   testProjectile: {fileID: 8445156391229477373, guid: bcfa51a6f849d5e41accb18b7f5c5eab, type: 3}
   playerTarget: {fileID: 0}
   _rb: {fileID: 0}

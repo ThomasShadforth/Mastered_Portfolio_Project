@@ -37,7 +37,7 @@ public class ProjectileBase : MonoBehaviour
         {
             bool hasHit;
 
-            HitUI hitText = Instantiate(damagePrefab);
+            HitUI hitText = HitTextObjectPool.instance.GetFromPool().GetComponent<HitUI>();
 
             if(playerState == encumbranceStates.normal)
             {
@@ -53,7 +53,7 @@ public class ProjectileBase : MonoBehaviour
             {
                 //
                 int damage = _attack.DamageRoll(diceNum, maxDamageVal, modifier);
-                Debug.Log(damage);
+                //Debug.Log(damage);
                 AI.healthSystem.Damage(damage);
                 hitText.SetUITextAndPos($"Hit! \n {damage} damage!", other.transform.position);
             }
