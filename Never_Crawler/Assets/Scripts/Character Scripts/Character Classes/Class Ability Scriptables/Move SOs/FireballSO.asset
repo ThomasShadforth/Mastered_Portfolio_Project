@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Fireball
   description: An intense ball of searing flame
+  defaultAbility: 1
   requiredLevel: 0
   effectVal: 20
   actionType: 0

@@ -15,6 +15,6 @@ public class ActionSlot : MonoBehaviour
     {
         ClassMenu menu = PauseMenu.instance.GetComponent<ClassMenu>();
 
-        menu.AssignActionToSlot(buttonValue);
+        menu.AssignActionToSlot(buttonValue, menu.activeAbilitySO);
     }
 }

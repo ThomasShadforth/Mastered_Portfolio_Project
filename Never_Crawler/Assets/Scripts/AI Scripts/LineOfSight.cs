@@ -43,7 +43,9 @@ public class LineOfSight : MonoBehaviour
         if(rangeChecks.Length != 0)
         {
             Transform targetTransform = rangeChecks[0].transform;
+
             Vector3 directionToTarget = (targetTransform.position - transform.position).normalized;
+            directionToTarget += new Vector3(0, .3f, 0);
 
             if(Vector3.Angle(transform.forward, directionToTarget) < losAngle / 2){
                 float distanceToTarget = Vector3.Distance(transform.position, targetTransform.position);

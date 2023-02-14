@@ -12,6 +12,12 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _playerController = GetComponentInParent<PlayerController>();
+
+        if(_playerController == null)
+        {
+            _playerController = GetComponent<PlayerController>();
+        }
+
     }
 
     // Update is called once per frame
@@ -53,6 +59,13 @@ public class PlayerAnimator : MonoBehaviour
 
     public void ResetAnimation()
     {
-        _animator.Play("Default");
+        for(int i = 0; i < _animator.layerCount; i++)
+        {
+            if(_animator.HasState(i, Animator.StringToHash("Default")))
+            {
+                _animator.Play(Animator.StringToHash("Default"), i);
+            }
+        }
+        //_animator.Play("Default");
     }
 }

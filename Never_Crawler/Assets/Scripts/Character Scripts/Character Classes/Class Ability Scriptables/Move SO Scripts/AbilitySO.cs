@@ -7,6 +7,7 @@ public abstract class AbilitySO : ScriptableObject
     public string abilityName;
     public string description;
 
+    public bool defaultAbility;
     public int requiredLevel;
     public int effectVal;
 
@@ -20,8 +21,7 @@ public abstract class AbilitySO : ScriptableObject
     public int maxDamageVal;*/
 
     public bool isAttack;
-    public bool healsAlly;
-    public bool givesBuff;
+    
 
     public HitUI hitTextPrefab;
     public string animName;

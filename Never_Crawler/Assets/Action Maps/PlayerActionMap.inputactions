@@ -33,6 +33,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "AbilitySlot2",
+                    "type": "Button",
+                    "id": "8d67f55c-ecb8-4264-964c-2c8b74f24623",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AbilitySlot3",
+                    "type": "Button",
+                    "id": "7e3a4b73-5e8b-4329-ab99-ce56770df6ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AbilitySlot4",
+                    "type": "Button",
+                    "id": "8e81b700-7ef1-4720-b814-6bd519693a7f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "TestNoiseAction",
                     "type": "Button",
                     "id": "2d08b666-848f-467d-8a48-1a810941c291",
@@ -185,7 +212,7 @@
                 {
                     "name": "",
                     "id": "3a382fc1-d2f8-4ffd-a44f-3841c0abf05e",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -245,6 +272,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b41656d4-bc25-4239-868f-94203d7acdaf",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "AbilitySlot2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8f63f92-304c-49d4-bfea-455651a2f730",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "AbilitySlot3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4254129-fc08-49b0-95b6-a2c01c5708e8",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "AbilitySlot4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

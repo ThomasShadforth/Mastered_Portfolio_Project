@@ -9,10 +9,12 @@ public class ClassMenu : MonoBehaviour
     public ClassButton[] classButtons;
     public ActionSlot[] actionSlots;
 
+    [SerializeField] GameObject _classScreen;
 
     int activeAbilityIndex;
     ClassMoveSO activeAbility;
-    AbilitySO activeAbilitySO;
+    [HideInInspector]
+    public AbilitySO activeAbilitySO;
 
 
     BaseClassSO _playerClass;
@@ -32,7 +34,8 @@ public class ClassMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = FindObjectOfType<PlayerController>();
+        _playerClass = FindObjectOfType<PlayerController>().classBrain;
     }
 
     // Update is called once per frame
@@ -43,8 +46,7 @@ public class ClassMenu : MonoBehaviour
 
     public void OpenClassMenu()
     {
-        _player = FindObjectOfType<PlayerController>();
-        _playerClass = FindObjectOfType<PlayerController>().classBrain;
+        
 
         for (int i = 0; i < classButtons.Length; i++)
         {
@@ -122,16 +124,24 @@ public class ClassMenu : MonoBehaviour
         }
     }
 
-    public void AssignActionToSlot(int slotNumber)
+    public void AssignActionToSlot(int slotNumber, AbilitySO abilityToAssign = null)
     {
+        if(_player == null)
+        {
+            Debug.Log("NO PLAYER FOUND");
+            return;
+        }
+
         //Assign the activeAbility to the slot (If applicable)
         int secondarySlotNum = 0;
         bool alreadyAssigned = false;
 
+        //if()
+
         for(int i = 0; i < actionSlots.Length; i++)
         {
             //If already assigned to another slot
-            if(actionSlots[i].assignedAction == activeAbilitySO)
+            if(actionSlots[i].assignedAction == abilityToAssign)
             {
                 if(i == slotNumber)
                 {
@@ -150,21 +160,23 @@ public class ClassMenu : MonoBehaviour
             //If already assigned to another slot:
             AbilitySO actionToSwap = actionSlots[slotNumber].assignedAction;
 
-            actionSlots[slotNumber].assignedAction = activeAbilitySO;
-            _player._assignedMoves[slotNumber] = activeAbilitySO;
+            actionSlots[slotNumber].assignedAction = abilityToAssign;
+            _player._assignedMoves[slotNumber] = abilityToAssign;
 
             actionSlots[secondarySlotNum].assignedAction = actionToSwap;
             _player._assignedMoves[secondarySlotNum] = actionToSwap;
         }
         else
         {
-            actionSlots[slotNumber].assignedAction = activeAbilitySO;
-            _player._assignedMoves[slotNumber] = activeAbilitySO;
+            actionSlots[slotNumber].assignedAction = abilityToAssign;
+            _player._assignedMoves[slotNumber] = abilityToAssign;
         }
 
         //Set the buttonImage, then close the panel
-
-        DisplaySlotChoiceMenu();
+        if (_classScreen.activeInHierarchy)
+        {
+            DisplaySlotChoiceMenu();
+        }
     }
 
     public BaseClassSO GetPlayerClass()

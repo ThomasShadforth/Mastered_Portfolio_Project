@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcd853d2a83c04439356ec3e9d7d57c, type: 3}
+  m_Name: SparkSO
+  m_EditorClassIdentifier: 
+  abilityName: Spark
+  description: Let fly a small jolt of electricity from your fingertips
+  defaultAbility: 1
+  requiredLevel: 0
+  effectVal: 0
+  actionType: 4
+  diceNum: 4
+  maxDamage: 11
+  modifier: 12
+  isAttack: 1
+  hitTextPrefab: {fileID: 0}
+  animName: Magic_Cast_4
+  type: 2

@@ -20,4 +20,30 @@ public class BaseClassSO : ScriptableObject
     {
 
     }
+
+    public AbilitySO GetDefaultAbility(AbilitySO[] assignedMoves)
+    {
+        foreach(var ability in knownMoves)
+        {
+            if (ability.defaultAbility)
+            {
+                bool abilityExists = false;
+
+                for(int i = 0; i < assignedMoves.Length; i++)
+                {
+                    if(ability == assignedMoves[i])
+                    {
+                        abilityExists = true;
+                    }
+                }
+
+                if (!abilityExists)
+                {
+                    return ability;
+                }
+            }
+        }
+
+        return null;
+    }
 }

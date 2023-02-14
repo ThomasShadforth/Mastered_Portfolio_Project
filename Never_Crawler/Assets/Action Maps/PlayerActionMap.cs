@@ -55,6 +55,33 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""AbilitySlot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d67f55c-ecb8-4264-964c-2c8b74f24623"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AbilitySlot3"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e3a4b73-5e8b-4329-ab99-ce56770df6ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AbilitySlot4"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e81b700-7ef1-4720-b814-6bd519693a7f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""TestNoiseAction"",
                     ""type"": ""Button"",
                     ""id"": ""2d08b666-848f-467d-8a48-1a810941c291"",
@@ -207,7 +234,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3a382fc1-d2f8-4ffd-a44f-3841c0abf05e"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -267,6 +294,39 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b41656d4-bc25-4239-868f-94203d7acdaf"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""AbilitySlot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8f63f92-304c-49d4-bfea-455651a2f730"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""AbilitySlot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d4254129-fc08-49b0-95b6-a2c01c5708e8"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""AbilitySlot4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -807,6 +867,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_AbilitySlot1 = m_Player.FindAction("AbilitySlot1", throwIfNotFound: true);
+        m_Player_AbilitySlot2 = m_Player.FindAction("AbilitySlot2", throwIfNotFound: true);
+        m_Player_AbilitySlot3 = m_Player.FindAction("AbilitySlot3", throwIfNotFound: true);
+        m_Player_AbilitySlot4 = m_Player.FindAction("AbilitySlot4", throwIfNotFound: true);
         m_Player_TestNoiseAction = m_Player.FindAction("TestNoiseAction", throwIfNotFound: true);
         m_Player_PathFind = m_Player.FindAction("PathFind", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
@@ -884,6 +947,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_AbilitySlot1;
+    private readonly InputAction m_Player_AbilitySlot2;
+    private readonly InputAction m_Player_AbilitySlot3;
+    private readonly InputAction m_Player_AbilitySlot4;
     private readonly InputAction m_Player_TestNoiseAction;
     private readonly InputAction m_Player_PathFind;
     private readonly InputAction m_Player_Pause;
@@ -894,6 +960,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @AbilitySlot1 => m_Wrapper.m_Player_AbilitySlot1;
+        public InputAction @AbilitySlot2 => m_Wrapper.m_Player_AbilitySlot2;
+        public InputAction @AbilitySlot3 => m_Wrapper.m_Player_AbilitySlot3;
+        public InputAction @AbilitySlot4 => m_Wrapper.m_Player_AbilitySlot4;
         public InputAction @TestNoiseAction => m_Wrapper.m_Player_TestNoiseAction;
         public InputAction @PathFind => m_Wrapper.m_Player_PathFind;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
@@ -915,6 +984,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @AbilitySlot1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot1;
                 @AbilitySlot1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot1;
                 @AbilitySlot1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot1;
+                @AbilitySlot2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot2;
+                @AbilitySlot2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot2;
+                @AbilitySlot2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot2;
+                @AbilitySlot3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot3;
+                @AbilitySlot3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot3;
+                @AbilitySlot3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot3;
+                @AbilitySlot4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot4;
+                @AbilitySlot4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot4;
+                @AbilitySlot4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilitySlot4;
                 @TestNoiseAction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
                 @TestNoiseAction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
                 @TestNoiseAction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTestNoiseAction;
@@ -937,6 +1015,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @AbilitySlot1.started += instance.OnAbilitySlot1;
                 @AbilitySlot1.performed += instance.OnAbilitySlot1;
                 @AbilitySlot1.canceled += instance.OnAbilitySlot1;
+                @AbilitySlot2.started += instance.OnAbilitySlot2;
+                @AbilitySlot2.performed += instance.OnAbilitySlot2;
+                @AbilitySlot2.canceled += instance.OnAbilitySlot2;
+                @AbilitySlot3.started += instance.OnAbilitySlot3;
+                @AbilitySlot3.performed += instance.OnAbilitySlot3;
+                @AbilitySlot3.canceled += instance.OnAbilitySlot3;
+                @AbilitySlot4.started += instance.OnAbilitySlot4;
+                @AbilitySlot4.performed += instance.OnAbilitySlot4;
+                @AbilitySlot4.canceled += instance.OnAbilitySlot4;
                 @TestNoiseAction.started += instance.OnTestNoiseAction;
                 @TestNoiseAction.performed += instance.OnTestNoiseAction;
                 @TestNoiseAction.canceled += instance.OnTestNoiseAction;
@@ -1078,6 +1165,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnAbilitySlot1(InputAction.CallbackContext context);
+        void OnAbilitySlot2(InputAction.CallbackContext context);
+        void OnAbilitySlot3(InputAction.CallbackContext context);
+        void OnAbilitySlot4(InputAction.CallbackContext context);
         void OnTestNoiseAction(InputAction.CallbackContext context);
         void OnPathFind(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);

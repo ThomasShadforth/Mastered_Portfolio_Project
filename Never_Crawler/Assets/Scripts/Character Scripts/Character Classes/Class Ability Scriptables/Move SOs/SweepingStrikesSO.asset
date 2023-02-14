@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418fc7c6cd24c8943b1ba0189bbb9c9d, type: 3}
+  m_Name: SweepingStrikesSO
+  m_EditorClassIdentifier: 
+  abilityName: Sweeping Strikes
+  description: An almighty swing that disorients opponents, causing heavy damage
+  defaultAbility: 1
+  requiredLevel: 0
+  effectVal: 0
+  actionType: 7
+  diceNum: 9
+  maxDamage: 17
+  modifier: 32
+  isAttack: 1
+  healsAlly: 0
+  givesBuff: 0
+  hitTextPrefab: {fileID: 0}
+  animName: SweepStrikes
+  type: 0

@@ -7,8 +7,15 @@ public class ProjectileBase : MonoBehaviour
     int modifier;
     public int diceNum;
     public int maxDamageVal;
+    public bool destroyHitGround;
+
+    public bool destroyOverTime;
+    public float destroyTime;
+    float lifeTime;
 
     encumbranceStates playerState = encumbranceStates.normal;
+
+    public bool offsetPosition;
 
     GameObject ownerObject;
 
@@ -19,12 +26,31 @@ public class ProjectileBase : MonoBehaviour
     void Start()
     {
         _attack = new Attack();
+
+        //transform.position = OffsetProjectileSpawn(ownerObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (destroyOverTime)
+        {
+            if(lifeTime < destroyTime)
+            {
+                lifeTime += GamePause.deltaTime;
+            }
+            else
+            {
+                if (transform.parent != null)
+                {
+                    Destroy(transform.parent.gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
+        } 
     }
 
     
@@ -32,6 +58,8 @@ public class ProjectileBase : MonoBehaviour
     {
         AIThinker AI = other.GetComponent<AIThinker>();
         PlayerController player = other.GetComponent<PlayerController>();
+
+        //Debug.Log("Entity Entered");
 
         if(AI != null && ownerObject.GetComponent<PlayerController>())
         {
@@ -59,7 +87,7 @@ public class ProjectileBase : MonoBehaviour
             }
             else
             {
-                hitText.SetUITextAndPos("Missed!", other.transform.position);
+                hitText.SetUITextAndPos("Missed! Armour Class was too high for roll!", other.transform.position);
             }
 
             Destroy(gameObject);
@@ -81,10 +109,17 @@ public class ProjectileBase : MonoBehaviour
             }
             else
             {
-                hitText.SetUITextAndPos("Missed!", other.transform.position);
+                hitText.SetUITextAndPos("Missed! Armour Class was too high for roll!", other.transform.position);
             }
 
-            Destroy(gameObject);
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         } else if(other.gameObject.layer == (1 << 7))
         {
             int groundLayer = 7;
@@ -103,6 +138,19 @@ public class ProjectileBase : MonoBehaviour
             
             
         }
+    }
+
+    public Vector3 OffsetProjectileSpawn(GameObject ownerObject)
+    {
+        Vector3 ownerPos = ownerObject.transform.position;
+        Vector3 ownerDirection = ownerObject.transform.forward;
+        Quaternion ownerRotation = ownerObject.transform.rotation;
+        float offsetPos = 10;
+
+        Vector3 spawnPos = ownerPos + ownerDirection * offsetPos;
+
+
+        return spawnPos;
     }
 
     public void SetModifierAndRollValues(int modifierVal, int diceNum, int maxDamageVal, HitUI damageUI, GameObject ownerObject)

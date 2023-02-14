@@ -25,7 +25,8 @@ public class PlayerController : Subject
     public float rotationSmooth;
     [SerializeField] float _weightedSpeedModifier;
 
-    
+    public bool attacking;
+
     HealthBar _playerHealthBar;
 
     //Test Values/References
@@ -59,13 +60,22 @@ public class PlayerController : Subject
         _playerInput = new PlayerActionMap();
         _playerInput.Player.Enable();
         _playerInput.Player.Look.Enable();
+
+
         _playerInput.Player.AbilitySlot1.performed += TriggerAbility1;
+        _playerInput.Player.AbilitySlot2.performed += TriggerAbility2;
+        _playerInput.Player.AbilitySlot3.performed += TriggerAbility3;
+        _playerInput.Player.AbilitySlot4.performed += TriggerAbility4;
+
         _playerInput.Player.TestNoiseAction.performed += NoiseTest;
         _healthSystem = new HealthSystem(_stats.maxHealth);
         
         _healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
         _playerHealthBar = GameObject.Find("PlayerHealthBar").GetComponent<HealthBar>();
         _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());
+        //SetDefaultAbilities();
+
+        StartCoroutine(SetAbilities());
     }
 
     // Update is called once per frame
@@ -107,6 +117,7 @@ public class PlayerController : Subject
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currSmoothVelocity, rotationSmooth);
             transform.rotation = Quaternion.Euler(0, angle, 0);
         }
+
         
 
         //Set velocity to the relative movement axes multiplied by speed (And any additional factors that will be calculated later on
@@ -121,17 +132,28 @@ public class PlayerController : Subject
         TriggerAbilitySlot(0);
     }
 
+    void TriggerAbility2(InputAction.CallbackContext context)
+    {
+        TriggerAbilitySlot(1);
+    }
+
+    void TriggerAbility3(InputAction.CallbackContext context)
+    {
+        TriggerAbilitySlot(2);
+    }
+
+    void TriggerAbility4(InputAction.CallbackContext context)
+    {
+        TriggerAbilitySlot(3);
+    }
+
+
+
     void TriggerAbilitySlot(int slotIndex)
     {
-        if (_assignedMoves[slotIndex].type == AttackType.strength)
+        if (_assignedMoves[slotIndex] != null)
         {
-            _assignedMoves[slotIndex].UseAbility(_stats.strength.GetScoreModifier(), this);
-        } else if(_assignedMoves[slotIndex].type == AttackType.dexterity)
-        {
-            _assignedMoves[slotIndex].UseAbility(_stats.dexterity.GetScoreModifier(), this);
-        } else if(_assignedMoves[slotIndex].type == AttackType.intelligence)
-        {
-            _assignedMoves[slotIndex].UseAbility(_stats.intelligence.GetScoreModifier(), this);
+            _assignedMoves[slotIndex].UseAbility(0, this);
         }
     }
 
@@ -152,13 +174,7 @@ public class PlayerController : Subject
             //CancelInvoke("ResetPrimitiveObject");
         }
 
-        /*
-        testSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        testSphere.transform.position = transform.position;
-        testSphere.transform.localScale = testSphere.transform.localScale * 3f;
-        Invoke("ResetPrimitiveObject", 2f);*/
         
-
     }
 
     public void CheckCarryWeight()
@@ -194,6 +210,20 @@ public class PlayerController : Subject
         NotifyObservers(actionType, diceNum, maxDamage, modifier);
     }
 
+    public void SetDefaultAbilities()
+    {
+        for(int i = 0; i < _assignedMoves.Length; i++)
+        {
+            if(PauseMenu.instance == null)
+            {
+                Debug.Log("PAUSE MENU DOESNT EXIST");
+            }
+
+            //_assignedMoves[i] = classBrain.GetDefaultAbility(_assignedMoves);
+            PauseMenu.instance.GetComponent<ClassMenu>().AssignActionToSlot(i, classBrain.GetDefaultAbility(_assignedMoves));
+        }
+    }
+
     public PlayerStats GetPlayerStats()
     {
         if (GetComponent<PlayerStats>())
@@ -219,6 +249,10 @@ public class PlayerController : Subject
         }
     }
 
-
+    IEnumerator SetAbilities()
+    {
+        yield return new WaitForSeconds(.2f);
+        SetDefaultAbilities();
+    }
 
 }
