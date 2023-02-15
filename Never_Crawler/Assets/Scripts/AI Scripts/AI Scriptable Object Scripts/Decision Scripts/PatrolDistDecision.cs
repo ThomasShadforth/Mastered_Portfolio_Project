@@ -25,6 +25,7 @@ public class PatrolDistDecision : Decision
 
             thinker._rb.velocity = Vector3.zero;
             thinker.agent.ResetPath();
+            thinker.agent.enabled = false;
             return true;
         }
         else

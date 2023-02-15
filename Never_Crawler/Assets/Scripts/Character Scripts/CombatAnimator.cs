@@ -9,8 +9,6 @@ public class CombatAnimator : MonoBehaviour, IObserver
     public GameObject[] projectileReferences;
     public Subject ownerSubject;
 
-    public LayerMask enemyLayer;
-
     public GameObject loadedProjectile;
 
     public HitUI hitPrefab;
@@ -81,7 +79,7 @@ public class CombatAnimator : MonoBehaviour, IObserver
 
     public void ResetCombatAnim()
     {
-        GetComponent<Animator>().Play("Default");
+        GetComponent<Animator>().Play("Idle");
     }
 
     public void LoadProjectile(CombatActionEnum combatAction)

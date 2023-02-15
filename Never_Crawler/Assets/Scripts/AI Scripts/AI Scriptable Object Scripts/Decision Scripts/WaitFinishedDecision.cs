@@ -17,6 +17,7 @@ public class WaitFinishedDecision : Decision
         {
             //Reset the wait timer
             thinker.ResetWaitTimer();
+            thinker.agent.enabled = true;
             thinker.SetAgentDestination();
             return true;
         }
