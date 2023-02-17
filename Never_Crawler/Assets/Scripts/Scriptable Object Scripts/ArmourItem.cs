@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Armour", menuName = "Scriptable Objects/Items/Armour")]
 public class ArmourItem : BaseItemSO
 {
-    public override void UseItem()
+    public override void UseItem(PlayerController player)
     {
         //Equip the item
     }

@@ -13,6 +13,9 @@ public class CombatAnimator : MonoBehaviour, IObserver
 
     public HitUI hitPrefab;
 
+    public float applyMoveVelo = 2.5f;
+
+
     bool applyingMove;
 
     int setModifier;
@@ -150,7 +153,7 @@ public class CombatAnimator : MonoBehaviour, IObserver
         {
             distanceFromDest = Vector3.Distance(transform.position, destination);
 
-            GetComponent<Rigidbody>().MovePosition(transform.position + direction * 2.5f * Time.deltaTime);
+            GetComponent<Rigidbody>().MovePosition(transform.position + direction * applyMoveVelo * Time.deltaTime);
 
             yield return null;
 
@@ -233,6 +236,11 @@ public class CombatAnimator : MonoBehaviour, IObserver
         int damageToDeal = _attack.DamageRoll(setDiceNum, maxDamage, setModifier);
 
         enemyToDamage.healthSystem.Damage(damageToDeal);
+    }
+
+    public void OnNotify(TutorialEnum tutorialEvent)
+    {
+
     }
 
     public void OnNotify(CombatActionEnum actionType, CombatActionEnum diceNum = CombatActionEnum.enemy_Died, CombatActionEnum maxDamage = CombatActionEnum.enemy_Died, CombatActionEnum modifier = CombatActionEnum.enemy_Died)

@@ -17,7 +17,7 @@ public class AIAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_thinker.agent.velocity.magnitude);
+        //Debug.Log(_thinker.agent.velocity.magnitude);
 
         UpdateAnimations();
     }

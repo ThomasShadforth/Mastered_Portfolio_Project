@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Items/Weapon")]
 public class WeaponItem : BaseItemSO
 {
-    public override void UseItem()
+    public override void UseItem(PlayerController player)
     {
         //Equip the item
         //Check if the player already has said item equipped

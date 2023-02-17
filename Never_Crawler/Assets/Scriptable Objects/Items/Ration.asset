@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ration
   itemCost: 0
-  itemWeight: 8.7
+  itemWeight: 2.1
   isArmour: 0
   isWeapon: 0
-  isItem: 0
+  isItem: 1
+  valChange: 5
+  heals: 1
+  buffs: 0

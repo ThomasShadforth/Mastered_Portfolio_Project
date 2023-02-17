@@ -36,8 +36,8 @@ public class AIThinker : Subject
     [HideInInspector]
     public float investigateTimer;
 
-    
-
+    [Header("Attack Config: Attacks, Cooldown")]
+    public AbilitySO[] attacks;
     public float attackCoolTime;
     [HideInInspector]
     public float attackCoolTimer;
@@ -69,17 +69,21 @@ public class AIThinker : Subject
     LineOfSight enemyLOS;
     [HideInInspector]
     public bool canSeePlayer;
+    [HideInInspector]
+    public bool attacking;
 
     private void OnEnable()
     {
         Noise.SoundEvent += OnHearNoise;
         AddObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
+        Debug.Log(GetObserverCount() + " " + gameObject.name);
     }
 
     private void OnDisable()
     {
         Noise.SoundEvent -= OnHearNoise;
-        RemoveObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
+
+        
     }
 
     private void Awake()
@@ -138,6 +142,11 @@ public class AIThinker : Subject
             }
 
         }
+    }
+
+    public void PrepareCombatNotify(CombatActionEnum actionType, CombatActionEnum diceNum, CombatActionEnum maxDamage, CombatActionEnum modifier)
+    {
+        NotifyObservers(actionType, diceNum, maxDamage, modifier);
     }
 
     public void SetLayerIndex(int index)

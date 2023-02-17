@@ -38,6 +38,7 @@ public abstract class AbilitySO : ScriptableObject
         } else if(thinker != null)
         {
             //Insert call to play enemyAnim here
+            thinker.GetComponent<Animator>().Play(animName);
         }
     }
 

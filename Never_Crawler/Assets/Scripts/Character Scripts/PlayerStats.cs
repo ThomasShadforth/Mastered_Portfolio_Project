@@ -119,6 +119,11 @@ public class PlayerStats : CharacterStats, IObserver
         carryWeight = strength.GetBaseValue() * 15;
     }
 
+    public void OnNotify(TutorialEnum tutorialEvent)
+    {
+
+    }
+
     public void OnNotify(CombatActionEnum actionType, CombatActionEnum minExp = CombatActionEnum.enemy_Died, CombatActionEnum maxExp = CombatActionEnum.enemy_Died, CombatActionEnum mod = CombatActionEnum.enemy_Died)
     {
         if(actionType == CombatActionEnum.enemy_Died)

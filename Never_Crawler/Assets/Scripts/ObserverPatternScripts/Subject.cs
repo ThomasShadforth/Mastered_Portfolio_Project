@@ -29,6 +29,17 @@ public class Subject : MonoBehaviour
         }
     }
 
+    protected void NotifyObservers(TutorialEnum tutorialEvent)
+    {
+        if(_observers.Count != 0)
+        {
+            _observers.ForEach((observer) =>
+            {
+                observer.OnNotify(tutorialEvent);
+            });
+        }
+    }
+
     public void AddObserver(IObserver observer)
     {
         if(observer == null)
@@ -40,6 +51,10 @@ public class Subject : MonoBehaviour
 
     public void RemoveObserver(IObserver observer)
     {
+        if(observer == null)
+        {
+            Debug.Log("OBSERVER DOESNT EXIST");
+        }
         _observers.Remove(observer);
     }
 

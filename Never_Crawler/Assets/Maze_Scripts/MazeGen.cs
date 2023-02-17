@@ -384,7 +384,8 @@ public class MazeGen : MonoBehaviour
                 } while (!foundPlace);
 
                 //Spawn the enemy in the recorded position
-                GameObject enemyToSpawn = Instantiate(enemyPrefab, posToPlace, Quaternion.identity);
+                //GameObject enemyToSpawn = Instantiate(enemyPrefab, posToPlace, Quaternion.identity);
+                GameObject enemyToSpawn = Instantiate(enemyPlace.GetEnemyToSpawn(), posToPlace, Quaternion.identity);
                 enemyToSpawn.transform.SetParent(transform);
                 enemyAI.Add(enemyToSpawn.GetComponent<AIThinker>());
             }
@@ -1063,9 +1064,9 @@ public class MazeGen : MonoBehaviour
             if(EnemyObjectPool.instance != null)
             {
                 GameObject[] aiToRespawn = EnemyObjectPool.instance.GetArrayFromPool(mazeLayer);
-                Debug.Log(aiToRespawn.Length);
+                
 
-                if(aiToRespawn.Length != 0)
+                if(aiToRespawn != null)
                 {
                     foreach(var AI in aiToRespawn)
                     {

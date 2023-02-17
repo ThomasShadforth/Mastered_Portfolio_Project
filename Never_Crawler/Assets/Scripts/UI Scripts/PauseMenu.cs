@@ -161,7 +161,7 @@ public class PauseMenu : MonoBehaviour
         if (_activeItem != null)
         {
             //Use item, pass the active item as a parameter
-            _activeItem.UseItem();
+            _activeItem.UseItem(FindObjectOfType<PlayerController>());
             ItemManager.instance.QueryToRemove(_activeItem.itemName);
         }
 

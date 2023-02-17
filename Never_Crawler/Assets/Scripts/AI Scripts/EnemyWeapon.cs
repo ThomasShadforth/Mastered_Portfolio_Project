@@ -20,6 +20,7 @@ public class EnemyWeapon : SwordBase
     {
         if (other.GetComponent<PlayerController>())
         {
+            Debug.Log("HIT PLAYER!");
             combatAnimator.TriggerAttack(other.GetComponent<PlayerController>());
         }
     }

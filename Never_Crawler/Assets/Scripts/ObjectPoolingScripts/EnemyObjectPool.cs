@@ -22,6 +22,10 @@ public class EnemyObjectPool : MonoBehaviour
         {
             Debug.Log($"Number of Maze Layers: {layerCount}");
             _availableObjects = new Queue<GameObject>[layerCount];
+            for(int i = 0; i < _availableObjects.Length; i++)
+            {
+                _availableObjects[i] = new Queue<GameObject>();
+            }
         }
         else
         {
@@ -43,18 +47,23 @@ public class EnemyObjectPool : MonoBehaviour
 
     public GameObject[] GetArrayFromPool(int layerIndex)
     {
-        List<GameObject> objects = new List<GameObject>();
-
-        foreach (var objectInstance in _availableObjects[layerIndex])
+        if (_availableObjects[layerIndex].Count != 0)
         {
-            objects.Add(objectInstance);
+            List<GameObject> objects = new List<GameObject>();
+
+            foreach (var objectInstance in _availableObjects[layerIndex])
+            {
+                objects.Add(objectInstance);
+            }
+
+            _availableObjects[layerIndex].Clear();
+
+            Debug.Log(objects.Count);
+
+            return objects.ToArray();
         }
 
-        _availableObjects[layerIndex].Clear();
-
-        Debug.Log(objects.Count);
-
-        return objects.ToArray();
+        return null;
     }
 
     public GameObject GetFromPool(int layerIndex)

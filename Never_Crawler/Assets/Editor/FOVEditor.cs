@@ -8,19 +8,19 @@ public class FOVEditor : Editor
     {
         LineOfSight los = (LineOfSight)target;
         Handles.color = Color.white;
-        Handles.DrawWireArc(los.transform.position, Vector3.up, Vector3.forward, 360, los.losRadius);
+        Handles.DrawWireArc(los.transform.position + los.offset, Vector3.up, Vector3.forward, 360, los.losRadius);
 
         Vector3 viewAngle1 = DirectionFromAngle(los.transform.eulerAngles.y, -los.losAngle / 2);
         Vector3 viewAngle2 = DirectionFromAngle(los.transform.eulerAngles.y, los.losAngle / 2);
 
         Handles.color = Color.yellow;
-        Handles.DrawLine(los.transform.position, los.transform.position + viewAngle1 * los.losRadius);
-        Handles.DrawLine(los.transform.position, los.transform.position + viewAngle2 * los.losRadius);
+        Handles.DrawLine(los.transform.position + los.offset, (los.transform.position + los.offset) + viewAngle1 * los.losRadius);
+        Handles.DrawLine(los.transform.position + los.offset, (los.transform.position + los.offset) + viewAngle2 * los.losRadius);
 
         if (los.canSeePlayer)
         {
             Handles.color = Color.green;
-            Handles.DrawLine(los.transform.position, los.player.transform.position);
+            Handles.DrawLine(los.transform.position + los.offset, los.player.transform.position);
         }
     }
 

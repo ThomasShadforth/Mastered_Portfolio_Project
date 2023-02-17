@@ -96,7 +96,9 @@ public class ProjectileBase : MonoBehaviour
             //Damage the player
             bool hasHit = false;
 
-            HitUI hitText = Instantiate(damagePrefab);
+            //HitUI hitText = Instantiate(damagePrefab);
+
+            HitUI hitText = HitTextObjectPool.instance.GetFromPool().GetComponent<HitUI>();
 
             hasHit = _attack.AttackRoll(modifier, player.GetPlayerStats().armourClass);
 

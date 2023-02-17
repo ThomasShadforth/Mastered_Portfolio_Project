@@ -13,5 +13,5 @@ public abstract class BaseItemSO : ScriptableObject
     public bool isWeapon;
     public bool isItem;
 
-    public abstract void UseItem();
+    public abstract void UseItem(PlayerController player);
 }

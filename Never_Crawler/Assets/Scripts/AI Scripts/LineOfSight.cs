@@ -10,6 +10,7 @@ public class LineOfSight : MonoBehaviour
     public float losAngle;
 
     public GameObject player;
+    public Vector3 offset;
 
     public LayerMask playerLayer;
     public LayerMask obstructionConfig;
