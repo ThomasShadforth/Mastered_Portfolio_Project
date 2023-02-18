@@ -75,7 +75,11 @@ public class AIThinker : Subject
     private void OnEnable()
     {
         Noise.SoundEvent += OnHearNoise;
-        AddObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
+
+        if (FindObjectOfType<PlayerStats>())
+        {
+            AddObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
+        }
         Debug.Log(GetObserverCount() + " " + gameObject.name);
     }
 

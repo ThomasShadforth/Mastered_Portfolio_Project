@@ -18,6 +18,7 @@ public class CheckForPlayerDecision : Decision
 
         if (thinker.canSeePlayer)
         {
+            Debug.Log(thinker.gameObject.name + " CAN SEE PLAYER!!");
             canSeePlayer = true;
             thinker.playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
             

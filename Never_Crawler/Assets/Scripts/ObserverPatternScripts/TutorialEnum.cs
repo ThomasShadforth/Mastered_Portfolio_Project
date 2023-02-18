@@ -4,7 +4,11 @@ using UnityEngine;
 
 public enum TutorialEnum
 {
+    TutorialStarted,
     EnemyDefeated,
     ChestOpened,
-    CheckpointReached
+    Checkpoint_1_Reached,
+    Checkpoint_2_Reached,
+    Checkpoint_3_Reached,
+    Checkpoint_4_Reached,
 }

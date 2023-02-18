@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7379845514021295762}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pillar_Plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4653469655930038357}
   - component: {fileID: 1846466073643035790}
   - component: {fileID: 5367550074455196700}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pillar_Plain.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

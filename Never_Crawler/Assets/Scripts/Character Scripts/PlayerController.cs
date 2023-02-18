@@ -25,6 +25,11 @@ public class PlayerController : Subject
     public float rotationSmooth;
     [SerializeField] float _weightedSpeedModifier;
 
+    //Used for the deadline version of this project. Simply changes the weapon mesh that is active
+    [Header("Player Weapon Prefabs")]
+    [SerializeField] GameObject _playerSword;
+    [SerializeField] GameObject _playerWand;
+
     public bool attacking;
 
     HealthBar _playerHealthBar;
@@ -45,6 +50,8 @@ public class PlayerController : Subject
     public HealthSystem _healthSystem;
 
     [HideInInspector] public encumbranceStates encumbranceState = encumbranceStates.normal;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +83,8 @@ public class PlayerController : Subject
         //SetDefaultAbilities();
 
         StartCoroutine(SetAbilities());
+        SetClassWeapon();
+        ResetCameraOrientation();
     }
 
     // Update is called once per frame
@@ -159,6 +168,11 @@ public class PlayerController : Subject
 
     #endregion
 
+    public void ResetCameraOrientation()
+    {
+        Camera.main.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
     void ResetPrimitiveObject()
     {
         Destroy(testSphere);
@@ -233,6 +247,24 @@ public class PlayerController : Subject
         else
         {
             return null;
+        }
+    }
+
+    public void SetClassWeapon()
+    {
+        if (classBrain.className == "Fighter")
+        {
+            if (_playerSword != null)
+            {
+                _playerSword.SetActive(true);
+            }
+        }
+        else if (classBrain.className == "Wizard")
+        {
+            if (_playerWand != null)
+            {
+                _playerWand.SetActive(true);
+            }
         }
     }
 
