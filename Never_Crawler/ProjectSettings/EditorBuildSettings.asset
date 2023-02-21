@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/CharacterCreation.unity
     guid: a11816f4c59b6174b8a9ee6653110c21
   - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial.unity
+    guid: dcb4e2c3779f50748b7f70fdb6a962be
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_1.unity
+    guid: a1769420417f1384eabe03bc3e7875b4
   m_configObjects: {}

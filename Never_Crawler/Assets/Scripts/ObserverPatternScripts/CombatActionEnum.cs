@@ -38,6 +38,7 @@ public enum CombatActionEnum
     mod_dex,
     mod_char,
     mod_str,
-    mod_con
+    mod_con,
+    player_Dead
     //Etc
 }

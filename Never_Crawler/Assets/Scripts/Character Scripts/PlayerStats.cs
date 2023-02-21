@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats, IObserver
 {
@@ -21,11 +22,6 @@ public class PlayerStats : CharacterStats, IObserver
 
     public int availableStatPoints = 0;
     int _previousStatPoints;
-
-    public PlayerStats()
-    {
-        //Call the constructor when initialising the player's character and adding this script
-    }
 
     public override void CalculateAdditionalValues()
     {

@@ -61,6 +61,8 @@ public class PlayerController : Subject
             classBrain = CreatorDataHandler.chosenClass;
         }
 
+        attacking = false;
+
         _rb = GetComponent<Rigidbody>();
         _stats = GetComponent<PlayerStats>();
         
@@ -96,7 +98,26 @@ public class PlayerController : Subject
 
     private void FixedUpdate()
     {
-        RelativeCameraMovement();
+        
+        if (attacking)
+        {
+            AttackCameraMovement();
+        }
+        else
+        {
+            RelativeCameraMovement();
+        }
+
+        //RelativeCameraMovement();
+
+        
+    }
+
+    void AttackCameraMovement()
+    {
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.eulerAngles.y, transform.localEulerAngles.z);
+
+        _rb.velocity = (transform.forward * _moveDir.y *movementSpeed) + (transform.right * _moveDir.x * movementSpeed);
     }
 
     void RelativeCameraMovement()
@@ -170,7 +191,7 @@ public class PlayerController : Subject
 
     public void ResetCameraOrientation()
     {
-        Camera.main.transform.rotation = Quaternion.Euler(0, 0, 0);
+        Camera.main.transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 
     void ResetPrimitiveObject()
@@ -278,6 +299,11 @@ public class PlayerController : Subject
         if(_playerHealthBar != null)
         {
             _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());
+        }
+
+        if (_healthSystem.CheckIsDead())
+        {
+            NotifyObservers(CombatActionEnum.player_Dead, CombatActionEnum.enemy_Died, CombatActionEnum.enemy_Died, CombatActionEnum.enemy_Died);
         }
     }
 

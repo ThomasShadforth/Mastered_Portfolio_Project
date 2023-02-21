@@ -329,13 +329,25 @@ public class CharacterCreatorMenu : MonoBehaviour
 
         CreatorDataHandler.chosenClass = chosenClassBrain;
 
-        SceneManager.LoadSceneAsync("SampleScene");
+        
 
     }
 
     #endregion
 
     
+    IEnumerator LoadTutorialCo()
+    {
+        if(UIFade.instance != null)
+        {
+            UIFade.instance.FadeToBlack();
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     #region Getter Methods
     //Used to get the point buy or randomize stat menu (Rather than expose them as public variables)
     public GameObject GetRandomMenuStatus()

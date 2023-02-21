@@ -56,6 +56,8 @@ public class DialogueManager : MonoBehaviour
         dialogueInProg = false;
         FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
         FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
+
+        Debug.Log(FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.enabled);
     }
 
     public void DisplayNextSentence()

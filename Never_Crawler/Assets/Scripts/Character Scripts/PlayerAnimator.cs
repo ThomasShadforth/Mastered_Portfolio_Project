@@ -66,6 +66,8 @@ public class PlayerAnimator : MonoBehaviour
                 _animator.Play(Animator.StringToHash("Default"), i);
             }
         }
+
+        _playerController.attacking = false;
         //_animator.Play("Default");
     }
 }

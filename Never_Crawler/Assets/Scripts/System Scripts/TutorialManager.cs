@@ -68,8 +68,11 @@ public class TutorialManager : MonoBehaviour, IObserver
             Debug.Log("Checkpoint reached!");
             if (DialogueManager.instance != null)
             {
-                DialogueManager.instance.StartDialogue(_checkpointDialogue[currentCheckpointNum]);
-                currentCheckpointNum++;
+                if (currentCheckpointNum < _checkpointDialogue.Length)
+                {
+                    DialogueManager.instance.StartDialogue(_checkpointDialogue[currentCheckpointNum]);
+                    currentCheckpointNum++;
+                }
             }
             
         }

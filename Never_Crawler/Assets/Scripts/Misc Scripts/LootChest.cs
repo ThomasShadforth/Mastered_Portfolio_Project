@@ -18,11 +18,19 @@ public class LootChest : MonoBehaviour
 
     List<ConsumableItem> _storedItems = new List<ConsumableItem>();
 
+    public GameObject interactUI;
+
+    PlayerActionMap _playerInput;
+
     // Start is called before the first frame update
     void Start()
     {
         InitializeLootChestSize();
         RandomizeChestContents();
+
+        _playerInput = new PlayerActionMap();
+        _playerInput.Player.Interact.Enable();
+        _playerInput.Player.Interact.started += OpenChest;
     }
 
     // Update is called once per frame
@@ -44,27 +52,38 @@ public class LootChest : MonoBehaviour
             _storedItems.Add(itemToAdd);
         }
 
-        Debug.Log(_storedItems.Count);
+        //Debug.Log(_storedItems.Count);
 
     }
 
     void GivePlayerItems()
     {
         _opened = true;
+        canOpen = false;
+        interactUI.SetActive(false);
         GetComponent<Animator>().SetBool("Open", true);
+
+        ItemTextUI itemText = ItemTextObjectPool.instance.GetFromPool().GetComponent<ItemTextUI>();
+        string textToAdd = "Items received:\n";
 
         for(int i = 0; i < _storedItems.Count; i++)
         {
             ItemManager.instance.AddItem(_storedItems[i]);
+            textToAdd += _storedItems[i].itemName + " x 1 \n";
         }
+
+        itemText.SetTextAndPos(textToAdd, transform.position);
     }
 
     public void OpenChest(InputAction.CallbackContext context)
     {
         if (context.started)
         {
+            
             if (canOpen && !_opened)
             {
+
+                Debug.Log("OPENING");
                 GivePlayerItems();
             }
         }
@@ -72,16 +91,18 @@ public class LootChest : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerController>())
+        if (other.gameObject.GetComponent<PlayerController>() && !_opened)
         {
+            interactUI.SetActive(true);
             canOpen = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerController>())
+        if (other.gameObject.GetComponent<PlayerController>() && !_opened)
         {
+            interactUI.SetActive(false);
             canOpen = false;
         }
     }
