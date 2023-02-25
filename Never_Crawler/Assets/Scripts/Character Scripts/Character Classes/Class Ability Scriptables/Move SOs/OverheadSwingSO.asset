@@ -18,7 +18,7 @@ MonoBehaviour:
   requiredLevel: 0
   effectVal: 0
   actionType: 8
-  diceNum: 10
+  diceNum: 9
   maxDamage: 19
   modifier: 33
   isAttack: 0

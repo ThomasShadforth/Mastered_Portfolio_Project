@@ -63,32 +63,39 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        if (menuWindow.activeInHierarchy)
+        if (this.menuWindow != null)
         {
-            //Close the pause menu
-            menuWindow.SetActive(false);
-
-            for(int i = 0; i < windows.Length; i++)
+            if (this.menuWindow.activeInHierarchy)
             {
-                windows[i].SetActive(false);
+                //Close the pause menu
+                menuWindow.SetActive(false);
+
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    windows[i].SetActive(false);
+                }
+
+                //Create set of action bindings for the menu
+                FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
+
+                FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
+                DiscardStatChanges();
             }
+            else
+            {
+                //Create bindings for menu
 
-            //Create set of action bindings for the menu
-            FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
+                FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Disable();
 
-            FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
-            DiscardStatChanges();
+                FindObjectOfType<PlayerController>()._playerInput.Player.Disable();
+
+                menuWindow.SetActive(true);
+                //OpenWindow(0);
+            }
         }
         else
         {
-            //Create bindings for menu
-
-            FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Disable();
-
-            FindObjectOfType<PlayerController>()._playerInput.Player.Disable();
-
-            menuWindow.SetActive(true);
-            //OpenWindow(0);
+            Debug.Log("WINDOW DOESNT EXIST");
         }
     }
 

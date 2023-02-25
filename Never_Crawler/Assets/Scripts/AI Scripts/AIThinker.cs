@@ -144,6 +144,10 @@ public class AIThinker : Subject
             {
                 EnemyObjectPool.instance.AddToPool(gameObject, layerIndex);
             }
+            else
+            {
+                gameObject.SetActive(false);
+            }
 
         }
     }

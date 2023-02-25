@@ -19,8 +19,8 @@ MonoBehaviour:
   effectVal: 0
   actionType: 5
   diceNum: 10
-  maxDamage: 12
-  modifier: 17
+  maxDamage: 17
+  modifier: 29
   isAttack: 1
   hitTextPrefab: {fileID: 0}
   animName: Magic_Cast_5

@@ -59,13 +59,24 @@ public class GameManager : MonoBehaviour, IObserver
 
     public void SaveCharacterData(PlayerStats stats)
     {
+        CharacterData.currentExp = stats.currentEXP;
+        CharacterData.currentLevel = stats.currentLevel;
 
+        CharacterData.statValue[0] = stats.strength.GetBaseValue();
+        CharacterData.statValue[1] = stats.dexterity.GetBaseValue();
+        CharacterData.statValue[2] = stats.constitution.GetBaseValue();
+        CharacterData.statValue[3] = stats.charisma.GetBaseValue();
+        CharacterData.statValue[4] = stats.intelligence.GetBaseValue();
+        CharacterData.statValue[5] = stats.wisdom.GetBaseValue();
+
+        CharacterData.playerClass = FindObjectOfType<PlayerController>().classBrain;
     }
 
     public void OnNotify(CombatActionEnum actionType, CombatActionEnum diceNum = CombatActionEnum.enemy_Died, CombatActionEnum maxDamage = CombatActionEnum.enemy_Died, CombatActionEnum modifier = CombatActionEnum.enemy_Died)
     {
         if(actionType == CombatActionEnum.player_Dead)
         {
+            Debug.Log("DEAD PLAYER IS DEAD");
             StartCoroutine(LoadGameOverCo());
         }
     }

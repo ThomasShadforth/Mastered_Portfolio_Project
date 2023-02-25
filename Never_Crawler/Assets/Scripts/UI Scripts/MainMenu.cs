@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        CharacterData.firstLoadDone = false;
     }
 
     // Update is called once per frame

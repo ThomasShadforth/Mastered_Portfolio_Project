@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ClassMenu : MonoBehaviour
@@ -34,14 +35,37 @@ public class ClassMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _player = FindObjectOfType<PlayerController>();
-        _playerClass = FindObjectOfType<PlayerController>().classBrain;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        
+
+        _player = FindObjectOfType<PlayerController>();
+
+        if(_player != null)
+        {
+            Debug.Log("PLAYER FOUND");
+        }
+
+        _playerClass = _player.classBrain;
     }
 
     public void OpenClassMenu()
@@ -124,11 +148,11 @@ public class ClassMenu : MonoBehaviour
         }
     }
 
-    public void AssignActionToSlot(int slotNumber, AbilitySO abilityToAssign = null)
+    public void AssignActionToSlot(int slotNumber, AbilitySO abilityToAssign = null, bool changeSlot = true)
     {
         if(_player == null)
         {
-            Debug.Log("NO PLAYER FOUND");
+            //Debug.Log("NO PLAYER FOUND");
             return;
         }
 
@@ -145,8 +169,10 @@ public class ClassMenu : MonoBehaviour
             {
                 if(i == slotNumber)
                 {
-                    //Return a message saying that you've already assigned an action to this slot
-                    return;
+                    //Return a message saying that you've already assigned this action to this slot
+                    i = actionSlots.Length;
+                    Debug.Log("ACTION ALREADY ASSIGNED");
+                    break;
                 }
 
                 secondarySlotNum = i;
@@ -158,13 +184,21 @@ public class ClassMenu : MonoBehaviour
         if (alreadyAssigned)
         {
             //If already assigned to another slot:
-            AbilitySO actionToSwap = actionSlots[slotNumber].assignedAction;
 
-            actionSlots[slotNumber].assignedAction = abilityToAssign;
-            _player._assignedMoves[slotNumber] = abilityToAssign;
+            if (changeSlot)
+            {
+                AbilitySO actionToSwap = actionSlots[slotNumber].assignedAction;
 
-            actionSlots[secondarySlotNum].assignedAction = actionToSwap;
-            _player._assignedMoves[secondarySlotNum] = actionToSwap;
+                actionSlots[slotNumber].assignedAction = abilityToAssign;
+                _player._assignedMoves[slotNumber] = abilityToAssign;
+
+                actionSlots[secondarySlotNum].assignedAction = actionToSwap;
+                _player._assignedMoves[secondarySlotNum] = actionToSwap;
+            }
+            else
+            {
+                _player._assignedMoves[slotNumber] = abilityToAssign;
+            }
         }
         else
         {

@@ -139,4 +139,4 @@ MonoBehaviour:
   offsetPosition: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256

@@ -329,7 +329,7 @@ public class CharacterCreatorMenu : MonoBehaviour
 
         CreatorDataHandler.chosenClass = chosenClassBrain;
 
-        
+        StartCoroutine(LoadTutorialCo());
 
     }
 

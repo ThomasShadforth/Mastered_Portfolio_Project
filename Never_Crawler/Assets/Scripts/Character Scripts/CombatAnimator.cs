@@ -80,6 +80,11 @@ public class CombatAnimator : MonoBehaviour, IObserver
         }
     }
 
+    public void StopVelocity()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
     public void ResetCombatAnim()
     {
         GetComponent<Animator>().Play("Idle");

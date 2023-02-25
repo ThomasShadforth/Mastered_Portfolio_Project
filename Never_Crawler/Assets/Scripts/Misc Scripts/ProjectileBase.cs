@@ -63,6 +63,8 @@ public class ProjectileBase : MonoBehaviour
 
         if(AI != null && ownerObject.GetComponent<PlayerController>())
         {
+            Debug.Log("HIT");
+
             bool hasHit;
 
             HitUI hitText = HitTextObjectPool.instance.GetFromPool().GetComponent<HitUI>();

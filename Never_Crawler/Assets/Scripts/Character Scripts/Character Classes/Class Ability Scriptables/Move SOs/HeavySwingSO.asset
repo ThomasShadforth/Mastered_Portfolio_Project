@@ -20,7 +20,7 @@ MonoBehaviour:
   actionType: 7
   diceNum: 9
   maxDamage: 18
-  modifier: 32
+  modifier: 33
   isAttack: 1
   hitTextPrefab: {fileID: 0}
   animName: HeavySwing

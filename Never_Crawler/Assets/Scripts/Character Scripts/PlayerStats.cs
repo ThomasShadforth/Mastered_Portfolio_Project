@@ -23,6 +23,31 @@ public class PlayerStats : CharacterStats, IObserver
     public int availableStatPoints = 0;
     int _previousStatPoints;
 
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!CharacterData.firstLoadDone)
+        {
+            CharacterData.firstLoadDone = true;
+            Debug.Log("BBBBBBBBB");
+            return;
+        }
+        else
+        {
+            Debug.Log("AAAAAAAA");
+        }
+    }
+
     public override void CalculateAdditionalValues()
     {
         maxHealth = baseHealth + constitution.GetScoreModifier();
@@ -111,6 +136,22 @@ public class PlayerStats : CharacterStats, IObserver
         intelligence = new Stat(CreatorDataHandler.statValues[3]);
         wisdom = new Stat(CreatorDataHandler.statValues[4]);
         charisma = new Stat(CreatorDataHandler.statValues[5]);
+
+        carryWeight = strength.GetBaseValue() * 15;
+    }
+
+    public void ReloadStatValues()
+    {
+        strength = new Stat(CharacterData.statValue[0]);
+        dexterity = new Stat(CharacterData.statValue[1]);
+        constitution = new Stat(CharacterData.statValue[2]);
+        intelligence = new Stat(CharacterData.statValue[3]);
+        wisdom = new Stat(CharacterData.statValue[4]);
+        charisma = new Stat(CharacterData.statValue[5]);
+
+        currentLevel = CharacterData.currentLevel;
+        currentEXP = CharacterData.currentExp;
+        GetComponent<PlayerController>().classBrain = CharacterData.playerClass;
 
         carryWeight = strength.GetBaseValue() * 15;
     }

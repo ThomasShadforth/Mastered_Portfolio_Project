@@ -18,9 +18,9 @@ MonoBehaviour:
   requiredLevel: 0
   effectVal: 0
   actionType: 4
-  diceNum: 4
-  maxDamage: 11
-  modifier: 12
+  diceNum: 9
+  maxDamage: 18
+  modifier: 29
   isAttack: 1
   hitTextPrefab: {fileID: 0}
   animName: Magic_Cast_4

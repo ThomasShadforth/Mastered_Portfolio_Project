@@ -2550,7 +2550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMaxHealth: 20
-  chaseSpeed: 0
+  chaseSpeed: 4.25
   stats: {fileID: 0}
   currentState: {fileID: 11400000, guid: 9805efa75c53efc4da256bcbd13a711b, type: 2}
   remainState: {fileID: 11400000, guid: c614c0f7d07657a4d81f0e7d5bf5bee7, type: 2}
@@ -2608,8 +2608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186e73e2e7cc5849981cb75c1dc3d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losRadius: 6.54
-  losAngle: 84
+  losRadius: 20
+  losAngle: 60
   player: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   playerLayer:
@@ -2841,7 +2841,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.44209093, y: 0.43666443, z: 0.2010543}
+  m_Size: {x: 0.56, y: 0.43666443, z: 0.29}
   m_Center: {x: -0.0000006075741, y: 0.33865917, z: 0.000000037669405}
 --- !u!114 &7386044390730348736
 MonoBehaviour:

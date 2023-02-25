@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         StartCoroutine(DisablePlayerMoveCo());
-        Debug.Log("Starting Dialogue");
+        
         _animator.SetBool("isOpen", true);
         dialogueInProg = true;
         string name = dialogue.speakerName;

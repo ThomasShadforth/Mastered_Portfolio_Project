@@ -23,7 +23,7 @@ public class MoveTowardsPlayerAction : Action
     {
         Vector3 direction = GetMoveDirection(thinker);
 
-        thinker._rb.velocity = new Vector3(direction.x * 4, thinker._rb.velocity.y, direction.z * 4);
+        thinker._rb.velocity = new Vector3(direction.x * thinker.chaseSpeed, thinker._rb.velocity.y, direction.z * thinker.chaseSpeed);
         
         thinker.transform.rotation = Quaternion.Euler(0, GetLookAngle(thinker), 0);
         

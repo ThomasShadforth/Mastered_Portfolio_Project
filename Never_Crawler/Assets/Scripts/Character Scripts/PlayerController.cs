@@ -87,6 +87,8 @@ public class PlayerController : Subject
         StartCoroutine(SetAbilities());
         SetClassWeapon();
         ResetCameraOrientation();
+
+        Debug.Log(GetObserverCount());
     }
 
     // Update is called once per frame
@@ -247,6 +249,9 @@ public class PlayerController : Subject
 
     public void SetDefaultAbilities()
     {
+        bool changeSlot = !CharacterData.firstLoadDone;
+
+        Debug.Log("SETTING ABILITIES");
         for(int i = 0; i < _assignedMoves.Length; i++)
         {
             if(PauseMenu.instance == null)
@@ -255,7 +260,8 @@ public class PlayerController : Subject
             }
 
             //_assignedMoves[i] = classBrain.GetDefaultAbility(_assignedMoves);
-            PauseMenu.instance.GetComponent<ClassMenu>().AssignActionToSlot(i, classBrain.GetDefaultAbility(_assignedMoves));
+            
+            FindObjectOfType<ClassMenu>().AssignActionToSlot(i, this.classBrain.GetDefaultAbility(_assignedMoves), changeSlot);
         }
     }
 
@@ -303,6 +309,7 @@ public class PlayerController : Subject
 
         if (_healthSystem.CheckIsDead())
         {
+            Debug.Log("PLAYER IS DEAD");
             NotifyObservers(CombatActionEnum.player_Dead, CombatActionEnum.enemy_Died, CombatActionEnum.enemy_Died, CombatActionEnum.enemy_Died);
         }
     }

@@ -9,7 +9,7 @@ public class PatrolAction : Action
     {
         if (!thinker.initialDestinationSet)
         {
-            
+            thinker._rb.velocity = Vector3.zero;
             thinker.SetAgentDestination();
             thinker.initialDestinationSet = true;
         }

@@ -124,6 +124,8 @@ public class MazeGen : MonoBehaviour
     public int level = 0;
     public float heightModifier = 1.5f;
 
+    bool isInactive = true;
+
     public enum PieceType
     {
         Hor_Straight,
@@ -447,7 +449,12 @@ public class MazeGen : MonoBehaviour
 
         if (!isFirst)
         {
+            
             EnableDisableMeshes(false);
+        }
+        else
+        {
+            isInactive = false;
         }
 
         
@@ -1060,23 +1067,26 @@ public class MazeGen : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player"))
         {
-            EnableDisableMeshes(true);
-            if(EnemyObjectPool.instance != null)
+            if (isInactive)
             {
-                GameObject[] aiToRespawn = EnemyObjectPool.instance.GetArrayFromPool(mazeLayer);
-                
-
-                if(aiToRespawn != null)
+                isInactive = false;
+                EnableDisableMeshes(true);
+                if (EnemyObjectPool.instance != null)
                 {
-                    foreach(var AI in aiToRespawn)
+                    GameObject[] aiToRespawn = EnemyObjectPool.instance.GetArrayFromPool(mazeLayer);
+
+
+                    if (aiToRespawn != null)
                     {
-                        AI.SetActive(true);
-                        AI.GetComponent<AIThinker>().healthSystem.Heal(AI.GetComponent<AIThinker>().enemyMaxHealth);
+                        foreach (var AI in aiToRespawn)
+                        {
+                            AI.SetActive(true);
+                            AI.GetComponent<AIThinker>().healthSystem.Heal(AI.GetComponent<AIThinker>().enemyMaxHealth);
+                        }
                     }
+
                 }
-
             }
-
         }
     }
 
@@ -1085,7 +1095,11 @@ public class MazeGen : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player"))
         {
-            EnableDisableMeshes(false);
+            if (!isInactive)
+            {
+
+                EnableDisableMeshes(false);
+            }   
         }
         
     }

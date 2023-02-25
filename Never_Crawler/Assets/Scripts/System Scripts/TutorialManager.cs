@@ -65,7 +65,7 @@ public class TutorialManager : MonoBehaviour, IObserver
         }
         else if (tutorialEvent.ToString().Contains("Checkpoint"))
         {
-            Debug.Log("Checkpoint reached!");
+            
             if (DialogueManager.instance != null)
             {
                 if (currentCheckpointNum < _checkpointDialogue.Length)
