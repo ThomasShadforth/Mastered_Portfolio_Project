@@ -29,7 +29,7 @@ public class AIAnimator : MonoBehaviour
 
     void UpdateAnimations()
     {
-        if(_thinker.agent.velocity.magnitude != 0 || GetComponent<Rigidbody>().velocity.magnitude != 0)
+        if((_thinker.agent != null && _thinker.agent.velocity.magnitude != 0) || GetComponent<Rigidbody>().velocity.magnitude != 0)
         {
             //Set the walking bool in the animator
             _animator.SetBool("isMoving", true);

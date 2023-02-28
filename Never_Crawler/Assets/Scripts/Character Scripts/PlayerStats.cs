@@ -39,12 +39,12 @@ public class PlayerStats : CharacterStats, IObserver
         if (!CharacterData.firstLoadDone)
         {
             CharacterData.firstLoadDone = true;
-            Debug.Log("BBBBBBBBB");
+            
             return;
         }
         else
         {
-            Debug.Log("AAAAAAAA");
+            
         }
     }
 
@@ -131,9 +131,9 @@ public class PlayerStats : CharacterStats, IObserver
     public override void InitialiseBaseStats()
     {
         strength = new Stat(CreatorDataHandler.statValues[0] > 0 ? CreatorDataHandler.statValues[0] : 10);
-        dexterity = new Stat(CreatorDataHandler.statValues[1]);
+        dexterity = new Stat(CreatorDataHandler.statValues[1] > 0 ? CreatorDataHandler.statValues[1] : 13);
         constitution = new Stat(CreatorDataHandler.statValues[2]);
-        intelligence = new Stat(CreatorDataHandler.statValues[3]);
+        intelligence = new Stat(CreatorDataHandler.statValues[3] > 0 ? CreatorDataHandler.statValues[3] : 15);
         wisdom = new Stat(CreatorDataHandler.statValues[4]);
         charisma = new Stat(CreatorDataHandler.statValues[5]);
 

@@ -60,12 +60,10 @@ public class ClassMenu : MonoBehaviour
 
         _player = FindObjectOfType<PlayerController>();
 
-        if(_player != null)
+        if (_player != null)
         {
-            Debug.Log("PLAYER FOUND");
+            _playerClass = _player.classBrain;
         }
-
-        _playerClass = _player.classBrain;
     }
 
     public void OpenClassMenu()

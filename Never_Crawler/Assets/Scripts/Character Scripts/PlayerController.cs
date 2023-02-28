@@ -88,7 +88,7 @@ public class PlayerController : Subject
         SetClassWeapon();
         ResetCameraOrientation();
 
-        Debug.Log(GetObserverCount());
+        
     }
 
     // Update is called once per frame
@@ -251,12 +251,12 @@ public class PlayerController : Subject
     {
         bool changeSlot = !CharacterData.firstLoadDone;
 
-        Debug.Log("SETTING ABILITIES");
+        
         for(int i = 0; i < _assignedMoves.Length; i++)
         {
             if(PauseMenu.instance == null)
             {
-                Debug.Log("PAUSE MENU DOESNT EXIST");
+                
             }
 
             //_assignedMoves[i] = classBrain.GetDefaultAbility(_assignedMoves);

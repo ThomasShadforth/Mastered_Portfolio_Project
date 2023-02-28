@@ -16,7 +16,7 @@ public class IceLance : AbilitySO
         {
             //Insert AI projectile method here
             //SpawnProjectile(thinker.testProjectile, modifier, null, thinker);
-            //thinker.PrepareCombatNotify(actionType, diceNum, maxDamage);
+            thinker.PrepareCombatNotify(actionType, diceNum, maxDamage, this.modifier);
         }
 
         PlayAnim(ownerPlayer, thinker);

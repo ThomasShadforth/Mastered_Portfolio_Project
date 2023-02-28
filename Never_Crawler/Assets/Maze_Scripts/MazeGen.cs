@@ -115,7 +115,7 @@ public class MazeGen : MonoBehaviour
     public Module doorRight;
 
 
-    [SerializeField] Transform dungeonParent;
+    public Transform dungeonParent;
     public GameObject player;
     public GameObject enemyPrefab;
     [SerializeField] NavMeshSurface _navMesh;
@@ -454,6 +454,7 @@ public class MazeGen : MonoBehaviour
         }
         else
         {
+            Debug.Log("CHUNK LOADED");
             isInactive = false;
         }
 
@@ -1069,6 +1070,7 @@ public class MazeGen : MonoBehaviour
         {
             if (isInactive)
             {
+                StartCoroutine(BuildNavMesh());
                 isInactive = false;
                 EnableDisableMeshes(true);
                 if (EnemyObjectPool.instance != null)
@@ -1097,7 +1099,7 @@ public class MazeGen : MonoBehaviour
         {
             if (!isInactive)
             {
-
+                isInactive = true;
                 EnableDisableMeshes(false);
             }   
         }

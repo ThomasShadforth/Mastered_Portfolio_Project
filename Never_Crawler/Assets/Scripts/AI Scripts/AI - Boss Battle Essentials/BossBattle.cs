@@ -13,6 +13,10 @@ public class BossBattle : MonoBehaviour
         Phase_3
     }
 
+    public AbilitySO[] phase1Attacks;
+    public AbilitySO[] phase2Attacks;
+    public AbilitySO[] phase3Attacks;
+
     [SerializeField] ColliderTrigger trigger;
     [SerializeField] AIThinker bossAI;
 
@@ -23,6 +27,8 @@ public class BossBattle : MonoBehaviour
     Boss_Phases phase;
 
     List<GameObject> enemiesPresent;
+
+
 
     //Get a reference to health System when it is implemented
 
@@ -65,16 +71,19 @@ public class BossBattle : MonoBehaviour
                 phase = Boss_Phases.Phase_1;
                 bossAI.SetCooldownTimer();
                 bossAI.TransitionToState(phase1State);
+                bossAI.attacks = phase1Attacks;
                 bossAI.playerTarget = FindObjectOfType<PlayerController>().transform;
                 
                 break;
             case Boss_Phases.Phase_1:
                 phase = Boss_Phases.Phase_2;
                 bossAI.TransitionToState(phase2State);
+                bossAI.attacks = phase2Attacks;
                 break;
             case Boss_Phases.Phase_2:
                 bossAI.TransitionToState(phase3State);
                 phase = Boss_Phases.Phase_3;
+                bossAI.attacks = phase3Attacks;
                 break;
         }
     }
@@ -90,13 +99,14 @@ public class BossBattle : MonoBehaviour
             case Boss_Phases.Phase_1:
                 if(bossAI.healthSystem.GetHealthPercent() < .7f)
                 {
-                    Debug.Log("ENTERING PHASE 2");
+                    
+                    StartNextPhase();
                 }
                 break;
             case Boss_Phases.Phase_2:
                 if(bossAI.healthSystem.GetHealthPercent() < .4f)
                 {
-
+                    StartNextPhase();
                 }
                 break;
         }
@@ -110,6 +120,13 @@ public class BossBattle : MonoBehaviour
     public void SetBossTrigger(ColliderTrigger trigger)
     {
         this.trigger = trigger;
+    }
+
+    public void SetBossPhaseAttacks(AbilitySO[] phase_1Attacks, AbilitySO[] phase_2Attacks, AbilitySO[] phase_3Attacks)
+    {
+        phase1Attacks = phase_1Attacks;
+        phase2Attacks = phase_2Attacks;
+        phase3Attacks = phase_3Attacks;
     }
 
     public void SetBossPhases(State phase_1, State phase_2, State phase_3)

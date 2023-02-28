@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class RecursiveDungeon : MazeGen
 {
+    private int _roomWidth;
+    private int _roomDepth;
+    private int _roomStartX;
+    private int _roomStartZ;
+
     public override void Generate()
     {
         this.transform.position = Vector3.zero;
@@ -21,9 +26,16 @@ public class RecursiveDungeon : MazeGen
             //Debug.Log(gameObject.name + $" room number {i + 1} ");
             int startX = Random.Range(3, xSize - 3);
             int startZ = Random.Range(3, zSize - 3);
+
+            _roomStartX = startX;
+            _roomStartZ = startZ;
+
             int roomWidth = Random.Range(minRoomsize, maxRoomSize);
 
             int roomDepth = Random.Range(minRoomsize, maxRoomSize);
+
+            _roomWidth = roomWidth;
+            _roomDepth = roomDepth;
 
             for (int x = startX; x < xSize - 3 && x < startX + roomWidth; x++)
             {
@@ -63,40 +75,70 @@ public class RecursiveDungeon : MazeGen
             }
         } while (!_spawnFound);
 
+        posToSpawn.x += -(Mathf.FloorToInt(xOffset / 2));
+        posToSpawn.z += -(zOffset);
+
         BossData data = GetComponent<BossData>();
 
-        GameObject bossbattle = Instantiate(data.bossBattle);
-        BossBattle bossConfig = bossbattle.GetComponent<BossBattle>();
-
-        if(bossConfig != null)
+        if (data != null)
         {
-            
+            SpawnBossAtPos();
 
-            bossConfig.SetBossPhases(data.phase1Sstate, data.phase2Sstate, data.phase3Sstate);
+            GameObject bossbattle = Instantiate(data.bossBattle);
+            BossBattle bossConfig = bossbattle.GetComponent<BossBattle>();
 
-            GameObject bossEnemy = Instantiate(data.bossEnemy, posToSpawn, Quaternion.identity);
-            GameObject bossTrigger = Instantiate(data.bossTrigger, posToSpawn, Quaternion.identity);
-
-            ColliderTrigger trigger = bossTrigger.GetComponent<ColliderTrigger>();
-            AIThinker bossThinker = bossEnemy.GetComponent<AIThinker>();
-
-            if(bossThinker != null)
+            if (bossConfig != null)
             {
-                bossConfig.SetBossAI(bossThinker);
+
+
+                bossConfig.SetBossPhases(data.phase1Sstate, data.phase2Sstate, data.phase3Sstate);
+                bossConfig.SetBossPhaseAttacks(data.phase1Attacks, data.phase2Attacks, data.phase3Attacks);
+
+                GameObject bossEnemy = Instantiate(data.bossEnemy, posToSpawn, Quaternion.identity);
+                GameObject bossTrigger = Instantiate(data.bossTrigger, posToSpawn, Quaternion.identity);
+
+                ColliderTrigger trigger = bossTrigger.GetComponent<ColliderTrigger>();
+                AIThinker bossThinker = bossEnemy.GetComponent<AIThinker>();
+
+                if (bossThinker != null)
+                {
+                    bossConfig.SetBossAI(bossThinker);
+                    bossThinker.isBoss = true;
+                }
+
+                if (trigger != null)
+                {
+                    bossConfig.SetBossTrigger(trigger);
+                }
+
+                bossEnemy.transform.SetParent(transform);
+                bossTrigger.transform.SetParent(transform);
+
             }
-
-            if(trigger != null)
-            {
-                bossConfig.SetBossTrigger(trigger);
-            }
-
-            bossEnemy.transform.SetParent(transform);
-            bossTrigger.transform.SetParent(transform);
-
         }
 
+        
 
         //Debug.Log("Boss will be spawned at position: " + posToSpawn + " on: " + debugName);
+    }
+
+    public void SpawnBossAtPos()
+    {
+        int spawnX = _roomStartX + _roomWidth / 2;
+        int spawnZ = _roomStartZ + _roomDepth / 2;
+
+        float height = level * scale * heightModifier;
+
+        Vector3 spawnVector = new Vector3(spawnX, height, spawnZ);
+
+        Debug.Log("BOSS WILL BE SPAWNED AT: " + spawnVector + " BEFORE OFFSET");
+
+        GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        wall.transform.position = spawnVector;
+        wall.transform.SetParent(dungeonParent);
+        //wall.transform.Translate(xOffset * scale, 0, zOffset * scale);
+
+        
     }
 
     void Generate(int x, int z)

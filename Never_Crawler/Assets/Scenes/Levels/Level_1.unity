@@ -1097,12 +1097,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba68b16494cc69a46b4608c3153933ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase1Sstate: {fileID: 11400000, guid: 3bc0a9083f553824cac5b46ef3b0e6e2, type: 2}
-  phase2Sstate: {fileID: 0}
-  phase3Sstate: {fileID: 0}
-  bossEnemy: {fileID: 5403528439549056213, guid: a3c84b74390d37f428a8094aab4f4788, type: 3}
+  phase1Sstate: {fileID: 11400000, guid: 6e9e3949d645bfa49a4c1d05a23161cd, type: 2}
+  phase2Sstate: {fileID: 11400000, guid: 769d1bcbf60e1344fad6539d06635731, type: 2}
+  phase3Sstate: {fileID: 11400000, guid: 9ad3dcf66b81cf44a9f12ad32b2a45a7, type: 2}
+  bossEnemy: {fileID: 3731074539515103668, guid: ff938fd6ff321c74796b4dcb6f32d384, type: 3}
   bossBattle: {fileID: 7140139516927455480, guid: b6a7914edc5635447867e00e2dc17db6, type: 3}
   bossTrigger: {fileID: 5564985679102670152, guid: f2ba6bcbce6967f4796dde8a55628f96, type: 3}
+  phase1Attacks:
+  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
+  phase2Attacks:
+  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
+  - {fileID: 11400000, guid: 82bac92a319d31f408cf8f28ccd8834d, type: 2}
+  phase3Attacks: []
 --- !u!114 &1389515601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,7 +1128,7 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 3731074539515103668, guid: f55991da64114bb44b31dfdcc3f7b97a, type: 3}
   - {fileID: 8575671223372582311, guid: 8cdd7152bb693614997018ac932defdd, type: 3}
-  patrolPoint: {fileID: 0}
+  patrolPoint: {fileID: 2630407486318944635, guid: 030589e822b06454795e272f2dfb9a30, type: 3}
 --- !u!114 &1389515602
 MonoBehaviour:
   m_ObjectHideFlags: 0

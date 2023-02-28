@@ -72,6 +72,9 @@ public class AIThinker : Subject
     [HideInInspector]
     public bool attacking;
 
+    [HideInInspector]
+    public bool isBoss;
+
     private void OnEnable()
     {
         Noise.SoundEvent += OnHearNoise;
@@ -80,7 +83,7 @@ public class AIThinker : Subject
         {
             AddObserver(FindObjectOfType<PlayerStats>().GetComponent<IObserver>());
         }
-        Debug.Log(GetObserverCount() + " " + gameObject.name);
+        
     }
 
     private void OnDisable()
@@ -111,15 +114,34 @@ public class AIThinker : Subject
     // Update is called once per frame
     void Update()
     {
-        if (!active) return;
-
-        if (agent.enabled && !agent.isOnNavMesh)
+        if (!active)
         {
+            if (isBoss)
+            {
+                //
+                Debug.Log("BOSS INACTIVE");
+            }
             return;
+        }
+
+        if (agent != null)
+        {
+            if (agent.enabled && !agent.isOnNavMesh)
+            {
+                return;
+            }
         }
 
         if (currentState != null)
         {
+            if (isBoss)
+            {
+                if (currentState.actions.Length != 0)
+                {
+                    Debug.Log("BOSS UPDATING STATE");
+                }
+            }
+
             currentState.UpdateState(this);
 
             canSeePlayer = enemyLOS.canSeePlayer;
