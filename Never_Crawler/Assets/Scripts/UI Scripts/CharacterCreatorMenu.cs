@@ -57,6 +57,8 @@ public class CharacterCreatorMenu : MonoBehaviour
 
         SetupButtonValues();
         pointBuyRemaining = initialPointBuyCount;
+
+        _classButtons[0].Press();
     }
 
     // Update is called once per frame
@@ -80,6 +82,7 @@ public class CharacterCreatorMenu : MonoBehaviour
         for(int i = 0; i < _classButtons.Length; i++)
         {
             _classButtons[i].buttonValue = i;
+            _classButtons[i].buttonText.text = classes[i].className;
         }
     }
 

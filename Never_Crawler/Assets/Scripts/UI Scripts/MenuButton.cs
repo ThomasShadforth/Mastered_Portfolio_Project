@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MenuButton : MonoBehaviour
 {
     public int buttonValue;
     public int valueChange;
     public bool allToggle;
+
+    public TextMeshProUGUI buttonText;
 
     // Start is called before the first frame update
     void Start()

@@ -16,10 +16,6 @@ public abstract class AbilitySO : ScriptableObject
     public CombatActionEnum maxDamage;
     public CombatActionEnum modifier;
 
-    /*
-    public int diceNum;
-    public int maxDamageVal;*/
-
     public bool isAttack;
     
 

@@ -96,5 +96,13 @@ public class GameManager : MonoBehaviour, IObserver
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadSceneAsync("GameOver");
+        DestroySingletons();
+    }
+
+    void DestroySingletons()
+    {
+        Debug.Log("DESTROYING SINGLETONS");
+        Destroy(PauseMenu.instance.gameObject);
+        Destroy(this.gameObject);
     }
 }

@@ -73,13 +73,22 @@ public class ClassMenu : MonoBehaviour
         for (int i = 0; i < classButtons.Length; i++)
         {
             //Set the button value (Used to communicate with the class' move list)
-            classButtons[i].buttonValue = i;
-
+            if (i < GetPlayerClass().knownMoves.Length)
+            {
+                classButtons[i].buttonValue = i;
+                classButtons[i].buttonText.text = GetPlayerClass().knownMoves[i].abilityName;
+            }
+            else
+            {
+                classButtons[i].gameObject.SetActive(false);
+            }
             
 
             //Get the icon for the move in the array position, set it as the button's icon
             //Rather than make a separate UI for each individual class, streamlines the system and simplifies it down to one class menu
         }
+
+        classButtons[0].Press();
     }
 
     public void DisplayAbilityInfo(AbilitySO abilityToDisplay)
