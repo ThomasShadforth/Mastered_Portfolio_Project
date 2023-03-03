@@ -11,4 +11,8 @@ public enum TutorialEnum
     Checkpoint_2_Reached,
     Checkpoint_3_Reached,
     Checkpoint_4_Reached,
+    MenuOpened,
+    StatsOpened,
+    InventoryOpened,
+    ClassMenuOpened
 }

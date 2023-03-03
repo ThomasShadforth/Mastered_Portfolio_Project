@@ -789,7 +789,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2.6, y: 0.4}
+  m_SizeDelta: {x: 1.4, y: 0.1395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6081924107849220023
 CanvasRenderer:
@@ -992,8 +992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.415}
-  m_SizeDelta: {x: 2.8618, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1.17}
+  m_SizeDelta: {x: 1.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1732561633929209908
 CanvasRenderer:
@@ -1023,8 +1023,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: -480713800, guid: c6e605dd220c33746b9b9ead13d2a3ce, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2584,6 +2584,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   canSeePlayer: 0
   attacking: 0
+  isBoss: 0
 --- !u!114 &3074018949745347950
 MonoBehaviour:
   m_ObjectHideFlags: 0

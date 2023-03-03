@@ -68,7 +68,10 @@ public class PlayerStats : CharacterStats, IObserver
         }
     }
 
-    
+    public int GetCurrentEXPRequirement()
+    {
+        return expToNextLevel[currentLevel];
+    }
 
     public void GainExp(int ExpToGain)
     {

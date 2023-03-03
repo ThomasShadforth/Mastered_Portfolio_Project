@@ -54,8 +54,17 @@ public class DialogueManager : MonoBehaviour
         _animator.SetBool("isOpen", false);
         //Set animator to false
         dialogueInProg = false;
-        FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
-        FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
+
+        if (PauseMenu.instance != null && PauseMenu.instance.menuWindow.activeInHierarchy)
+        {
+
+        }
+        else
+        {
+
+            FindObjectOfType<PlayerController>()._playerInput.Player.Enable();
+            FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
+        }
 
         Debug.Log(FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.enabled);
     }

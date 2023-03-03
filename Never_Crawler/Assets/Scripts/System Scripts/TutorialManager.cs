@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour, IObserver
     [SerializeField] Dialogue _startDialogue;
     [SerializeField] Dialogue[] _checkpointDialogue;
     [SerializeField] Dialogue _enemyDeathDialogue;
+    [SerializeField] Dialogue _statMenuDialogue;
 
     List<TutorialObject> _tutorialObjects = new List<TutorialObject>();
 
@@ -22,14 +23,23 @@ public class TutorialManager : MonoBehaviour, IObserver
 
         TutorialObject[] existingObjects = FindObjectsOfType<TutorialObject>();
 
-        foreach(TutorialObject tutObj in existingObjects)
+        if (existingObjects.Length != 0)
         {
-            _tutorialObjects.Add(tutObj);
+            foreach (TutorialObject tutObj in existingObjects)
+            {
+                _tutorialObjects.Add(tutObj);
+            }
+
+            foreach (TutorialObject tutObj in _tutorialObjects)
+            {
+                tutObj.AddObserver(this);
+            }
         }
 
-        foreach(TutorialObject tutObj in _tutorialObjects)
+        PauseMenu pauseMenu = FindObjectOfType<PauseMenu>();
+        if(pauseMenu != null)
         {
-            tutObj.AddObserver(this);
+            pauseMenu.AddObserver(this);
         }
     }
 
@@ -75,6 +85,10 @@ public class TutorialManager : MonoBehaviour, IObserver
                 }
             }
             
+        } else if (tutorialEvent.ToString().Contains("Stats"))
+        {
+            DialogueManager.instance.StartDialogue(_statMenuDialogue);
+
         }
     }
 

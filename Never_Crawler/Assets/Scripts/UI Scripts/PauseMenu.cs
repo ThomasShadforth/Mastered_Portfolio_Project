@@ -6,7 +6,7 @@ using Cinemachine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Subject
 {
 
     public GameObject menuWindow;
@@ -31,6 +31,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _statValues;
     [SerializeField] TextMeshProUGUI[] _statModifiers;
     [SerializeField] TextMeshProUGUI _StatPointText;
+    [SerializeField] TextMeshProUGUI _currentLevelText;
+    [SerializeField] TextMeshProUGUI _nextLevelEXPText;
+
+    bool firstOpened;
 
     // Start is called before the first frame update
     void Start()
@@ -226,6 +230,17 @@ public class PauseMenu : MonoBehaviour
         }
 
         _StatPointText.text = playerStat.availableStatPoints.ToString();
+        _currentLevelText.text = playerStat.currentLevel.ToString();
+        _nextLevelEXPText.text = playerStat.currentEXP + " / " + playerStat.GetCurrentEXPRequirement();
+
+        if (FindObjectOfType<TutorialManager>())
+        {
+            if (!firstOpened)
+            {
+                NotifyObservers(TutorialEnum.StatsOpened);
+            }
+        }
+
     }
 
     public void IncreaseStat(int statIndex)
