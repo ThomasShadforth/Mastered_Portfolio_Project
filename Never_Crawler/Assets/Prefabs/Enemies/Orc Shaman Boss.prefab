@@ -3175,6 +3175,7 @@ Transform:
   - {fileID: 3731074539514942910}
   - {fileID: 3731074539514942896}
   - {fileID: 7198613672305666636}
+  - {fileID: 2937230004721960931}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3368,12 +3369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileReferences:
-  - {fileID: 8445156391229477373, guid: 8a9d690bc924c0f4f908762ba68a20cd, type: 3}
+  - {fileID: 3093882462379130434, guid: e2ab421f6639a4f459d9d9730d132974, type: 3}
   - {fileID: 627600260779117770, guid: fef4fa5054e00d64abaa5dcd31e7702c, type: 3}
   ownerSubject: {fileID: 3731074539514942895}
   loadedProjectile: {fileID: 0}
   hitPrefab: {fileID: 0}
   applyMoveVelo: 2.5
+  projectileSpawnPos: {fileID: 2937230004721960931}
 --- !u!1 &3731074539515103670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3895,6 +3897,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &7210085527466528764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2937230004721960931}
+  m_Layer: 8
+  m_Name: ProjectileSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2937230004721960931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210085527466528764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.721, z: 0.884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3731074539514942868}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8607039154623827255
 GameObject:
   m_ObjectHideFlags: 0

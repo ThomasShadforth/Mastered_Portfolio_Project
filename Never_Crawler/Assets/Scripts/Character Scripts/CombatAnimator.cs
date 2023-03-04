@@ -9,12 +9,15 @@ public class CombatAnimator : MonoBehaviour, IObserver
     public GameObject[] projectileReferences;
     public Subject ownerSubject;
 
+
+
     public GameObject loadedProjectile;
 
     public HitUI hitPrefab;
 
     public float applyMoveVelo = 2.5f;
 
+    [SerializeField] Transform projectileSpawnPos;
 
     bool applyingMove;
 
@@ -72,10 +75,11 @@ public class CombatAnimator : MonoBehaviour, IObserver
 
             if (projectile.GetComponent<Rigidbody>())
             {
-                projectile.GetComponent<Rigidbody>().velocity = transform.forward * 30f;
+                //projectile.GetComponent<Rigidbody>().velocity = transform.forward * 30f;
+                //projectile.GetComponent<Rigidbody>().velocity += new Vector3(0, 4, 0);
             }
 
-            projectile.transform.position = projBase.offsetPosition ? projBase.OffsetProjectileSpawn(gameObject) : new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            projectile.transform.position = projBase.offsetPosition ? projBase.OffsetProjectileSpawn(gameObject) : projectileSpawnPos.position;
 
         }
     }

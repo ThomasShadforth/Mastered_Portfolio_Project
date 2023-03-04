@@ -9,9 +9,14 @@ public class ProjectileBase : MonoBehaviour
     public int maxDamageVal;
     public bool destroyHitGround;
 
+    public bool rotates;
+
     public bool destroyOverTime;
     public float destroyTime;
     float lifeTime;
+
+    public Vector3 testVelocity;
+    Rigidbody _rb;
 
     encumbranceStates playerState = encumbranceStates.normal;
 
@@ -23,10 +28,16 @@ public class ProjectileBase : MonoBehaviour
     Attack _attack;
     HitUI damagePrefab;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     void Start()
     {
         _attack = new Attack();
-
+        
+        //_rb.velocity = testVelocity;
         //transform.position = OffsetProjectileSpawn(ownerObject);
     }
 
@@ -50,7 +61,13 @@ public class ProjectileBase : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-        } 
+        }
+
+        if (rotates)
+        {
+            float angle = -(Mathf.Atan2(_rb.velocity.y, _rb.velocity.z) * Mathf.Rad2Deg);
+            transform.rotation = Quaternion.Euler(angle, 0, 0);
+        }
     }
 
     
@@ -164,6 +181,15 @@ public class ProjectileBase : MonoBehaviour
         this.diceNum = diceNum;
         this.maxDamageVal = maxDamageVal;
         this.ownerObject = ownerObject;
+        this.transform.forward = ownerObject.transform.forward;
+        
+        if(_rb != null)
+        {
+            Debug.Log("RIGIDBODY FOUND");
+            _rb.velocity = ownerObject.transform.forward * 30f;
+            _rb.velocity += new Vector3(0, 2, 0);
+        }
+        
     }
 
     public void SetEncumbranceState(encumbranceStates state)

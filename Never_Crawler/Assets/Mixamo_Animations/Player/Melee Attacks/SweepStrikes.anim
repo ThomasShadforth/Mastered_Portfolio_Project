@@ -81011,7 +81011,7 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 8
+    intParameter: 6
     messageOptions: 0
   - time: 2.1333334
     functionName: ResetAnimation
