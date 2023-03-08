@@ -18,6 +18,8 @@ public class CombatAnimator : MonoBehaviour, IObserver
     public float applyMoveVelo = 2.5f;
 
     [SerializeField] Transform projectileSpawnPos;
+    [SerializeField] Vector3 detectionOffset;
+    [SerializeField] LayerMask groundLayer;
 
     bool applyingMove;
 
@@ -41,8 +43,6 @@ public class CombatAnimator : MonoBehaviour, IObserver
     void Start()
     {
         _attack = new Attack();
-
-        //TriggerAttack<PlayerController>(FindObjectOfType<PlayerController>());
     }
 
     // Update is called once per frame
@@ -164,6 +164,8 @@ public class CombatAnimator : MonoBehaviour, IObserver
 
             GetComponent<Rigidbody>().MovePosition(transform.position + direction * applyMoveVelo * Time.deltaTime);
 
+            applyingMove = !Physics.CheckSphere(transform.position + transform.forward + detectionOffset, .5f, groundLayer);
+
             yield return null;
 
         } while (distanceFromDest > .5f && applyingMove);
@@ -201,6 +203,12 @@ public class CombatAnimator : MonoBehaviour, IObserver
         }
 
         //Debug.Log(setModifier);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        StopMovement();
     }
 
     public void TriggerAttack(PlayerController player = null, AIThinker AI = null)
@@ -283,5 +291,10 @@ public class CombatAnimator : MonoBehaviour, IObserver
             player.attacking = true;
         }
 
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position + transform.forward + detectionOffset, .5f);
     }
 }

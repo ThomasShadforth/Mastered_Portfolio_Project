@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Animator _animator;
     public bool dialogueInProg;
 
+    Coroutine typeCo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,20 +68,25 @@ public class DialogueManager : MonoBehaviour
             FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.Enable();
         }
 
-        Debug.Log(FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.enabled);
+        //Debug.Log(FindObjectOfType<CinemachineFreeLook>().GetComponent<CinemachineInputProvider>().XYAxis.action.enabled);
     }
 
     public void DisplayNextSentence()
     {
+        if (typeCo != null)
+        {
+            StopCoroutine(typeCo);
+        }
+
         if(_sentence.Count == 0)
         {
             //End the dialogue
             EndDialogue();
             return;
         }
-
-        string sentence = _sentence.Dequeue();
-        StartCoroutine(TypeSentenceCo(sentence));
+        string sentence = "";
+        sentence = _sentence.Dequeue();
+        typeCo = StartCoroutine(TypeSentenceCo(sentence));
     }
 
     IEnumerator DisablePlayerMoveCo()

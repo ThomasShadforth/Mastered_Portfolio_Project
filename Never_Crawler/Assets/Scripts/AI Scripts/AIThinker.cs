@@ -119,7 +119,7 @@ public class AIThinker : Subject
             if (isBoss)
             {
                 //
-                Debug.Log("BOSS INACTIVE");
+                
             }
             return;
         }
@@ -138,7 +138,7 @@ public class AIThinker : Subject
             {
                 if (currentState.actions.Length != 0)
                 {
-                    Debug.Log("BOSS UPDATING STATE");
+                    
                 }
             }
 

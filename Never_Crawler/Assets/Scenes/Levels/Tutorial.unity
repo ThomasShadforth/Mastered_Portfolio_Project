@@ -9326,7 +9326,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &977524211
 RectTransform:
@@ -9381,7 +9381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fe9c2976ad0cd48969a5dadec269f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTypeSpeed: 0.05
+  dialogueTypeSpeed: 0.025
   _nameText: {fileID: 737810755}
   _dialogueText: {fileID: 1182014826}
   _animator: {fileID: 977524212}
@@ -12065,6 +12065,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 658567147655799351, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
+      propertyPath: detectionOffset.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 658567147655799351, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
+      propertyPath: detectionOffset.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 658567147655799351, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 912723976056323562, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: m_Name
       value: Player
@@ -12097,6 +12109,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0000024127785
       objectReference: {fileID: 0}
+    - target: {fileID: 3104644650467495472, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
+      propertyPath: classBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: a61d76d867e9bce42939796ac9093285, type: 2}
     - target: {fileID: 3372038371305062401, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

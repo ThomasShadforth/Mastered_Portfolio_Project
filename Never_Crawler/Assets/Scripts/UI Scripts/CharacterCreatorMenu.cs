@@ -277,13 +277,11 @@ public class CharacterCreatorMenu : MonoBehaviour
 
         statRolls.RemoveAt(statRolls.Count - 1);
 
-        //Debug.Log(statRolls.Count);
+       
 
         for (int i = 0; i < statRolls.Count; i++)
         {
-            //Debug.Log(rolledStat);
-            //Debug.Log(statRolls[i]);
-
+            
             rolledStat += statRolls[i];
         }
 

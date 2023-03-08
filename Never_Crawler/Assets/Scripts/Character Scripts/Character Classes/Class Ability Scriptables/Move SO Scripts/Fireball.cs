@@ -9,12 +9,11 @@ public class Fireball : AbilitySO
     {
         if (ownerPlayer != null)
         {
-            //SpawnProjectile(ownerPlayer.testProjectile, modifier, ownerPlayer);
+            
             ownerPlayer.PrepareCombatNotify(actionType, diceNum, maxDamage, this.modifier);
         } else if(thinker != null)
         {
-            //Insert AI projectile method here
-            //SpawnProjectile(thinker.testProjectile, modifier, null, thinker);
+           
             thinker.PrepareCombatNotify(actionType, diceNum, maxDamage, this.modifier);
         }
 

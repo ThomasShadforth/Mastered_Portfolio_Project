@@ -2682,6 +2682,11 @@ MonoBehaviour:
   loadedProjectile: {fileID: 0}
   hitPrefab: {fileID: 0}
   applyMoveVelo: 2.5
+  projectileSpawnPos: {fileID: 0}
+  detectionOffset: {x: 0, y: 1.1, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8781082631052587696
 GameObject:
   m_ObjectHideFlags: 0
