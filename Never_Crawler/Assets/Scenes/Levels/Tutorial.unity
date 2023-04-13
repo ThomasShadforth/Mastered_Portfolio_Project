@@ -11914,6 +11914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206860327}
   - component: {fileID: 1206860328}
+  - component: {fileID: 1206860329}
   m_Layer: 0
   m_Name: TutorialTriggerStart
   m_TagString: Untagged
@@ -11952,6 +11953,19 @@ MonoBehaviour:
   triggered: 0
   triggerOnEnter: 0
   tutorialEvent: 0
+--- !u!114 &1206860329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206860326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c902a72267fe54da76362a25e42ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioName: DungeonTheme
 --- !u!1001 &1208839156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12135,11 +12149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3372038371305062401, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000021841239
+      value: -0.000021841648
       objectReference: {fileID: 0}
     - target: {fileID: 3372038371305062401, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000020058737
+      value: 0.0000020095763
       objectReference: {fileID: 0}
     - target: {fileID: 4153486717160752288, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: m_LocalPosition.x

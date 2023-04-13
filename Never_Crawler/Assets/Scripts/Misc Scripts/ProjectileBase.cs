@@ -185,7 +185,7 @@ public class ProjectileBase : MonoBehaviour
         
         if(_rb != null)
         {
-            Debug.Log("RIGIDBODY FOUND");
+            
             _rb.velocity = ownerObject.transform.forward * 30f;
             _rb.velocity += new Vector3(0, 2, 0);
         }

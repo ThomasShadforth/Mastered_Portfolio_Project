@@ -7,8 +7,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource _musicAudioSource;
-    [SerializeField] AudioSource _SFXAudioSource;
+    [SerializeField] AudioMixerGroup _musicGroup;
+    [SerializeField] AudioMixerGroup _SFXGroup;
 
     //
     [SerializeField] Sound[] sounds;
@@ -27,48 +27,68 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound s in sounds)
         {
-            if (s.name.Contains("FX"))
-            {
-                s.source = _SFXAudioSource;
 
-            }
-            else
-            {
-                s.source = _musicAudioSource;
-            }
-
+            s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.playOnAwake = false;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+
+            if (s.name.Contains("FX"))
+            {
+                s.source.outputAudioMixerGroup = _SFXGroup;
+            }
+            else
+            {
+                s.source.outputAudioMixerGroup = _musicGroup;
+            }
         }
     }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Play(string name)
     {
 
+        Sound s = null;
 
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        for(int i = 0; i < sounds.Length; i++)
+        {
+            if(sounds[i].name == name)
+            {
+                s = sounds[i];
+                Debug.Log(s.source.clip.name);
+                i = sounds.Length;
+            }
+        }
 
         if (s == null)
         {
             return;
         }
 
-        Debug.Log(s.name);
 
+       
+        for(int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].source.isPlaying && !sounds[i].name.Contains("FX"))
+            {
+                sounds[i].source.Stop();
+            }
+        }
+        
+        
         s.source.Play();
 
+    }
+
+    public bool _IsPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return false;
+
+        return (s.source.isPlaying);
     }
 
     public void Stop(string name)

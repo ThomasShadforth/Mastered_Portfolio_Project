@@ -31,6 +31,8 @@ public class SettingsMenu : MonoBehaviour
         {
             _animator.Play("FadeIn");
         }
+
+        SetAudioSliders();
     }
 
     public void SetMasterAudioMixer(float volume)
@@ -58,7 +60,7 @@ public class SettingsMenu : MonoBehaviour
     float GetMixerVolume(AudioMixerGroup mixerToGet, string ParameterName)
     {
         float tempVol = 0f;
-        bool hasVal = masterAudioMixer.audioMixer.GetFloat(ParameterName, out tempVol);
+        bool hasVal = mixerToGet.audioMixer.GetFloat(ParameterName, out tempVol);
 
         if (hasVal)
         {
