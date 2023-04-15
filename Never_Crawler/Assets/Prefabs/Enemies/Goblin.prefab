@@ -2567,7 +2567,7 @@ MonoBehaviour:
   investigateTime: 4
   investigateTimer: 0
   attacks:
-  - {fileID: 11400000, guid: 902fdc4daf5ac724f9effd5f50b4b7ea, type: 2}
+  - {fileID: 11400000, guid: 2bb6643b322e01a4ebdf5f466e74be12, type: 2}
   attackCoolTime: 2
   attackCoolTimer: 0
   active: 1

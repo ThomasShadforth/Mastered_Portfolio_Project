@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25ba99f343012a744ab9d42b445a0f0e, type: 3}
-  m_Name: FireballSO
+  m_Script: {fileID: 11500000, guid: 308c01e80dacb6441810c6f79b3ca174, type: 3}
+  m_Name: IceLance
   m_EditorClassIdentifier: 
-  abilityName: Fireball
-  description: An intense ball of searing flame
+  abilityName: Ice Lance
+  description: Summon forth a great lance of ice from the surface
   defaultAbility: 1
   requiredLevel: 0
-  effectVal: 20
-  actionType: 0
+  actionType: 3
   diceNum: 10
   maxDamage: 18
   modifier: 29
-  isAttack: 1
-  hitTextPrefab: {fileID: 171868046866115424, guid: 72db1bc1db2208f45b3f9b74a22547f8, type: 3}
-  animName: Magic_Cast_1
-  type: 2
+  animName: Magic_Cast_3

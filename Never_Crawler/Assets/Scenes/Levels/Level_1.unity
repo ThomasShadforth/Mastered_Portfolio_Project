@@ -1254,11 +1254,13 @@ MonoBehaviour:
   bossBattle: {fileID: 7140139516927455480, guid: b6a7914edc5635447867e00e2dc17db6, type: 3}
   bossTrigger: {fileID: 5564985679102670152, guid: f2ba6bcbce6967f4796dde8a55628f96, type: 3}
   phase1Attacks:
-  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
+  - {fileID: 11400000, guid: e15dcaa080fbd0340ac9af923a43411a, type: 2}
   phase2Attacks:
-  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
-  - {fileID: 11400000, guid: 82bac92a319d31f408cf8f28ccd8834d, type: 2}
-  phase3Attacks: []
+  - {fileID: 11400000, guid: e15dcaa080fbd0340ac9af923a43411a, type: 2}
+  - {fileID: 11400000, guid: d600ece2457ea05408d25dc4f2937e60, type: 2}
+  phase3Attacks:
+  - {fileID: 11400000, guid: e15dcaa080fbd0340ac9af923a43411a, type: 2}
+  - {fileID: 11400000, guid: d600ece2457ea05408d25dc4f2937e60, type: 2}
 --- !u!114 &1389515601
 MonoBehaviour:
   m_ObjectHideFlags: 0

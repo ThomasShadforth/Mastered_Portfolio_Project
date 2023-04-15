@@ -69,10 +69,9 @@ public class AudioManager : MonoBehaviour
         }
 
 
-       
         for(int i = 0; i < sounds.Length; i++)
         {
-            if (sounds[i].source.isPlaying && !sounds[i].name.Contains("FX"))
+            if (sounds[i].source.isPlaying && !name.Contains("FX"))
             {
                 sounds[i].source.Stop();
             }

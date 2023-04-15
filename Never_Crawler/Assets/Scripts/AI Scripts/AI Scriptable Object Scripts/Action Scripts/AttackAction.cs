@@ -26,7 +26,7 @@ public class AttackAction : Action
         }
         else
         {
-            attacks[0].UseAbility(0, null, thinker);
+            attacks[0].UseAbility(null, thinker);
         }
     }
 }

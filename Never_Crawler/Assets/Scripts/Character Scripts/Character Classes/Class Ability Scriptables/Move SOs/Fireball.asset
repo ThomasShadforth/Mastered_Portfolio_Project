@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b000cb963c7be154387020804725cd56, type: 3}
-  m_Name: RockCatapultSO
+  m_Script: {fileID: 11500000, guid: 308c01e80dacb6441810c6f79b3ca174, type: 3}
+  m_Name: Fireball
   m_EditorClassIdentifier: 
-  abilityName: Rock Catapult
-  description: Summon forth a chunk of the earth and thrust it towards your foes.
+  abilityName: Fireball
+  description: An intense ball of searing flame
   defaultAbility: 1
   requiredLevel: 0
-  effectVal: 0
-  actionType: 5
+  actionType: 0
   diceNum: 10
-  maxDamage: 17
+  maxDamage: 18
   modifier: 29
-  isAttack: 1
-  hitTextPrefab: {fileID: 0}
-  animName: Magic_Cast_5
-  type: 0
+  animName: Magic_Cast_1

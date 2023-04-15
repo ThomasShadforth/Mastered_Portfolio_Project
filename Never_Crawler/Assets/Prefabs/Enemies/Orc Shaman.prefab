@@ -3282,7 +3282,7 @@ MonoBehaviour:
   investigateTime: 4
   investigateTimer: 0
   attacks:
-  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
+  - {fileID: 11400000, guid: e15dcaa080fbd0340ac9af923a43411a, type: 2}
   attackCoolTime: 2
   attackCoolTimer: 0
   active: 1
@@ -3399,6 +3399,10 @@ MonoBehaviour:
   hitPrefab: {fileID: 0}
   applyMoveVelo: 2.5
   projectileSpawnPos: {fileID: 7746311179156479360}
+  detectionOffset: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3731074539515103670
 GameObject:
   m_ObjectHideFlags: 0

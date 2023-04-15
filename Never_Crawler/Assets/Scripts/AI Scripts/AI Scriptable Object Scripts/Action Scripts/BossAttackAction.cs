@@ -49,12 +49,12 @@ public class BossAttackAction : Action
         {
             int attackNum = Random.Range(0, attacks.Length);
 
-            attacks[attackNum].UseAbility(0, null, thinker);
+            attacks[attackNum].UseAbility(null, thinker);
         }
         else
         {
             //Debug.Log("ATTACKING");
-            attacks[0].UseAbility(0, null, thinker);
+            attacks[0].UseAbility(null, thinker);
         }
     }
 }

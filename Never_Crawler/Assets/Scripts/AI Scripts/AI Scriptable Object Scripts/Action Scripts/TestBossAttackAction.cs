@@ -40,7 +40,7 @@ public class TestBossAttackAction : Action
 
     void Attack(AIThinker thinker)
     {
-        attackUsed.UseAbility(thinker.stats.intelligence.GetScoreModifier(), null, thinker);
+        attackUsed.UseAbility(null, thinker);
     }
 
     void CountdownTimer(AIThinker thinker)

@@ -15,6 +15,6 @@ MonoBehaviour:
   className: Wizard
   classDescription: Holds dominion over the arcane. A peerless, insatiable intellect
   knownMoves:
-  - {fileID: 11400000, guid: 19cbc97440ddb584f8c607ac50724405, type: 2}
-  - {fileID: 11400000, guid: 604ea3084be3aa14299a0f356bad6bb8, type: 2}
-  - {fileID: 11400000, guid: 82bac92a319d31f408cf8f28ccd8834d, type: 2}
+  - {fileID: 11400000, guid: e15dcaa080fbd0340ac9af923a43411a, type: 2}
+  - {fileID: 11400000, guid: 6b77e4aee94ac994ab08cf844620fe4d, type: 2}
+  - {fileID: 11400000, guid: d600ece2457ea05408d25dc4f2937e60, type: 2}

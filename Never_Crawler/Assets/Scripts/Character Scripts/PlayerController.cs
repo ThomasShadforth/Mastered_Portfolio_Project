@@ -185,7 +185,7 @@ public class PlayerController : Subject
     {
         if (_assignedMoves[slotIndex] != null)
         {
-            _assignedMoves[slotIndex].UseAbility(0, this);
+            _assignedMoves[slotIndex].UseAbility(this);
         }
     }
 
@@ -309,7 +309,7 @@ public class PlayerController : Subject
 
         if (_healthSystem.CheckIsDead())
         {
-            Debug.Log("PLAYER IS DEAD");
+            
             NotifyObservers(CombatActionEnum.player_Dead, CombatActionEnum.enemy_Died, CombatActionEnum.enemy_Died, CombatActionEnum.enemy_Died);
         }
     }

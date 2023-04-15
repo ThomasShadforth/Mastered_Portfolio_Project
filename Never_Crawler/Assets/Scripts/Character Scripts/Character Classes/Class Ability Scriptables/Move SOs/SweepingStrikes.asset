@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d010b87de3d330f4da405d220f062958, type: 3}
-  m_Name: HeavySwingSO
+  m_Script: {fileID: 11500000, guid: 308c01e80dacb6441810c6f79b3ca174, type: 3}
+  m_Name: SweepingStrikes
   m_EditorClassIdentifier: 
-  abilityName: Heavy Swing
-  description: A two handed swing that deals substantial harm to adversaries
+  abilityName: Sweeping Strikes
+  description: An almighty swing that disorients opponents, causing massive damage
   defaultAbility: 1
   requiredLevel: 0
-  effectVal: 0
-  actionType: 7
+  actionType: 8
   diceNum: 9
-  maxDamage: 18
+  maxDamage: 17
   modifier: 33
-  isAttack: 1
-  hitTextPrefab: {fileID: 0}
-  animName: HeavySwing
-  type: 0
+  animName: SweepStrikes
