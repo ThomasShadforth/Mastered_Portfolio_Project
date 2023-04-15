@@ -23,8 +23,11 @@ public class BaseClassSO : ScriptableObject
 
     public AbilitySO GetDefaultAbility(AbilitySO[] assignedMoves)
     {
+        Debug.Log(className);
+
         foreach(var ability in knownMoves)
         {
+            
             if (ability.defaultAbility)
             {
                 bool abilityExists = false;

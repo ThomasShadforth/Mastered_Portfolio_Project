@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour, IObserver
         CharacterData.statValue[4] = stats.intelligence.GetBaseValue();
         CharacterData.statValue[5] = stats.wisdom.GetBaseValue();
 
-        CharacterData.playerClass = FindObjectOfType<PlayerController>().classBrain;
+        CharacterData.playerClass = FindObjectOfType<PlayerAbilities>().GetPlayerClass();
     }
 
     public void OnNotify(CombatActionEnum actionType, CombatActionEnum diceNum = CombatActionEnum.enemy_Died, CombatActionEnum maxDamage = CombatActionEnum.enemy_Died, CombatActionEnum modifier = CombatActionEnum.enemy_Died)

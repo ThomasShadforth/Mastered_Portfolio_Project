@@ -12126,7 +12126,7 @@ PrefabInstance:
     - target: {fileID: 3104644650467495472, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: classBrain
       value: 
-      objectReference: {fileID: 11400000, guid: a61d76d867e9bce42939796ac9093285, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3372038371305062401, guid: bcd8b95074335514b9a27623c96f7b86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -154,7 +154,7 @@ public class PlayerStats : CharacterStats, IObserver
 
         currentLevel = CharacterData.currentLevel;
         currentEXP = CharacterData.currentExp;
-        GetComponent<PlayerController>().classBrain = CharacterData.playerClass;
+        GetComponent<PlayerAbilities>().SetPlayerClass(CharacterData.playerClass);
 
         carryWeight = strength.GetBaseValue() * 15;
     }

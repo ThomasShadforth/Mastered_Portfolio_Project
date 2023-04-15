@@ -21,6 +21,7 @@ public class ClassMenu : MonoBehaviour
     BaseClassSO _playerClass;
 
     PlayerController _player;
+    PlayerAbilities _playerAbilities;
 
     [Header("Class Menu Panels")]
     [SerializeField] GameObject abilitySlotsPanel;
@@ -62,17 +63,17 @@ public class ClassMenu : MonoBehaviour
 
         if (_player != null)
         {
-            _playerClass = _player.classBrain;
+            
+            _playerAbilities = _player.GetComponent<PlayerAbilities>();
+            _playerClass = _playerAbilities.GetPlayerClass();
         }
     }
 
     public void OpenClassMenu()
     {
-        
-
         for (int i = 0; i < classButtons.Length; i++)
         {
-            //Set the button value (Used to communicate with the class' move list)
+            
             if (i < GetPlayerClass().knownMoves.Length)
             {
                 classButtons[i].buttonValue = i;
@@ -82,8 +83,6 @@ public class ClassMenu : MonoBehaviour
             {
                 classButtons[i].gameObject.SetActive(false);
             }
-            
-
             //Get the icon for the move in the array position, set it as the button's icon
             //Rather than make a separate UI for each individual class, streamlines the system and simplifies it down to one class menu
         }
@@ -119,11 +118,6 @@ public class ClassMenu : MonoBehaviour
             _assignButton.GetComponent<Button>().interactable = false;
             _assignButton.GetComponent<Button>().image.color = Color.gray;
         }
-
-        //Set button text and interactibility based on whether the player is high enough level
-
-        //if(player.currentLevel >= activeAbility.levelRequirement) then set interactible, otherwise prevent interactions
-
     }
 
     public void DisplaySlotChoiceMenu()
@@ -159,7 +153,7 @@ public class ClassMenu : MonoBehaviour
     {
         if(_player == null)
         {
-            //Debug.Log("NO PLAYER FOUND");
+            
             return;
         }
 
@@ -167,7 +161,7 @@ public class ClassMenu : MonoBehaviour
         int secondarySlotNum = 0;
         bool alreadyAssigned = false;
 
-        //if()
+        
 
         for(int i = 0; i < actionSlots.Length; i++)
         {
@@ -178,7 +172,7 @@ public class ClassMenu : MonoBehaviour
                 {
                     //Return a message saying that you've already assigned this action to this slot
                     i = actionSlots.Length;
-                    Debug.Log("ACTION ALREADY ASSIGNED");
+                    
                     break;
                 }
 
@@ -196,21 +190,22 @@ public class ClassMenu : MonoBehaviour
             {
                 AbilitySO actionToSwap = actionSlots[slotNumber].assignedAction;
 
+
                 actionSlots[slotNumber].assignedAction = abilityToAssign;
-                _player._assignedMoves[slotNumber] = abilityToAssign;
+                _playerAbilities.GetAssignedMovesList()[slotNumber] = abilityToAssign;//_assignedMoves[slotNumber] = abilityToAssign;
 
                 actionSlots[secondarySlotNum].assignedAction = actionToSwap;
-                _player._assignedMoves[secondarySlotNum] = actionToSwap;
+                _playerAbilities.GetAssignedMovesList()[secondarySlotNum] = actionToSwap; //_assignedMoves[secondarySlotNum] = actionToSwap;
             }
             else
             {
-                _player._assignedMoves[slotNumber] = abilityToAssign;
+                _playerAbilities.GetAssignedMovesList()[slotNumber] = abilityToAssign;
             }
         }
         else
         {
             actionSlots[slotNumber].assignedAction = abilityToAssign;
-            _player._assignedMoves[slotNumber] = abilityToAssign;
+            _playerAbilities.GetAssignedMovesList()[slotNumber] = abilityToAssign;//._assignedMoves[slotNumber] = abilityToAssign;
         }
 
         //Set the buttonImage, then close the panel
