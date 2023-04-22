@@ -13,7 +13,6 @@ public enum encumbranceStates
 
 public class PlayerController : Subject
 {
-    //Speed at which player orients to face current movement direction
     [Header("General Movement Values")]
     public float movementSpeed;
     public float rotationSmooth;
@@ -52,12 +51,8 @@ public class PlayerController : Subject
         _playerHealthBar = GameObject.Find("PlayerHealthBar").GetComponent<HealthBar>();
         _playerHealthBar.UpdateHealthFillAmount(_healthSystem.GetHealthPercent());
         
-
-        //StartCoroutine(SetAbilities());
-        
         ResetCameraOrientation();
 
-        
     }
 
     // Update is called once per frame
